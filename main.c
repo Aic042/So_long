@@ -76,6 +76,7 @@ int32_t main(void)
 		return(EXIT_FAILURE);
 	}
 	
+
 	mlx_loop_hook(mlx, ft_randomize, mlx);
 	mlx_loop_hook(mlx, ft_hook, mlx);
 
@@ -83,3 +84,5 @@ int32_t main(void)
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
 }
+
+//gcc -o test main.c -LMLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -IMLX42/include
