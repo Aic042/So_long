@@ -1,60 +1,83 @@
-
-// Written by Bruh
-
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <memory.h>
-#include "MLX42/include/MLX42/MLX42.h"
+#include <stdbool.h>
+#include <MLX42/MLX42.h>
 
-#define WIDTH 5120
-#define HEIGHT 2880
+#define WIDTH 512
+#define HEIGHT 512
 
-static void error(void)
+static mlx_image_t* image;
+
+// -----------------------------------------------------------------------------
+
+int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 {
-	puts(mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
+    return (r << 24 | g << 16 | b << 8 | a);
 }
 
-int32_t	main(void)
+void ft_randomize(void* param)
 {
-	// Start mlx
-	mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "Test", true);
-	if (!mlx)
-        error();
+	(void)param;
+	for (uint32_t i = 0; i < image->width; ++i)
+	{
+		for (uint32_t y = 0; y < image->height; ++y)
+		{
+			uint32_t color = ft_pixel(
+				rand() % 0xFF, // R
+				rand() % 0xFF, // G
+				rand() % 0xFF, // B
+				rand() % 0xFF  // A
+			);
+			mlx_put_pixel(image, i, y, color);
+		}
+	}
+}
 
-	// Create a new image
-	mlx_image_t* img = mlx_new_image(mlx, 512, 512);
-	if (!img)
-		error();
+void ft_hook(void* param)
+{
+	mlx_t* mlx = param;
 
-	// Set every pixel to white
-	memset(img->pixels, 255, img->width * img->height * sizeof(int32_t));
+	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
+		mlx_close_window(mlx);
+	if (mlx_is_key_down(mlx, MLX_KEY_UP))
+		image->instances[0].y -= -2;
+	if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
+		image->instances[0].y += -5;
+	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
+		image->instances[0].x -= -5;
+	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
+		image->instances[0].x += -5;
+}
 
-	// Display an instance of the image
-	if (mlx_image_to_window(mlx, img, 0, 0) < 0)
-        error();
+// -----------------------------------------------------------------------------
+
+int32_t main(void)
+{
+	mlx_t* mlx;
+
+	// Gotta error check this stuff
+	if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
+	{
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
+	}
+	if (!(image = mlx_new_image(mlx, 128, 128)))
+	{
+		mlx_close_window(mlx);
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
+	}
+	if (mlx_image_to_window(mlx, image, 0, 0) == -1)
+	{
+		mlx_close_window(mlx);
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
+	}
+	
+	mlx_loop_hook(mlx, ft_randomize, mlx);
+	mlx_loop_hook(mlx, ft_hook, mlx);
 
 	mlx_loop(mlx);
-
-	// Optional, terminate will clean up any leftovers, this is just to demonstrate.
-	mlx_delete_image(mlx, img);
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
-
-	    // Initialize the MLX instance
-    mlx_t* mlx = mlx_init(800, 600, "My Window", true);
-    
-    // Load your icon image
-    mlx_texture_t* icon = mlx_load_png("/home/aingunza/Downloads/tiamant.png");
-    
-    // Set the icon
-    mlx_set_icon(mlx, icon);
-    
-    // Main loop
-    mlx_loop(mlx);
-    
-    // Cleanup
-    mlx_terminate(mlx);
-    return 0;
 }
