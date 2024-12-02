@@ -83,6 +83,11 @@ int32_t main(void)
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
+/*
+	mlx_texture_t* texture = mlx_load_png("./temp/sus.png");
+	if (!texture)
+        error();
+*/	
 }
 
 //gcc -o test main.c -LMLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -IMLX42/include
