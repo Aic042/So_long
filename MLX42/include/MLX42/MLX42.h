@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 02:29:06 by W2Wizard          #+#    #+#             */
-/*   Updated: 2024/11/29 11:47:52 by aingunza         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:23:39 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 
 #ifndef MLX42_H
 # define MLX42_H
+# include <fcntl.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdbool.h>

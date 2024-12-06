@@ -1,3 +1,8 @@
+// -----------------------------------------------------------------------------
+// Codam Coding College, Amsterdam @ 2022-2023 by W2Wizard.
+// See README in the root project for more information.
+// -----------------------------------------------------------------------------
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -23,10 +28,10 @@ void ft_randomize(void* param)
 		for (uint32_t y = 0; y < image->height; ++y)
 		{
 			uint32_t color = ft_pixel(
-				rand() % 0xFF, // R
-				rand() % 0xFF, // G
-				rand() % 0xFF, // B
-				rand() % 0xFF  // A
+				rand() % 0x160, // R
+				rand() % 0x160, // G
+				rand() % 0x1055, // B
+				0xFF  // A
 			);
 			mlx_put_pixel(image, i, y, color);
 		}
@@ -39,16 +44,16 @@ void ft_hook(void* param)
 
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(mlx);
-	if (mlx_is_key_down(mlx, MLX_KEY_UP))
+	if (mlx_is_key_down(mlx, MLX_KEY_UP)|| (mlx_is_key_down(mlx,MLX_KEY_W)))
 		image->instances[0].y -= 5;
-	if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
+	if (mlx_is_key_down(mlx, MLX_KEY_DOWN) || (mlx_is_key_down(mlx,MLX_KEY_S)))
 		image->instances[0].y += 5;
-	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
+	if (mlx_is_key_down(mlx, MLX_KEY_LEFT) || (mlx_is_key_down(mlx,MLX_KEY_A)))
 		image->instances[0].x -= 5;
-	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
+	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT) || (mlx_is_key_down(mlx,MLX_KEY_D)))
+	{
 		image->instances[0].x += 5;
-	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(mlx);
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -76,18 +81,13 @@ int32_t main(void)
 		return(EXIT_FAILURE);
 	}
 	
-
 	mlx_loop_hook(mlx, ft_randomize, mlx);
 	mlx_loop_hook(mlx, ft_hook, mlx);
 
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
-/*
-	mlx_texture_t* texture = mlx_load_png("./temp/sus.png");
-	if (!texture)
-        error();
-*/	
 }
+
 
 //gcc -o test main.c -LMLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -IMLX42/include
