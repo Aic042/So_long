@@ -50,7 +50,7 @@ Use this script if you wish to use the XPM42 file format.
 #include "MLX42/MLX42.h"
 #define WIDTH 5120
 #define HEIGHT 2880
-
+	
 static void error(void)
 {
 	puts(mlx_strerror(mlx_errno));

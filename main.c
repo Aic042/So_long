@@ -86,6 +86,7 @@ int32_t main(void)
 
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
+	free(mlx);
 	return (EXIT_SUCCESS);
 }
 

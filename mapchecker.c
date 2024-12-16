@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapchecker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:44:55 by aingunza          #+#    #+#             */
-/*   Updated: 2024/12/06 17:06:53 by aingunza         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:09:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void ft_check_counts(int E, int P, int C)
 void ft_check_map_validity(char *line)
  {
     int E = 0, P = 0, C = 0;
-    int fd = open("map2.ber", O_RDONLY);
+    int fd = open("maps/map.ber", O_RDONLY);
     if (fd == -1)
     {
         perror("Error opening file");
@@ -78,12 +78,40 @@ void ft_check_map_validity(char *line)
     ft_check_counts(E, P, C);
  }
 
+void	ft_validate_line_length(char *str_map)
+{
+	int	i;
+	int	count_first_line;
+	int	count_other_lines;
+
+	i = 0;
+	count_first_line = 0;
+	count_other_lines = 0;
+	while (str_map[i] != '\n')
+	{
+		count_first_line++;
+		i++;
+	}
+	i++;
+	while (str_map[i] != '\0')
+	{
+		if (str_map[i] == '\n')
+		{
+			if (count_other_lines != count_first_line)
+				ft_error_message(E_INVALIDMAP, 1);
+			count_other_lines = 0;
+		}
+		else
+			count_other_lines++;
+		i++;
+	}
+}
 
 // -----------------------------------------------------------------------------
 
  int main()
  {
-     ft_check_map_validity("map.ber");
+     ft_check_map_validity("maps/ma.ber");
      return (0);
  }
 
