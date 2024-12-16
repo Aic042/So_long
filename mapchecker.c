@@ -6,14 +6,11 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:44:55 by aingunza          #+#    #+#             */
-/*   Updated: 2024/12/16 20:09:13 by root             ###   ########.fr       */
+/*   Updated: 2024/12/16 22:42:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <MLX42/MLX42.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "get_next_line.h"
+#include "so_long.h"
 //-------------------------------------------------------------------------
 void ft_parse_line()
 {    
@@ -98,7 +95,7 @@ void	ft_validate_line_length(char *str_map)
 		if (str_map[i] == '\n')
 		{
 			if (count_other_lines != count_first_line)
-				ft_error_message(E_INVALIDMAP, 1);
+				ft_error;
 			count_other_lines = 0;
 		}
 		else

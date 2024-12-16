@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2024/12/16 19:44:08 by root             ###   ########.fr       */
+/*   Updated: 2024/12/16 22:39:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,26 @@ typedef struct textures
 	mlx_image_t		*floor;
 } t_textures;
 
+typedef struct s_game
+{
+	mlx_t			*mlx;
+	char			**map_2d;
+	int				rows;
+	int				columns;
+	t_textures		assets;
+	t_textures		old_assets;
+	mlx_t			*window;
+	int				move_count;
+	int				m_flag;
+	int				c_flag;
+	int				c_count;
+	int				state;
+	bool			exit;
+	int				screen_x;
+	int				screen_y;
+	bool			exit_flag;
+}					t_game;
+
+ft_error(char *str, int error)
 
 #endif
