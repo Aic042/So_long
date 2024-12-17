@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2024/12/17 16:56:43 by aingunza         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:01:42 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <MLX42/MLX42.h>
+# include "MLX42/include/MLX42/MLX42.h"
 #include "ft_printf/ft_printf.h"
+#include "get_next_line/get_next_line.h"
 
 typedef struct textures
 {
