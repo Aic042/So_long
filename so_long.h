@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2024/12/16 22:39:46 by root             ###   ########.fr       */
+/*   Updated: 2024/12/17 16:56:43 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <MLX42/MLX42.h>
+#include "ft_printf/ft_printf.h"
 
 typedef struct textures
 {
@@ -47,6 +48,8 @@ typedef struct s_game
 	bool			exit_flag;
 }					t_game;
 
-ft_error(char *str, int error)
+ft_error(char *str, int error);
+
+
 
 #endif
