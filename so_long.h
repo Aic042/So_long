@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2024/12/17 17:01:42 by aingunza         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:38:22 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct textures
 {
-    	mlx_image_t		*bush;
+    mlx_image_t		*player;
 	mlx_image_t		*squirrel;
 	mlx_image_t		*acorn;
 	mlx_image_t		*tree;

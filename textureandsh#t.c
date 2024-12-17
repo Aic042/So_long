@@ -1,4 +1,4 @@
-#include <MLX42/MLX42.h>
+#include "so_long.h"
 
 void ft_boot_textures(t_game *game)
 {
