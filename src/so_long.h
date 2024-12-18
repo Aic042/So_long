@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2024/12/17 17:38:22 by aingunza         ###   ########.fr       */
+/*   Updated: 2024/12/18 23:06:23 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "MLX42/include/MLX42/MLX42.h"
 #include "ft_printf/ft_printf.h"
 #include "get_next_line/get_next_line.h"
-
+#include "libutils/libft.h
 typedef struct textures
 {
     mlx_image_t		*player;
