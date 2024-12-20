@@ -6,12 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2024/12/18 23:06:23 by root             ###   ########.fr       */
+/*   Updated: 2024/12/20 00:16:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+#define E_WALLS "Check_pathChecker"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +20,7 @@
 # include "MLX42/include/MLX42/MLX42.h"
 #include "ft_printf/ft_printf.h"
 #include "get_next_line/get_next_line.h"
-#include "libutils/libft.h
+#include "../libutils/libft.h"
 typedef struct textures
 {
     mlx_image_t		*player;
