@@ -13,3 +13,16 @@ Compile the C program:
 Run the compiled program to start playing music:
       
     ./music_player
+
+Lista de assets hechos por mi:
+textures del suelo
+texxtures de las paredes 
+Animación del personaje no bonus: Amoung us
+Todo respecto al personaje 1 y 2 del bonus:
+Status de cada personaje:
+
+| Personaje  | Modelo | Shader | Animation |
+| ------------- | ------------- |  ------------- |  ------------- |
+| Waterboy  | Si  | Si |  No  |
+| Lavagirl  | No  | Si  | No  |
+| Amoung_us | Si  | Si  | Si  |
