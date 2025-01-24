@@ -29,6 +29,7 @@ Status de cada personaje:
 
 
 | Objeto  | Modelo | Shader |
+| ------------- | ------------- |  ------------- |
 | Suelo | Hecho | Hecho |
 | Pared | NO Hecho | NO Hecho |
 | l4v4 | Medio Hecho | Medio Hecho |
