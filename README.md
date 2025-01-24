@@ -26,3 +26,10 @@ Status de cada personaje:
 | Waterboy  | Si  | Si |  No  |
 | Lavagirl  | No  | Si  | No  |
 | Amoung_us | Si  | Si  | Si  |
+
+
+| Objeto  | Modelo | Shader |
+| Suelo |  Hecho | Hecho |
+| Pared |  NO Hecho | NO Hecho |
+| l4v4 | Medio Hecho | Medio Hecho |
+| 4qu4 | Hecho | Hecho |
