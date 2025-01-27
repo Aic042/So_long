@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:44:55 by aingunza          #+#    #+#             */
-/*   Updated: 2024/12/16 22:42:34 by root             ###   ########.fr       */
+/*   Updated: 2025/01/25 11:23:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_validate_line_length(char *str_map)
 		if (str_map[i] == '\n')
 		{
 			if (count_other_lines != count_first_line)
-				ft_error;
+				ft_printf("Rotten");
 			count_other_lines = 0;
 		}
 		else

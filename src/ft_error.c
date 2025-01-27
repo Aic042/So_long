@@ -3,21 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:09:58 by root              #+#    #+#             */
-/*   Updated: 2024/12/17 16:35:57 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:24:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-ft_error(char *str, int error)
+void ft_error(char *str, int error)
 {
-    if(!str)
     {
-		ft_printf("Error");
+		ft_printf("Error, no map!");
     }
-    else
-    {}
 }

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2024/12/20 00:16:36 by root             ###   ########.fr       */
+/*   Updated: 2025/01/27 22:01:38 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-# include "MLX42/include/MLX42/MLX42.h"
-#include "ft_printf/ft_printf.h"
-#include "get_next_line/get_next_line.h"
+# include "../MLX42/include/MLX42/MLX42.h"
+#include "../ft_printf/ft_printf.h"
+#include "../get_next_line/get_next_line.h"
 #include "../libutils/libft.h"
+
+#define Err_Music
+#define Err_Mem
+#define	Err_assets
+#define Err_arg
+#define Err_map
+#define	Err_File
+#define Err_Ber
+#define Err_path "There is no correct path. Gotta go back to map making 😥"
+
+
 typedef struct textures
 {
     mlx_image_t		*player;
@@ -50,7 +61,9 @@ typedef struct s_game
 	bool			exit_flag;
 }					t_game;
 
-ft_error(char *str, int error);
+void ft_error(char *str, int error);
+void ft_stop_music(void);
+void ft_music(const char *script_path);
 
 
 
