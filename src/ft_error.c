@@ -18,3 +18,6 @@ void ft_error(char *str, int error)
 		ft_printf("Error, no map!");
     }
 }
+
+
+//bro, olvidate de esto, usa ft_printf, que la vas a liar. Ahora, acuerdate de salir pronto para lo del Dni, bye!
