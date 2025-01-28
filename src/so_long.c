@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	char	*str_map;
 
 	if (argc != 2)
-		ft_error_message(E_ARG, 1);
+		ft_printf(Err_argº, 1);
 	str_map = ft_read_map(argv[1]);
 	ft_initialize_variables(&game);
 	ft_validate_map(str_map, &game);

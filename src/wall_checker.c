@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2024/12/17 17:03:22 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:14:51 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int is_row_surrounded_by_walls(char *row)
 }
 int are_columns_surrounded_by_walls(char **map, int rows)
 {
+    
 }
 int are_row_lengths_consistent(char **map, int rows)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 21:51:37 by root              #+#    #+#             */
-/*   Updated: 2024/12/20 00:06:38 by root             ###   ########.fr       */
+/*   Updated: 2025/01/28 11:12:47 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_validate_file(const char *map_path)
     const char *file = ft_strrchr(map_path, '.');
     
     if (file == NULL || ft_strcmp(file, ".ber") != 0)
-        ft_error_message(E_FORMAT, 1);
+        ft_printf(Err_Ber, 1);
 }
 
 
@@ -37,13 +37,13 @@ char	*ft_read_map(char *map_path)
 
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		ft_error_message(E_FILE, 1);
+		ft_printf(Err_File, 1);
 	while (read(fd, &c, 1) == 1)
 		count++;
 	if (count == 0)
-		ft_error_message(E_EMPTYFILE, 1);
+		ft_printf(Err_File, 1);
 	str_map = (char *)malloc(sizeof(char) * (count + 1));
-		ft_error_message(E_MALLOC, 1);
+		ft_printf(Err_Mem, 1);
 	close(fd);
 	fd = open(map_path, O_RDONLY);
 	read(fd, str_map, count);

@@ -24,6 +24,6 @@ void ft_stop_music(void)
     if (result == 0) {
         printf("Music stopped successfully.\n");
     } else {
-        printf("Error: Failed to stop the music or VLC was not running.\n");
+        printf(Err_Music);
     }
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2024/12/20 00:07:14 by root             ###   ########.fr       */
+/*   Updated: 2025/01/28 12:38:05 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	ft_validate_2dmap(t_game *game)
 		while (x < game->columns)
 		{
 			if (x == 0 && game->map_2d[y][x] != '1')
-				ft_error_message(E_WALLS, 1);
+				ft_printf(Err_map, 1);
 			if (y == 0 && game->map_2d[y][x] != '1')
-				ft_error_message(E_WALLS, 1);
+				ft_printf(Err_map, 1);
 			if (x == game->columns - 1 && game->map_2d[y][x] != '1')
-				ft_error_message(E_WALLS, 1);
+				ft_printf(Err_map, 1);
 			if (y == game->rows - 1 && game->map_2d[y][x] != '1')
-				ft_error_message(E_WALLS, 1);
+				ft_printf(Err_map, 1);
 			x++;
 		}
 		y++;
