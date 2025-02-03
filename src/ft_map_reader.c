@@ -6,13 +6,14 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 21:51:37 by root              #+#    #+#             */
-/*   Updated: 2025/01/28 11:12:47 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:46:34 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_validate_file(const char *map_path)
+
+
 {
     const char *file = ft_strrchr(map_path, '.');
     

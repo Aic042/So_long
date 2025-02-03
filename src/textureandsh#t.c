@@ -12,5 +12,9 @@ floor
 
 void    ft_clean_old_textures(t_game *game)
 {
-    mlx_delete_image(game->mlx, game->player);
+	mlx_delete_texture(texture);
+	mlx_delete_texture(texture);
+	mlx_delete_texture(texture);
+	mlx_delete_texture(texture);
+	mlx_delete_texture(textur		
 }

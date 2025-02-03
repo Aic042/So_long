@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/01/28 12:38:05 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:49:25 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,9 @@ void	ft_validate_2dmap(t_game *game)
 		}
 		y++;
 	}
+}
+void end_game(t_game *game)
+{
+	if(game->player->instances[0] == game->map Exit)
+		while()
 }

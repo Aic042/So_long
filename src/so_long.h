@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/01/28 11:56:37 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:53:55 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@
 #define	Err_File "What have you done to the file "
 #define Err_Ber
 #define Err_path "There is no correct path. Gotta go back to map making 😥"
+#define Wall '1'
+#define Collec 'C'
+#define Player 'P'
+#define Exit 'E'
 
 
 typedef struct game
 {
-	mlx_image_t		image1;
-	mlx_image_t		image2;
-	mlx_image_t		image3;
-	mlx_image_t		image4;
-	mlx_image_t		image5;
+	t_textures *textures;
+	t_map
+	t_window
+	t_position
 } t_game;
 
 
