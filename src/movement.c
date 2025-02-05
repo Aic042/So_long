@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/01/29 12:42:23 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:10:30 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void ft_hook(mlx_key_data_t keydata, void* param)
 		ft_left;
 	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT) || (mlx_is_key_down(mlx,MLX_KEY_D)))
 		ft_right;
+	if (mlx_is_key_down(mlx, MLX_KEY_R))
+		transform;
 }
 void ft_up(game)
 {

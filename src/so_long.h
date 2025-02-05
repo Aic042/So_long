@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/03 18:53:55 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:11:14 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,34 @@
 #define Wall '1'
 #define Collec 'C'
 #define Player 'P'
-#define Exit 'E'
+#define Exit 'E' 
 
+typedef struct effects
+{
+	int lava_deadly;
+	int water_deadly;
+	int is_switched;
+	int times_switched;
+} t_effect;
+
+typedef struct textures
+{
+
+} t_textures;
 
 typedef struct game
 {
 	t_textures *textures;
-	t_map
-	t_window
-	t_position
+	t_map	;
+	t_window	;
+	t_position	;
+	t_effect *effects;
 } t_game;
 
 
 
 
+void effect_initializer(t_game *game);
 
 void	ft_error(char *str, int error);
 void	ft_stop_music(void);
@@ -57,7 +71,7 @@ void	ft_parse_line();
 void	ft_check_counts(int E, int P, int C); ;
 void ft_check_map_validity(char *line);
 void	ft_validate_line_length(char *str_map);
-
+void transform(t_game *game);
 
 
 #endif

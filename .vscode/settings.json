@@ -1,3 +1,8 @@
 {
-    "cmake.sourceDirectory": "/home/aingunza/Desktop/So_long/MLX42"
+    "cmake.sourceDirectory": "/home/aingunza/Desktop/So_long/MLX42",
+    "files.associations": {
+        "*.tcc": "c",
+        "numeric": "c",
+        "ranges": "c"
+    }
 }
