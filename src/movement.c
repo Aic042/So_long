@@ -6,13 +6,13 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 16:10:30 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:19:28 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_hook(mlx_key_data_t keydata, void* param)
+void ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
 {
 	int i = 0;
 	
@@ -24,15 +24,15 @@ void ft_hook(mlx_key_data_t keydata, void* param)
 		ft_stop_music();
 	}	
 	if (mlx_is_key_down(mlx, MLX_KEY_UP)|| (mlx_is_key_down(mlx,MLX_KEY_W)))
-		ft_up;
+		ft_up();
 	if (mlx_is_key_down(mlx, MLX_KEY_DOWN) || (mlx_is_key_down(mlx,MLX_KEY_S)))
-		ft_down;
+		ft_down();
 	if (mlx_is_key_down(mlx, MLX_KEY_LEFT) || (mlx_is_key_down(mlx,MLX_KEY_A)))
-		ft_left;
+		ft_left();
 	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT) || (mlx_is_key_down(mlx,MLX_KEY_D)))
-		ft_right;
-	if (mlx_is_key_down(mlx, MLX_KEY_R))
-		transform;
+		ft_right();
+	if (mlx_is_key_down(mlx, MLX_KEY_R) || (mlx_is_key_down(mlx, MLX_KEY_KP_0)))
+		transform(game);
 }
 void ft_up(game)
 {
