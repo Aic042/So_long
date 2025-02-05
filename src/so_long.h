@@ -6,13 +6,12 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 16:11:14 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:26:11 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-#define E_WALLS "Check_pathChecker"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,6 +21,13 @@
 #include "../get_next_line/get_next_line.h"
 #include "../libutils/libft.h"
 
+//--------------------Macros-----------------------------
+
+#define E_WALLS "Check_pathChecker"
+
+
+
+//---------------------Errors-----------------------------
 #define Err_Music "Error: Failed to stop the music or VLC was not running."
 #define Err_Mem "There's a memory error. Gotta go back to check those leaks ."
 #define	Err_assets
@@ -35,6 +41,7 @@
 #define Player 'P'
 #define Exit 'E' 
 
+//--------------------Structs----------------------------
 typedef struct effects
 {
 	int lava_deadly;
@@ -51,14 +58,14 @@ typedef struct textures
 typedef struct game
 {
 	t_textures *textures;
-	t_map	;
-	t_window	;
-	t_position	;
-	t_effect *effects;
+	t_map		*map;
+	t_window	*window;
+	t_player	*player;
+	t_effect	*effects;
 } t_game;
 
 
-
+//------------------Functions
 
 void effect_initializer(t_game *game);
 
