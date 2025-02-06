@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/05 16:26:51 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:58:18 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ typedef struct game
 void effect_initializer(t_game *game);
 
 void	ft_error(char *str, int error);
-void	ft_stop_music(void);
-void	ft_music(const char *script_path);
 void	ft_boot_textures(t_game *game);
 void    ft_clean_old_textures(t_game *game);
 void	ft_parse_line();
@@ -80,5 +78,7 @@ void ft_check_map_validity(char *line);
 void	ft_validate_line_length(char *str_map);
 void transform(t_game *game);
 
+//void	ft_music(const char *script_path);
+//void	ft_stop_music(void);
 
 #endif
