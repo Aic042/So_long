@@ -6,11 +6,11 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:05 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/10 15:02:39 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:34:28 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void effect_initializer(t_game *game)
 {

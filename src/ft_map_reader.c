@@ -6,11 +6,11 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 21:51:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/10 15:14:14 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:34:28 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 
 ft_validate_file(map_path)
@@ -44,7 +44,10 @@ char	*ft_read_map(char *map_path)
 	str_map = (char *)malloc(sizeof(char) * (count + 1));
 		ft_printf(Err_Mem, 1);
 	if(!str_map)
+	{
+		free(str_map);
 		return 1;
+	}
 	close(fd);
 	fd = open(map_path, O_RDONLY);
 	read(fd, str_map, count);

@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/10 14:57:15 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:34:28 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	ft_count_strings(char **map_2d)
 {
@@ -79,5 +79,5 @@ void ft_path_checker_checker()
 void end_game(t_game *game)
 {
 	if(game->player->instances[0] == game->map Exit)
-		while()
+	
 }
