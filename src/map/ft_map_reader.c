@@ -6,22 +6,20 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 21:51:37 by root              #+#    #+#             */
-/*   Updated: 2025/01/29 15:46:34 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:14:14 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 
-
+ft_validate_file(map_path)
 {
     const char *file = ft_strrchr(map_path, '.');
     
     if (file == NULL || ft_strcmp(file, ".ber") != 0)
         ft_printf(Err_Ber, 1);
 }
-
-
 /*
     busca el arg que es un .ber
 */
@@ -45,6 +43,8 @@ char	*ft_read_map(char *map_path)
 		ft_printf(Err_File, 1);
 	str_map = (char *)malloc(sizeof(char) * (count + 1));
 		ft_printf(Err_Mem, 1);
+	if(!str_map)
+		return 1;
 	close(fd);
 	fd = open(map_path, O_RDONLY);
 	read(fd, str_map, count);

@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:34:05 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/05 16:04:56 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:02:39 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void effect_initializer(t_game *game)
 
 void transform(t_game *game)
 {
-	if(game->effects->is_switched = 1)
+	if(game->effects->is_switched == 1)
 	{
 		game->effects->lava_deadly = 1;
 		game->effects->water_deadly = 0;

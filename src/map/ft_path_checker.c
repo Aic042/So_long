@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/01/29 15:49:25 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:57:15 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,17 @@ void	ft_validate_2dmap(t_game *game)
 			x++;
 		}
 		y++;
+	}
+}
+
+void
+
+void ft_path_checker_checker()
+{
+	if (!validate_path(&game))
+	{
+		ft_printf("Error: No hay camino válido en el mapa.\n");
+		return (EXIT_FAILURE);
 	}
 }
 void end_game(t_game *game)
