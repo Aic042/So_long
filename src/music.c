@@ -1,6 +1,6 @@
 #include "../so_long.h"
 
-void ft_music(const char *script_path)
+void	ft_music(const char *script_path)
 {
 
     printf("Executing the music player script...\n");
@@ -14,7 +14,7 @@ void ft_music(const char *script_path)
 }
 //"/home/aingunza/reproducir_musica.sh"
 
-void ft_stop_music(void) 
+void	ft_stop_music(void) 
 {
     printf("Stopping the music player...\n");
     

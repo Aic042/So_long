@@ -6,13 +6,13 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:44:55 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/10 15:34:28 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:28:58 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 //-------------------------------------------------------------------------
-void ft_parse_line()
+void	ft_parse_line()
 {    
     int i = 0;
     int E = 0;
@@ -32,7 +32,7 @@ void ft_parse_line()
 }
 // -----------------------------------------------------------------------------
 //Check_Counts
-void ft_check_counts(int E, int P, int C)
+void	ft_check_counts(int E, int P, int C)
 {
         if (E != 1 || P != 1 || C < 1)
         {
@@ -48,7 +48,7 @@ void ft_check_counts(int E, int P, int C)
 // -----------------------------------------------------------------------------
 //Check_map_validity
 
-void ft_check_map_validity(char *line)
+void	ft_check_map_validity(char *line)
  {
     int E = 0, P = 0, C = 0;
     int fd = open("maps/map.ber", O_RDONLY);

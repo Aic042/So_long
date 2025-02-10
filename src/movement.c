@@ -6,13 +6,13 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/10 15:34:28 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:28:56 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
+void	ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
 {
 	int i = 0;
 	
@@ -34,7 +34,7 @@ void ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
 	if (mlx_is_key_down(mlx, MLX_KEY_R) || (mlx_is_key_down(mlx, MLX_KEY_KP_0)))
 		transform(game);
 }
-void ft_up(game)
+void	ft_up(game)
 {
 	if(game-> + 1 != 1)
 	{
@@ -45,7 +45,7 @@ void ft_up(game)
 }
 
 
-void ft_down(game)
+void	ft_down(game)
 {
 	if(game->map + 1 != 1)
 	{
@@ -54,7 +54,7 @@ void ft_down(game)
 		ft_printf("Moves: %d\n", game->move_count);
 	}			
 }
-void ft_left(game)
+void	ft_left(game)
 {
 	if(game->map + 1 != 1)
 	{
@@ -63,7 +63,7 @@ void ft_left(game)
 		ft_printf("Moves: %d\n", game->move_count);
 	}	
 }
-void ft_right(game)
+void	ft_right(game)
 {
 	if(game->map + 1 != 1)
 	{

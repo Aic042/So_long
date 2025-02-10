@@ -1,6 +1,6 @@
 #include "../so_long.h"
 
-void	hook(void *param)
+void	hook(void	*param)
 {
 	t_game	*game;
 

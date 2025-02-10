@@ -1,6 +1,6 @@
 #include "../so_long.h"
 
-void ft_boot_textures(t_game *game)
+void	ft_boot_textures(t_game *game)
 {
 	game->textures = ft_calloc( sizeof());
 	game->textures = mlx_load_png("../assets/wall.png");
@@ -10,7 +10,7 @@ void ft_boot_textures(t_game *game)
 }
 floor
 
-void    ft_clean_old_textures(t_game *game)
+void	   ft_clean_old_textures(t_game *game)
 {
 	mlx_delete_texture(game->texture);
 	mlx_delete_texture(game->texture);
@@ -19,7 +19,7 @@ void    ft_clean_old_textures(t_game *game)
 	mlx_delete_texture(textur		
 }
 
-void render_tile(t_game *game, char tile, int x, int y)
+void	render_tile(t_game *game, char tile, int x, int y)
 {
     if (tile == '1')
         mlx_image_to_window(game->window->mlx, game->textures->wall_img, x * Tile_Size, y * Tile_Size);

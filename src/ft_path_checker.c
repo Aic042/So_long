@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/10 15:34:28 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:28:47 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_validate_2dmap(t_game *game)
 
 void
 
-void ft_path_checker_checker()
+void	ft_path_checker_checker()
 {
 	if (!validate_path(&game))
 	{
@@ -76,7 +76,7 @@ void ft_path_checker_checker()
 		return (EXIT_FAILURE);
 	}
 }
-void end_game(t_game *game)
+void	end_game(t_game *game)
 {
 	if(game->player->instances[0] == game->map Exit)
 	

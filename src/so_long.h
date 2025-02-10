@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/06 23:20:58 by root             ###   ########.fr       */
+/*   Updated: 2025/02/10 16:28:52 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,16 @@ typedef struct game
 
 //------------------Functions
 
-void effect_initializer(t_game *game);
+void	effect_initializer(t_game *game);
 
 void	ft_error(char *str, int error);
 void	ft_boot_textures(t_game *game);
-void    ft_clean_old_textures(t_game *game);
+void	   ft_clean_old_textures(t_game *game);
 void	ft_parse_line();
 void	ft_check_counts(int E, int P, int C); ;
-void ft_check_map_validity(char *line);
+void	ft_check_map_validity(char *line);
 void	ft_validate_line_length(char *str_map);
-void transform(t_game *game);
+void	transform(t_game *game);
 
 //void	ft_music(const char *script_path);
 //void	ft_stop_music(void);
