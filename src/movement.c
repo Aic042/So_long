@@ -6,11 +6,11 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/10 16:28:56 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/11 10:55:49 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
 {

@@ -6,11 +6,11 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:44:55 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/10 16:28:58 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/11 10:57:54 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 //-------------------------------------------------------------------------
 void	ft_parse_line()
 {    
@@ -32,7 +32,7 @@ void	ft_parse_line()
 }
 // -----------------------------------------------------------------------------
 //Check_Counts
-void	ft_check_counts(int E, int P, int C)
+void    ft_check_counts(int E, int P, int C)
 {
         if (E != 1 || P != 1 || C < 1)
         {
@@ -44,6 +44,12 @@ void	ft_check_counts(int E, int P, int C)
             printf("Map loaded successfully 🥳\n");
             return;
         }
+}
+int is_valid_char(char c)
+{
+	if (c == 'C' || c == 'E' || c == 'P' || c == '1' || c == '0')
+		return (1);
+	return (0);
 }
 // -----------------------------------------------------------------------------
 //Check_map_validity
@@ -104,12 +110,8 @@ void	ft_validate_line_length(char *str_map)
 	}
 }
 
-// -----------------------------------------------------------------------------
+void    char_validator() 
+{
+    
+}
 
- int main()
- {
-     ft_check_map_validity("maps/ma.ber");
-     return (0);
- }
-
- //gcc -o test mapchecker.c get_next_line.c get_next_line_utils.c -LMLX42/build -lmlx42 -lglfw -ldl -lm -lpthread -IMLX42/include && ./test
