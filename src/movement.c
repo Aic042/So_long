@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/14 14:47:55 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:08:36 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,41 +34,41 @@ void	ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
 	if (mlx_is_key_down(mlx, MLX_KEY_R) || (mlx_is_key_down(mlx, MLX_KEY_KP_0)))
 		transform(game);
 }
-void	ft_up(game)
+void	ft_up(t_game *game)
 {
-	if(game-> + 1 != 1)
+	if(game->map + 1 != 1)
 	{
 		game->player->instances[0].y -= 5;
-		game->move_count++; 
-		ft_printf("Moves: %d\n", game->move_count);
+		game->player->move_count++; 
+		ft_printf("Moves: %d\n", game->player->move_count);
 	}
 }
 
 
-void	ft_down(game)
+void	ft_down(t_game *game)
 {
 	if(game->map + 1 != 1)
 	{
-		player->instances[0].y += 5;
-		game->move_count++;
-		ft_printf("Moves: %d\n", game->move_count);
+		game->player->instances[0].y += 5;
+		game->player->move_count++;
+		ft_printf("Moves: %d\n", game->player->move_count);
 	}			
 }
-void	ft_left(game)
+void	ft_left(t_game *game)
 {
 	if(game->map + 1 != 1)
 	{
-		player->instances[0].x -= 5;	
-		game->move_count++;
-		ft_printf("Moves: %d\n", game->move_count);
+		game->player->instances[0].x -= 5;	
+		game->player->move_count++;
+		ft_printf("Moves: %d\n", game->player->move_count);
 	}	
 }
-void	ft_right(game)
+void	ft_right(t_game *game)
 {
 	if(game->map + 1 != 1)
 	{
-		player->instances[0].x += 5;	
-		game->move_count++;
-		ft_printf("Moves: %d\n", game->move_count);
+		game->player->instances[0].x += 5;	
+		game->player->move_count++;
+		ft_printf("Moves: %d\n", game->player->move_count);
 	}	
 }
