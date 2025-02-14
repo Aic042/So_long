@@ -19,7 +19,7 @@ void	ft_timer(uint32_t ms)
 int main(void)
 {
     printf("Starting timer...\n");
-    ft_timer(2 ); // Wait for 2 seconds
+    ft_timer(2); // Wait for 2 seconds
     printf("2 seconds later...\n");
 
     return (0);

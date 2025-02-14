@@ -14,7 +14,7 @@ void	ft_music(const char *script_path)
 }
 //"/home/aingunza/reproducir_musica.sh"
 
-void	ft_stop_music(void) 
+void ft_stop_music(void) 
 {
     printf("Stopping the music player...\n");
     
