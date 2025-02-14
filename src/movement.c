@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/11 10:55:49 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:47:55 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_up(game)
 	if(game-> + 1 != 1)
 	{
 		game->player->instances[0].y -= 5;
-		game->move_count++;
+		game->move_count++; 
 		ft_printf("Moves: %d\n", game->move_count);
 	}
 }
