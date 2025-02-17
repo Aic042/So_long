@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/16 11:44:31 by root             ###   ########.fr       */
+/*   Updated: 2025/02/17 10:35:14 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,41 @@
 #define Tile_Size '64'
 
 //--------------------Structs----------------------------
-typedef struct effects
-{
-	int lava_deadly;
-	int water_deadly;
-	int is_switched;
-	int times_switched;
-} t_effect;
 
+/*
+	typedef struct effects
+	{
+		int lava_deadly;
+		int water_deadly;
+		int is_switched;
+		int times_switched;
+	} t_effect;
+*/
 typedef struct player
 {
 	int move_count;
 	int instances;
 } t_player;
 
+typedef struct windows
+{
+	mlx_t	mlx;
+	int		windows_height;
+	int		windows_width;
+} t_window;
+
+
 typedef struct textures
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
 	mlx_image_t	*player;
-
+	mlx_image_t *exit;
 } t_textures;
 
 typedef struct t_map
 {
+	int **map;
 	int	rows;
 	int columns;
 } t_map;
@@ -78,7 +89,7 @@ typedef struct game
 	t_map		*map;
 	t_window	*window;
 	t_player	*player;
-	t_effect	*effects;
+//	t_effect	*effects;
 } t_game;
 
 
