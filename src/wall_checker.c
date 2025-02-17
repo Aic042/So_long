@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2025/02/11 10:55:49 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:00:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,34 @@ int is_row_surrounded_by_walls(char *row)
 
     
 }
-int are_columns_surrounded_by_walls(char **map, int columns)
+void ft_validate_walls(t_game *game)
 {
+    int y;
+    int x;
     
+    y = 0;
+    game->rows = ft_count_strings(game->map_2d);
+    game->columns = ft_strlen(game->map_2d[0]);
+
+    while (y < game->rows)
+    {
+        x = 0;
+        while (x < game->columns)
+        {
+            // Verificar que las primeras y últimas filas sean completamente '1'
+            if ((y == 0 || y == game->rows - 1) && game->map_2d[y][x] != '1')
+                ft_printf("Error: El mapa no está rodeado de muros.\n"), exit(1);
+
+            // Verificar que la primera y última columna sean '1'
+            if ((x == 0 || x == game->columns - 1) && game->map_2d[y][x] != '1')
+                ft_printf("Error: El mapa no está rodeado de muros.\n"), exit(1);
+            
+            x++;
+        }
+        y++;
+    }
 }
+
 int are_row_lengths_consistent(char **map, int rows)
 {
     ft_strlen(map[0]);
