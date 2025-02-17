@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 21:51:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/11 10:55:49 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:23:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_read_map(char *map_path)
 		count++;
 	if (count == 0)
 		ft_printf(Err_File, 1);
-	str_map = (char *)malloc(sizeof(char) * (count + 1));
+		str_map = (char *)malloc(sizeof(char) * (count + 1));
 		ft_printf(Err_Mem, 1);
 	if(!str_map)
 	{
