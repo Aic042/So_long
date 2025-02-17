@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 13:32:54 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 20:03:21 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-# include "../MLX42/include/MLX42/MLX42.h"
+# include "MLX42/MLX42.h"
 #include "../ft_printf/ft_printf.h"
 #include "../get_next_line/get_next_line.h"
 #include "../libutils/libft.h"

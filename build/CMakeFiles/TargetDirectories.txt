@@ -1,7 +1,0 @@
-/root/42projects/Cursus/Git_So_long/build/CMakeFiles/mlx42.dir
-/root/42projects/Cursus/Git_So_long/build/CMakeFiles/edit_cache.dir
-/root/42projects/Cursus/Git_So_long/build/CMakeFiles/rebuild_cache.dir
-/root/42projects/Cursus/Git_So_long/build/CMakeFiles/list_install_components.dir
-/root/42projects/Cursus/Git_So_long/build/CMakeFiles/install.dir
-/root/42projects/Cursus/Git_So_long/build/CMakeFiles/install/local.dir
-/root/42projects/Cursus/Git_So_long/build/CMakeFiles/install/strip.dir

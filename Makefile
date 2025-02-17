@@ -1,43 +1,38 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/14 13:57:24 by root              #+#    #+#              #
-#    Updated: 2025/02/06 12:00:41 by aingunza         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME := so_long
+#NAME_BONUS := so_long_bonus
+CFLAGS := -Wextra -Wall -Werror -Wunreachable-code -Ofast
+LIBMLX := ./lib/MLX42
 
-
-NAME	:= Game
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
-LIBMLX	:= ./lib/MLX42
-
-HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-SRCS	:= $(shell find ./src -iname "*.c")
-OBJS	:= ${SRCS:.c=.o}
+HEADERS := -I ./include -I $(LIBMLX)/include
+LIBS := $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+SRCS := $(shell find ./src -iname "*.c")
+#SRCS_BONUS := $(shell find ./src_bonus -iname "*.c")
+OBJS := ${SRCS:.c=.o}
+#OBJS_BONUS := ${SRCS_BONUS:.c=.o}
 
 all: libmlx $(NAME)
+
+#bonus: libmlx $(NAME_BONUS)
 
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: %s\n" $(notdir $<)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) && printf "Created: %s\n" $(NAME)
+
+#(NAME_BONUS): $(OBJS_BONUS)
+#	@$(CC) $(OBJS_BONUS) $(LIBS) $(HEADERS) -o $(NAME_BONUS) && printf "Created: %s\n" $(NAME_BONUS)
 
 clean:
-	@rm -rf $(OBJS)
-	@rm -rf $(LIBMLX)/build
+	@rm -rf $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) $(NAME_BONUS)
+	@rm -rf $(LIBMLX)/build
 
-re: clean all
+re: fclean all
 
-.PHONY: all, clean, fclean, re, libmlx
+.PHONY: all bonus clean fclean re libmlx
