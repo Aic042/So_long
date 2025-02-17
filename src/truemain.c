@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:03:01 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/17 09:52:18 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:25:32 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int main(int argc, char **argv, t_game *game)
     ft_initialize_variables(&game);
     ft_read_map(argv[1]);
     ft_validate_walls(&game);
-    game->mlx = mlx_init(game->screen_x, game->screen_y, "so_long", false);
-    if (!game->mlx)
+    game->window->mlx = mlx_init(game->screen_x, game->screen_y, "so_long", false);
+    if (!game->window->mlx)
         return (1);
     ft_boot_textures(&game);
     ft_init_player(&game);
-    mlx_key_hook(game->mlx, ft_move_player, &game);
+    mlx_key_hook(game->window->mlx, ft_move_player, &game);
 
     // Loop de eventos
-    mlx_loop(game->mlx);
+    mlx_loop(game->window->mlx);
 
     return (0);
 }

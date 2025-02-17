@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 10:29:36 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:17:43 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void ft_validate_walls(t_game *game)
     int x;
     
     y = 0;
-    game->map->rows = ft_count_strings(game->map->map_2d);
-    game->map->columns = ft_strlen(game->map->map_2d[0]);
+    game->map->rows = ft_count_strings(game->map->map);
+    game->map->columns = ft_strlen(game->map->map[0]);
 
     while (y < game->map->rows)
     {
@@ -42,11 +42,11 @@ void ft_validate_walls(t_game *game)
         while (x < game->map->columns)
         {
             // Verificar que las primeras y últimas filas sean completamente '1'
-            if ((y == 0 || y == game->map->rows - 1) && game->map->map_2d[y][x] != '1')
+            if ((y == 0 || y == game->map->rows - 1) && game->map->map[y][x] != '1')
                 ft_printf("Error: El mapa no está rodeado de muros.\n"), exit(1);
 
             // Verificar que la primera y última columna sean '1'
-            if ((x == 0 || x == game->map->columns - 1) && game->map->map_2d[y][x] != '1')
+            if ((x == 0 || x == game->map->columns - 1) && game->map->map[y][x] != '1')
                 ft_printf("Error: El mapa no está rodeado de muros.\n"), exit(1);
             
             x++;

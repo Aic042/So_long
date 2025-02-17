@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/16 10:27:13 by root             ###   ########.fr       */
+/*   Updated: 2025/02/17 12:22:57 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@
 
 #include "so_long.h"
 
-int	ft_count_strings(char **map_2d)
+int	ft_count_strings(char **map)
 {
 	int	count;
 	int	i;
 
 	count = 0;
 	i = 0;
-	while (map_2d[i] != 0)
+	while (map[i] != 0)
 	{
 		count++;
 		i++;
@@ -45,28 +45,26 @@ void	ft_validate_2dmap(t_game *game)
 	int	y;
 
 	y = 0;
-	game->rows = ft_count_strings(game->map_2d);
-	game->columns = ft_strlen(game->map_2d[0]);
-	while (y < game->rows)
+	game->map->rows = ft_count_strings(game->map);
+	game->map->columns = ft_strlen(game->map[0]);
+	while (y < game->map->rows)
 	{
 		x = 0;
-		while (x < game->columns)
+		while (x < game->map->columns)
 		{
-			if (x == 0 && game->map_2d[y][x] != '1')
+			if (x == 0 && game->map[y][x] != '1')
 				ft_printf(Err_map, 1);
-			if (y == 0 && game->map_2d[y][x] != '1')
+			if (y == 0 && game->map[y][x] != '1')
 				ft_printf(Err_map, 1);
-			if (x == game->columns - 1 && game->map_2d[y][x] != '1')
+			if (x == game->map->columns - 1 && game->map[y][x] != '1')
 				ft_printf(Err_map, 1);
-			if (y == game->rows - 1 && game->map_2d[y][x] != '1')
+			if (y == game->map->rows - 1 && game->map[y][x] != '1')
 				ft_printf(Err_map, 1);
 			x++;
 		}
 		y++;
 	}
 }
-
-void
 
 void	ft_path_checker_checker()
 {
