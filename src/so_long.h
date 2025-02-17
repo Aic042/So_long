@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 13:21:41 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:32:54 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 typedef struct player
 {
 	int move_count;
-	int instances;
+	int player_sprites[3];
 } t_player;
 
 typedef struct windows

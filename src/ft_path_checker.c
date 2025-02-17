@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 12:22:57 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:31:55 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void	ft_path_checker_checker()
 }
 void	end_game(t_game *game)
 {
-	if(game->player->instances[0] == game->map Exit)
+	if(game->player->player_sprites[0] == game->map Exit)
 	
 }

@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/14 15:12:22 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:34:31 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_up(t_game *game)
 {
-	if(game->map + 1 != 1)
+	if(game->map->map + 1 != 1)
 	{
-		game->player->instances[0].y -= 5;
+		game->player->player_sprites[0].y -= 5;
 		game->player->move_count++; 
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}
@@ -25,9 +25,9 @@ void	ft_up(t_game *game)
 
 void ft_down(t_game *game)
 {
-	if(game->map + 1 != 1)
+	if(game->map->map + 1 != 1)
 	{
-		game->player->instances[0].y += 5;
+		game->player->player_sprites[1].y += 5;
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}			
@@ -36,7 +36,7 @@ void ft_left(t_game *game)
 {
 	if(game->map + 1 != 1)
 	{
-		game->player->instances[0].x -= 5;	
+		game->player->player_sprites[2].x -= 5;	
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}	
@@ -45,7 +45,7 @@ void ft_right(t_game *game)
 {
 	if(game->map + 1 != 1)
 	{
-		game->player->instances[0].x += 5;	
+		game->player->player_sprites[3].x += 5;	
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}	
