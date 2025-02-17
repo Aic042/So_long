@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 10:35:14 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:36:55 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	effect_initializer(t_game *game);
 
 void	ft_error(char *str, int error);
 void	ft_boot_textures(t_game *game);
-void	   ft_clean_old_textures(t_game *game);
+void	ft_clean_old_textures(t_game *game);
 void	ft_parse_line();
 void	ft_check_counts(int E, int P, int C); ;
 void	ft_check_map_validity(char *line);
