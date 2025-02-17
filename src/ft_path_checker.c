@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/11 10:55:49 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/16 10:27:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void
 
 void	ft_path_checker_checker()
 {
-	if (!validate_path(&game))
+	if (!validate_path(t_game *game))
 	{
 		ft_printf("Error: No hay camino válido en el mapa.\n");
 		return (EXIT_FAILURE);

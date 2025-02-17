@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/10 16:28:52 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/16 11:44:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 #define Collec 'C'
 #define Player 'P'
 #define Exit 'E' 
-#define Tile_Size '32'
+#define Tile_Size '64'
 
 //--------------------Structs----------------------------
 typedef struct effects
@@ -51,14 +51,30 @@ typedef struct effects
 	int times_switched;
 } t_effect;
 
+typedef struct player
+{
+	int move_count;
+	int instances;
+} t_player;
+
 typedef struct textures
 {
+	mlx_image_t	*wall;
+	mlx_image_t	*floor;
+	mlx_image_t	*player;
 
 } t_textures;
 
+typedef struct t_map
+{
+	int	rows;
+	int columns;
+} t_map;
+
+
 typedef struct game
 {
-	t_textures *textures;
+	t_textures  *textures;
 	t_map		*map;
 	t_window	*window;
 	t_player	*player;
