@@ -1,5 +1,5 @@
 {
-	"cmake.sourceDirectory": "/root/42projects/Cursus/Git_So_long/MLX42/tests",
+	"cmake.sourceDirectory": "/root/42projects/Cursus/Git_So_long/lib/MLX42",
 	"files.associations": {
 		"libft.h": "c"
 	}
