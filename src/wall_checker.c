@@ -3,53 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   wall_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 12:17:43 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/18 21:05:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	ft_count_strings(char **map)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
+	while (map[i] != 0)
+	{
+		count++;
+		i++;
+	}
+	return (count);
+}
+
 int is_row_surrounded_by_walls(char *row)
 {
-    int i;
-    i = 0;
-    
-    char **map;
+    int len;
 
-    while (map[0][i])
-    {
-        /* code */
-    }
-    
-
-    
+    if (!row)
+        return (0);
+    len = ft_strlen(row);
+    // Check if the first and last characters of the row are '1'
+    if (row[0] != '1' || row[len - 1] != '1')
+        return (0);
+    return (1);
 }
+
 void ft_validate_walls(t_game *game)
 {
     int y;
-    int x;
-    
+
     y = 0;
     game->map->rows = ft_count_strings(game->map->map);
     game->map->columns = ft_strlen(game->map->map[0]);
 
     while (y < game->map->rows)
     {
-        x = 0;
-        while (x < game->map->columns)
+        if ((y == 0 || y == game->map->rows - 1) && !is_row_surrounded_by_walls(game->map->map[y]))
         {
-            // Verificar que las primeras y últimas filas sean completamente '1'
-            if ((y == 0 || y == game->map->rows - 1) && game->map->map[y][x] != '1')
-                ft_printf("Error: El mapa no está rodeado de muros.\n"), exit(1);
-
-            // Verificar que la primera y última columna sean '1'
-            if ((x == 0 || x == game->map->columns - 1) && game->map->map[y][x] != '1')
-                ft_printf("Error: El mapa no está rodeado de muros.\n"), exit(1);
-            
-            x++;
+            ft_printf("Error: El mapa no está rodeado de muros.\n");
+            exit(1);
+        }
+        if (game->map->map[y][0] != '1' || game->map->map[y][game->map->columns - 1] != '1')
+        {
+            ft_printf("Error: El mapa no está rodeado de muros.\n");
+            exit(1);
         }
         y++;
     }
@@ -57,15 +66,48 @@ void ft_validate_walls(t_game *game)
 
 int are_row_lengths_consistent(char **map, int rows)
 {
-    ft_strlen(map[0]);
-     
+    int i;
+    size_t len;
+
+    if (!map || rows <= 0)
+        return (0);
+    len = ft_strlen(map[0]);
+    i = 1;
+    while (i < rows)
+    {
+        if (ft_strlen(map[i]) != len)
+            return (0);
+        i++;
+    }
+    return (1);
 }
 
 int map_corners(char **map, int rows)
 {
-    if (map[0][0] != '1' || map[0][rows - 1] != '1' || map[rows - 1][0] != '1' || map[rows - 1][rows - 1] != '1')
+    int cols;
+
+    if (!map || rows <= 0)
+        return (0);
+    cols = ft_strlen(map[0]);
+    if (map[0][0] != '1' || map[0][cols - 1] != '1' ||
+        map[rows - 1][0] != '1' || map[rows - 1][cols - 1] != '1')
     {
         return (0);
     }
     return (1);
+}
+
+void ft_validate_map(t_game *game)
+{
+    if (!are_row_lengths_consistent(game->map->map, game->map->rows))
+    {
+        ft_printf("Error: Las filas del mapa no son consistentes en longitud.\n");
+        exit(1);
+    }
+    if (!map_corners(game->map->map, game->map->rows))
+    {
+        ft_printf("Error: Las esquinas del mapa no están rodeadas de muros.\n");
+        exit(1);
+    }
+    ft_validate_walls(game);
 }

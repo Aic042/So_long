@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 21:36:46 by root             ###   ########.fr       */
+/*   Updated: 2025/02/18 21:19:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../42-libft/libft.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 #include "../ft_printf/ft_printf.h"
 #include "../get_next_line/get_next_line.h"
-#include "../libutils/libft.h"
 
 //--------------------Macros-----------------------------
 
@@ -31,16 +31,16 @@
 #define Err_Music "Error: Failed to stop the music or VLC was not running."
 #define Err_Mem "There's a memory error. Gotta go back to check those leaks ."
 #define	Err_assets
-#define Err_arg
+#define Err_arg "not enough arguments :("
 #define Err_map "map failing, we did not play Mario Maker enough"
 #define	Err_File "What have you done to the file "
-#define Err_Ber
+#define Err_Ber	"This is no .ber file :("
 #define Err_path "There is no correct path. Gotta go back to map making 😥"
 #define Wall '1'
 #define Collec 'C'
 #define Player 'P'
 #define Exit 'E' 
-#define Tile_Size '64'
+#define Tile_Size 64
 
 //--------------------Structs----------------------------
 
@@ -55,8 +55,9 @@
 */
 typedef struct player
 {
-	int move_count;
-	int player_sprites[3];
+    int move_count;
+    int x;
+    int y;
 } t_player;
 
 typedef struct windows
@@ -66,18 +67,27 @@ typedef struct windows
 	int		windows_width;
 } t_window;
 
-
 typedef struct textures
+{
+	mlx_texture_t	*wall;
+	mlx_texture_t	*floor;
+	mlx_texture_t	*player;
+	mlx_texture_t	*exit;
+	mlx_texture_t	*collectible;
+} t_textures;
+
+typedef struct images
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
 	mlx_image_t	*player;
 	mlx_image_t *exit;
-} t_textures;
+	mlx_image_t	*collectible;
+} t_images;
 
 typedef struct t_map
 {
-	int **map;
+	char **map;
 	int	rows;
 	int columns;
 } t_map;
@@ -85,6 +95,7 @@ typedef struct t_map
 
 typedef struct game
 {
+	t_images	*images;
 	t_textures  *textures;
 	t_map		*map;
 	t_window	*window;
@@ -113,7 +124,7 @@ int collect_count(t_game *game);
 
 // Path Checker
 void end_game(t_game *game);
-void ft_path_checker_checker(void);
+void ft_path_checker_checker(t_game *game);
 void ft_validate_2dmap(t_game *game);
 
 // Textures

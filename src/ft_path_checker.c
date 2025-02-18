@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 13:31:55 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:52:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,21 @@ void	ft_validate_2dmap(t_game *game)
 	int	y;
 
 	y = 0;
-	game->map->rows = ft_count_strings(game->map);
-	game->map->columns = ft_strlen(game->map[0]);
+	game->map->rows = ft_count_strings(game->map->map);
+	game->map->columns = ft_strlen(game->map->map[0]);
+
 	while (y < game->map->rows)
 	{
 		x = 0;
 		while (x < game->map->columns)
 		{
-			if (x == 0 && game->map[y][x] != '1')
+			if (x == 0 && game->map->map[y][x] != '1')
 				ft_printf(Err_map, 1);
-			if (y == 0 && game->map[y][x] != '1')
+			if (y == 0 && game->map->map[y][x] != '1')
 				ft_printf(Err_map, 1);
-			if (x == game->map->columns - 1 && game->map[y][x] != '1')
+			if (x == game->map->columns - 1 && game->map->map[y][x] != '1')
 				ft_printf(Err_map, 1);
-			if (y == game->map->rows - 1 && game->map[y][x] != '1')
+			if (y == game->map->rows - 1 && game->map->map[y][x] != '1')
 				ft_printf(Err_map, 1);
 			x++;
 		}
@@ -66,16 +67,11 @@ void	ft_validate_2dmap(t_game *game)
 	}
 }
 
-void	ft_path_checker_checker()
-{
-	if (!validate_path(t_game *game))
-	{
-		ft_printf("Error: No hay camino válido en el mapa.\n");
-		return (EXIT_FAILURE);
-	}
-}
-void	end_game(t_game *game)
-{
-	if(game->player->player_sprites[0] == game->map Exit)
-	
-}
+// void	ft_path_checker_checker(t_game *game)
+// {
+// 	if (!validate_path())
+// 	{
+// 		ft_printf("Error: No hay camino válido en el mapa.\n");
+// 		return;
+// 	}
+// }

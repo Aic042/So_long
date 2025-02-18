@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/17 13:34:31 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/18 21:24:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_up(t_game *game)
 {
-	if(game->map->map + 1 != 1)
+	if (game->map->map[y + 1][x] != '1')
 	{
-		game->player->player_sprites[0].y -= 5;
+		game->player->y += 5;
 		game->player->move_count++; 
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}
@@ -25,38 +25,39 @@ void	ft_up(t_game *game)
 
 void ft_down(t_game *game)
 {
-	if(game->map->map + 1 != 1)
+	if (game->map->map[game->player->y + 1][game->player->x] != '1')
 	{
-		game->player->player_sprites[1].y += 5;
+		game->player->y -= 5;
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}			
 }
 void ft_left(t_game *game)
 {
-	if(game->map + 1 != 1)
+	if (game->map->map + 1 != 1)
 	{
-		game->player->player_sprites[2].x -= 5;	
+		game->player->x -= 5;
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}	
 }
 void ft_right(t_game *game)
 {
-	if(game->map + 1 != 1)
+	if (game->map->map + 1 != 1)
 	{
-		game->player->player_sprites[3].x += 5;	
+		game->player->x += 5;
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}	
 }
 
 void	ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
-{
-	int i = 0;
-	
+{	
 	mlx_t* mlx = param;
 
+	(void)keydata;
+    (void)param;
+	
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
 	{
 		mlx_close_window(mlx);
