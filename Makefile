@@ -1,13 +1,12 @@
 NAME	= so_long
-LIBMLX	= ./MLX42
+LIBMLX	= lib/MLX42/build
 LIBFT	= libft
 LIBPF	= ft_printf
 LIBGN	= get_next_line
-LIBMLX := lib/MLX42
 
 CFLAGS := -Wextra -Wall -Werror -Ofast
-HEADERS := -I ./include -I $(LIBMLX)/include
-LIBS	= ${LIBGL} ${LIBMLX}/libmlx42.a ${LIBFT}/libft.a ${LIBPF}/libftprintf.a ${LIBGN}/get_next_line.a
+HEADERS := -I ./include -I $(LIBMLX)/include -I $(LIBFT) -I $(LIBPF) -I $(LIBGN)
+LIBS = -lglfw -lftprintf -lft -lget_next_line ${LIBMLX}/libmlx42.a
 SRCS := $(shell find ./src -iname "*.c")
 #SRCS_BONUS := $(shell find ./src_bonus -iname "*.c")
 OBJS := ${SRCS:.c=.o}

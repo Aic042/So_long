@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 21:51:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/18 19:30:22 by root             ###   ########.fr       */
+/*   Updated: 2025/02/19 12:43:48 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void ft_validate_file(char *map_path)
 {
-    const char *file = ft_strrchr(map_path, '.');
+    char *file = ft_strrchr(map_path, '.');
     
     if (file == NULL || ft_strcmp(file, ".ber") != 0)
         ft_printf(Err_Ber);
