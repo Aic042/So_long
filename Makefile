@@ -1,9 +1,9 @@
 NAME	= so_long
 LIBMLX	= ./MLX42
-LIBFT	= 42-libft
-LIBPF	= printf
+LIBFT	= libft
+LIBPF	= ft_printf
 LIBGN	= get_next_line
-LIBMLX := ./lib/MLX42
+LIBMLX := lib/MLX42
 
 CFLAGS := -Wextra -Wall -Werror -Ofast
 HEADERS := -I ./include -I $(LIBMLX)/include

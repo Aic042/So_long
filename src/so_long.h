@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/19 08:13:53 by root             ###   ########.fr       */
+/*   Updated: 2025/02/19 11:44:50 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "../42-libft/libft.h"
+# include "../libft/libft.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
-#include "../ft_printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 #include "../get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -28,12 +28,12 @@
 
 //--------------------Macros-----------------------------
 
-#define E_WALLS "Check_pathChecker"
 
 
 
 //---------------------Errors-----------------------------
 #define Err_Music "Error: Failed to stop the music or VLC was not running."
+#define E_WALLS "Check_pathChecker"
 #define Err_Mem "There's a memory error. Gotta go back to check those leaks ."
 #define	Err_assets
 #define Err_arg "not enough arguments :("
