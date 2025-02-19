@@ -5,22 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/04 10:19:03 by erigolon          #+#    #+#              #
-#    Updated: 2025/02/18 22:56:11 by root             ###   ########.fr        #
+#    Created: 2023/03/09 14:05:02 by erigolon          #+#    #+#              #
+#    Updated: 2025/02/18 22:53:39 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = get_next_line.a
 
 LIB = ar rcs
 
-SRCS := $(shell find ../ft_printf -iname "*.c")
+SRC = get_next_line.c \
+	get_next_line_utils.c
 
 OBJ = ${SRC:.c=.o}
 
 RM = rm -f
 
-CC = GCC
+cc = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 

@@ -6,26 +6,11 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2025/02/18 21:05:10 by root             ###   ########.fr       */
+/*   Updated: 2025/02/19 00:09:51 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	ft_count_strings(char **map)
-{
-	int	count;
-	int	i;
-
-	count = 0;
-	i = 0;
-	while (map[i] != 0)
-	{
-		count++;
-		i++;
-	}
-	return (count);
-}
 
 int is_row_surrounded_by_walls(char *row)
 {

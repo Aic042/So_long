@@ -6,20 +6,25 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/18 21:19:53 by root             ###   ########.fr       */
+/*   Updated: 2025/02/19 08:13:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
 #include "../42-libft/libft.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 #include "../ft_printf/ft_printf.h"
 #include "../get_next_line/get_next_line.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <memory.h>
+# include <fcntl.h>
+# include <stdint.h>
 
 //--------------------Macros-----------------------------
 
@@ -132,17 +137,18 @@ void ft_boot_textures(t_game *game);
 void ft_clean_old_textures(t_game *game);
 
 // Map Checker
+int	 ft_count_strings(char **map);
 void ft_check_counts(int E, int P, int C);
 void ft_check_map_validity(char *line);
 void ft_parse_line(void);
 void ft_validate_line_length(char *str_map);
 
 // Movement
-void ft_down(t_game *game);
-void ft_hook(mlx_key_data_t keydata, void* param, t_game *game);
-void ft_left(t_game *game);
-void ft_right(t_game *game);
-void ft_up(t_game *game);
+// void ft_down(t_game *game);
+// void ft_hook(mlx_key_data_t keydata, void* param, t_game *game);
+// void ft_left(t_game *game);
+// void ft_right(t_game *game);
+// void ft_up(t_game *game);
 
 
 // Map Reader
