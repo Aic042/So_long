@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 14:05:02 by erigolon          #+#    #+#              #
-#    Updated: 2025/02/18 22:53:39 by root             ###   ########.fr        #
+#    Updated: 2025/02/19 14:24:39 by aingunza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = get_next_line.a
+NAME = libget_next_line.a
 
 LIB = ar rcs
 
