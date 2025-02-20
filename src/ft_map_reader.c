@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 21:51:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 11:39:23 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/20 11:40:23 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void ft_validate_file(char *map_path)
 // 	return (str_map);
 // }
 
-/*
 /*ft_read_map(char *map_path)
 1º declaramos las variables :D
 2º Tipica ejecucion de gnl (Con preveneción ante errores)
