@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/19 11:44:50 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:53:29 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <memory.h>
-# include <fcntl.h>
-# include <stdint.h>
 
 //--------------------Macros-----------------------------
 

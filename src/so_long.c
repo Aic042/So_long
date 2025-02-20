@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 22:55:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/19 22:56:20 by root             ###   ########.fr       */
+/*   Updated: 2025/02/20 09:26:13 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	if (!game)
 		return (ft_printf(Err_Mem), 1);
 	if (argc != 2)
-		return (ft_printf(Err_Args), ft_end_game(game), 1);
+		return (ft_printf(Err_arg), ft_end_game(game), 1);
 	ft_validate_file(argv[1]);
 	game->map = malloc(sizeof(t_map));
 	if (!game->map)

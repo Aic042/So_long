@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 12:50:04 by aingunza          #+#    #+#             */
-/*   Updated: 2024/10/24 11:16:10 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:09:39 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	count(unsigned int nb)
 
 int	ft_putunsigned(unsigned int nb)
 {
-	if (nb >= 0 && nb <= 9)
+	if (nb <= 9)
 		ft_putchar(nb + 48);
 	else
 	{
