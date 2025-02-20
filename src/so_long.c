@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 22:55:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 09:26:13 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/20 09:32:18 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 // Initialize game structure and related components
 int	init_game(t_game *game)
 {
-	game->move_count = 0;
+	game->player->move_count = 0;
 	game->count_collec = 0;
 	game->player = malloc(sizeof(t_player));
 	game->textures = malloc(sizeof(t_textures));
 	game->window = malloc(sizeof(t_window));
 	if (!game->player || !game->textures || !game->window)
-		return (FALSE);
+		return (1);
 	game->window->mlx = mlx_init(game->map->columns * SIZE, game->map->rows * SIZE, "so_long", false);
 	if (!(game->window->mlx))
-		return (FALSE);
+		return (1);
 	load_textures(game);
 	create_images(game);
 	draw_map(game);
 	mlx_key_hook(game->window->mlx, (mlx_keyfunc)handle_input, game);
-	mlx_loop_hook(game->window->mlx, (mlx_loopfunc)render, game);
+	mlx_loop_hook(game->window->mlx, (mlx_loop)render, game);
 	mlx_loop(game->window->mlx);
-	return (TRUE);
+	return 0;
 }
 
 // Main function
