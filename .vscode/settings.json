@@ -1,5 +1,5 @@
 {
-	"cmake.sourceDirectory": "/root/42projects/Cursus/Git_So_long/lib/MLX42",
+	"cmake.sourceDirectory": "/home/aingunza/Desktop/So_long/lib/MLX42",
 	"files.associations": {
 		"libft.h": "c",
 		"so_long.h": "c",

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_endgame.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 19:52:25 by root              #+#    #+#             */
-/*   Updated: 2025/02/18 19:53:49 by root             ###   ########.fr       */
+/*   Updated: 2025/02/20 11:09:26 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void free_textures(t_game *game) {
 // Function to free map
 void free_map(t_game *game) {
     if (game->map) {
-        if (game->map->map) {
+        if (game->map->map2d) {
             int i = 0;
-            while (game->map->map[i]) {
-                free(game->map->map[i]);
+            while (game->map->map2d[i]) {
+                free(game->map->map2d[i]);
                 i++;
             }
-            free(game->map->map);
+            free(game->map->map2d);
         }
         free(game->map);
     }

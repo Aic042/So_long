@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/19 14:53:29 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/20 11:36:26 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 //--------------------Macros-----------------------------
 
-
-
+#define TRUE 1
+#define FALSE 0
 
 //---------------------Errors-----------------------------
 #define Err_Music "Error: Failed to stop the music or VLC was not running."
@@ -57,6 +57,7 @@
 */
 typedef struct player
 {
+	int count_collect;
     int move_count;
     int x;
     int y;
@@ -89,7 +90,7 @@ typedef struct images
 
 typedef struct t_map
 {
-	char **map;
+	char **map2d;
 	int	rows;
 	int columns;
 } t_map;
@@ -127,11 +128,12 @@ int collect_count(t_game *game);
 // Path Checker
 void end_game(t_game *game);
 void ft_path_checker_checker(t_game *game);
-void ft_validate_2dmap(t_game *game);
+void ft_validate_map(t_game *game);
 
 // Textures
 void ft_boot_textures(t_game *game);
 void ft_clean_old_textures(t_game *game);
+void images_to_textures(t_game *game);
 
 // Map Checker
 int	 ft_count_strings(char **map);
@@ -142,10 +144,10 @@ void ft_validate_line_length(char *str_map);
 
 // Movement
 // void ft_down(t_game *game);
-// void ft_hook(mlx_key_data_t keydata, void* param, t_game *game);
 // void ft_left(t_game *game);
 // void ft_right(t_game *game);
 // void ft_up(t_game *game);
+void ft_hook(mlx_key_data_t keydata, void* param, t_game *game);
 
 
 // Map Reader

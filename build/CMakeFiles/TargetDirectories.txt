@@ -1,0 +1,7 @@
+/home/aingunza/Desktop/So_long/build/CMakeFiles/mlx42.dir
+/home/aingunza/Desktop/So_long/build/CMakeFiles/edit_cache.dir
+/home/aingunza/Desktop/So_long/build/CMakeFiles/rebuild_cache.dir
+/home/aingunza/Desktop/So_long/build/CMakeFiles/list_install_components.dir
+/home/aingunza/Desktop/So_long/build/CMakeFiles/install.dir
+/home/aingunza/Desktop/So_long/build/CMakeFiles/install/local.dir
+/home/aingunza/Desktop/So_long/build/CMakeFiles/install/strip.dir

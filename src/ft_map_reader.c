@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 21:51:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/19 12:43:48 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/20 11:39:23 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void ft_validate_file(char *map_path)
     if (file == NULL || ft_strcmp(file, ".ber") != 0)
         ft_printf(Err_Ber);
 }
-/*
-    busca el arg que es un .ber
-*/
+
 // char	*ft_read_map(char *map_path)
 // {
 // 	char	*str_map;
@@ -57,6 +55,7 @@ void ft_validate_file(char *map_path)
 // 	return (str_map);
 // }
 
+/*
 /*ft_read_map(char *map_path)
 1º declaramos las variables :D
 2º Tipica ejecucion de gnl (Con preveneción ante errores)
