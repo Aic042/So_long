@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 22:55:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 11:36:39 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:33:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 // Initialize game structure and related components
 int	init_game(t_game *game)
 {
-	game->player->move_count = 0;
-	game->player->count_collect = 0;
 	game->player = malloc(sizeof(t_player));
 	game->textures = malloc(sizeof(t_textures));
 	game->window = malloc(sizeof(t_window));
 	if (!game->player || !game->textures || !game->window)
 		return (1);
+	game->player->move_count = 0;
+	game->player->count_collect = 0;
 	game->window->mlx = mlx_init(game->map->columns * Tile_Size, game->map->rows * Tile_Size, "so_long", false);
 	if (!(game->window->mlx))
 		return (1);
 	ft_boot_textures(game);
 	images_to_textures(game);
 	draw_map(game);
-	mlx_key_hook(game->window->mlx,(ft_hook), game);
-	mlx_loop_hook(game->window->mlx,(mlx_loop), game);
+	mlx_key_hook(game->window->mlx, ft_hook, game);
+	mlx_loop_hook(game->window->mlx, mlx_loop, game);
 	mlx_loop(game->window->mlx);
 	return 0;
 }

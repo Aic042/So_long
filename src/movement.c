@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 11:09:26 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:33:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,39 @@
 
 static void	ft_up(t_game *game)
 {
-	if (game->map->map2d[game->player->y + 1][game->player->x] != '1')
+	if (game->map->map2d[game->player->y - 1][game->player->x] != '1')
 	{
-		game->player->y += 5;
+		game->player->y -= 1;
 		game->player->move_count++; 
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}
 }
 
-
 static void ft_down(t_game *game)
 {
-	if (game->map->map2d[game->player->y - 1][game->player->x] != '1')
+	if (game->map->map2d[game->player->y + 1][game->player->x] != '1')
 	{
-		game->player->y -= 5;
+		game->player->y += 1;
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}			
 }
+
 static void ft_left(t_game *game)
 {
-	if (game->map->map2d[game->player->y - 1][game->player->x] != '1')
+	if (game->map->map2d[game->player->y][game->player->x - 1] != '1')
 	{
-		game->player->x -= 5;
+		game->player->x -= 1;
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}	
 }
 
-//terminar los if
 static void ft_right(t_game *game)
 {
-	if (game->map->map2d[game->player->y - 1][game->player->x] != '1')
+	if (game->map->map2d[game->player->y][game->player->x + 1] != '1')
 	{
-		game->player->x += 5;
+		game->player->x += 1;
 		game->player->move_count++;
 		ft_printf("Moves: %d\n", game->player->move_count);
 	}	

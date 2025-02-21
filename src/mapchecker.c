@@ -3,32 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   mapchecker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:44:55 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/11 10:57:54 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:27:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 //-------------------------------------------------------------------------
-void	ft_parse_line()
+void	ft_parse_line(char *line, int *E, int *P, int *C)
 {    
     int i = 0;
-    int E = 0;
-    int P = 0;
-    int C = 0;
 
-    
-    while(i != '\0')
-        {
-            if(i == 'E')
-                E++;
-            if (i == 'P')
-                P++;
-            if (i == 'C')
-                C++;
-        }
+    while (line[i] != '\0')
+    {
+        if (line[i] == 'E')
+            (*E)++;
+        if (line[i] == 'P')
+            (*P)++;
+        if (line[i] == 'C')
+            (*C)++;
+        i++;
+    }
 }
 // -----------------------------------------------------------------------------
 //Check_Counts
@@ -65,15 +62,7 @@ void	ft_check_map_validity(char *line)
     }
     while ((line = get_next_line(fd)))
     {
-        for (int i = 0; line[i] != '\0'; i++)
-        {
-            if (line[i] == 'E')
-                E++;
-            if (line[i] == 'P')
-                P++;
-            if (line[i] == 'C')
-                C++;
-        }
+        ft_parse_line(line, &E, &P, &C);
         free(line);
     }
     close(fd);

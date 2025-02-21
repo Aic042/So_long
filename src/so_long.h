@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 11:40:17 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:47:57 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
+#include "../lib/libft/libft.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
-# include "../ft_printf/ft_printf.h"
-#include "../get_next_line/get_next_line.h"
+# include "../lib/ft_printf/ft_printf.h"
+#include "../lib/get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdio.h>
