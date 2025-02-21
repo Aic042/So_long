@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collectionables.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 18:36:23 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 11:09:26 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:03:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,9 @@ int collect_count(t_game *game)
         y++;
     }
     return (total);
+}
+
+void coin_collecter(t_game *game)
+{
+    if(game->map[game->images->player->]   )
 }
