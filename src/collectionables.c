@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collectionables.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 18:36:23 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 20:05:24 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:23:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int collect_count(t_game *game)
         x = 0;
         while (game->map->map2d[y][x])
         {
-            if (game->map->map2d[y][x] == 'c')
+            if (game->map->map2d[y][x] == 'C')
             {
                 total++;
             }
@@ -38,5 +38,20 @@ int collect_count(t_game *game)
 
 void coin_collecter(t_game *game)
 {
-    if(game->map[game->images->player->y]   )
+    // Get the player's current position
+    int player_x = game->player->x;
+    int player_y = game->player->y;
+
+    // Check if the player is on a collectible
+    if (game->map->map2d[player_y][player_x] == 'C')
+    {
+        // Increment the collectible count
+        game->player->count_collect++;
+
+        // Replace the collectible with a floor tile
+        game->map->map2d[player_y][player_x] = '0';
+
+        // Update the display (if you have a collectible counter on the screen)
+        ft_printf("Collected a coin! Total: %d\n", game->player->count_collect);
+    }
 }

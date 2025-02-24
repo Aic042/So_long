@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 11:11:10 by root             ###   ########.fr       */
+/*   Updated: 2025/02/22 14:08:41 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,8 @@ void ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
 	{
 		mlx_close_window(mlx);
 		// ft_stop_music();
-		end_game(mlx)
+		ft_end_game(game);
 	}
-	
 	if (mlx_is_key_down(mlx, MLX_KEY_UP)|| (mlx_is_key_down(mlx,MLX_KEY_W)))
 		ft_up(game);
 	if (mlx_is_key_down(mlx, MLX_KEY_DOWN) || (mlx_is_key_down(mlx,MLX_KEY_S)))

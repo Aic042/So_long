@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 11:09:26 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/24 22:08:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,17 @@ void	ft_validate_2dmap(t_game *game)
 	}
 }
 
-// void	ft_path_checker_checker(t_game *game)
-// {
-// 	if (!validate_path())
-// 	{
-// 		ft_printf("Error: No hay camino válido en el mapa.\n");
-// 		return;
-// 	}
-// }
+void ft_flood_doer(t_game *game, int y, int x)
+{
+    if (x < 0 || y < 0 || x >= game->map->columns || y >= game->map->rows
+        || game->map->map2d[y][x] == '1' || game->map->map2d[y][x] == 'X')
+    {
+        return;
+    }
+
+    game->map->map2d[y][x] = 'X';
+    ft_flood_doer(game, y + 1, x);
+    ft_flood_doer(game, y - 1, x);
+    ft_flood_doer(game, y, x + 1);
+    ft_flood_doer(game, y, x - 1);
+}
