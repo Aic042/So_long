@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2025/02/24 20:40:24 by root             ###   ########.fr       */
+/*   Updated: 2025/02/25 12:56:48 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,17 @@ int map_corners(char **map, int rows)
     return (1);
 }
 
-void ft_validate_map(t_game *game)
-{
-    if (!are_row_lengths_consistent(game->map->map2d, game->map->rows))
-    {
-        ft_printf("Error: Las filas del mapa no son consistentes en longitud.\n");
-        exit(1);
-    }
-    if (!map_corners(game->map->map2d, game->map->rows))
-    {
-        ft_printf("Error: Las esquinas del mapa no están rodeadas de muros.\n");
-        exit(1);
-    }
-    ft_validate_walls(game);
-}
+// void ft_validate_map(t_game *game)
+// {
+//     if (!are_row_lengths_consistent(game->map->map2d, game->map->rows))
+//     {
+//         ft_printf("Error: Las filas del mapa no son consistentes en longitud.\n");
+//         exit(1);
+//     }
+//     if (!map_corners(game->map->map2d, game->map->rows))
+//     {
+//         ft_printf("Error: Las esquinas del mapa no están rodeadas de muros.\n");
+//         exit(1);
+//     }
+//     ft_validate_walls(game);
+// }

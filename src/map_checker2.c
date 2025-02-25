@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/02/24 22:44:13 by root             ###   ########.fr       */
+/*   Updated: 2025/02/25 12:55:03 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void ft_validate_accessible_cells(t_game *game)
     }
 }
 
-void ft_validate_map(t_game *game)
+void ft_file_validator_map(t_game *game)
 {
     ft_validate_walls(game);
     find_initial_position(game);

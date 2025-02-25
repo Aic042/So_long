@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/25 07:32:08 by root             ###   ########.fr       */
+/*   Updated: 2025/02/25 12:40:46 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,11 @@ void ft_right(t_game *game)
 	}	
 }
 
-void ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
+void ft_my_hook(mlx_key_data_t keydata, void* param)
 {	
-	mlx_t* mlx = param;
-
+	t_game *game = (t_game *)param;
+	mlx_t* mlx = game->window->mlx;
 	(void)keydata;
-    (void)param;
 	
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
 	{
@@ -72,25 +71,6 @@ void ft_hook(mlx_key_data_t keydata, void* param, t_game *game)
 	ft_left(game);
 	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT) || (mlx_is_key_down(mlx,MLX_KEY_D)))
 	ft_right(game);
-}
-
-void ft_hook(mlx_key_data_t keydata, void* param)
-{
-    t_game *game = (t_game *)param;
-
-    if (mlx_is_key_down(game->window->mlx, MLX_KEY_ESCAPE))
-    {
-        mlx_close_window(game->window->mlx);
-        ft_end_game(game);
-    }
-    if (mlx_is_key_down(game->window->mlx, MLX_KEY_UP) || mlx_is_key_down(game->window->mlx, MLX_KEY_W))
-        ft_up(game);
-    if (mlx_is_key_down(game->window->mlx, MLX_KEY_DOWN) || mlx_is_key_down(game->window->mlx, MLX_KEY_S))
-        ft_down(game);
-    if (mlx_is_key_down(game->window->mlx, MLX_KEY_LEFT) || mlx_is_key_down(game->window->mlx, MLX_KEY_A))
-        ft_left(game);
-    if (mlx_is_key_down(game->window->mlx, MLX_KEY_RIGHT) || mlx_is_key_down(game->window->mlx, MLX_KEY_D))
-        ft_right(game);
 }
 
 // ft_stop_music();

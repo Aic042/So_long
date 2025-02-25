@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/25 07:32:24 by root             ###   ########.fr       */
+/*   Updated: 2025/02/25 12:58:22 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,10 +129,10 @@ int collect_count(t_game *game);
 // Path Checker
 void end_game(t_game *game);
 void ft_path_checker_checker(t_game *game);
-void ft_validate_map(t_game *game);
+// void ft_validate_map(t_game *game);
 
 // Textures
-int ft_boot_textures(t_game *game);
+void ft_boot_images(t_game *game);
 void ft_clean_old_textures(t_game *game);
 void images_to_textures(t_game *game);
 void draw_map(t_game *game);
@@ -144,20 +144,24 @@ void ft_check_map_validity(char *line);
 void ft_parse_line(char *line, int *E, int *P, int *C);
 void ft_validate_line_length(char *str_map);
 void ft_flood_doer(t_game *game, int y, int x);
+void ft_file_validator_map(t_game *game);
+
 
 // Movement
 void ft_down(t_game *game);
 void ft_left(t_game *game);
 void ft_right(t_game *game);
 void ft_up(t_game *game);
-void ft_hook(mlx_key_data_t keydata, void* param);
+void ft_my_hook(mlx_key_data_t keydata, void* param);
 
 // Map Reader
-//char *ft_read_map(char *map_path);
+char **ft_read_map(char *map_path);
 void ft_validate_file(char *map_path);
 
 // Main Entry
 void ft_end_game(t_game *game);
+void ft_my_hook(mlx_key_data_t keydata, void* param);
+
 //------------------Bonus------------------------------//
 
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   MLX42.h                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/12/28 02:29:06 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2023/03/30 16:23:19 by ntamayo-      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   MLX42.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/28 02:29:06 by W2Wizard          #+#    #+#             */
+/*   Updated: 2025/02/25 12:09:39 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -438,7 +438,7 @@ typedef void (*mlx_cursorfunc)(double xpos, double ypos, void* param);
  * @param[in] keydata The callback data, contains info on key, action, ...
  * @param[in] param Additional parameter to pass on to the function.
  */
-typedef void (*mlx_keyfunc)(mlx_key_data_t keydata, void* param);
+typedef void (*	mlx_keyfunc)(mlx_key_data_t keydata, void* param);
 
 /**
  * Callback function used to handle window resizing.
@@ -777,6 +777,7 @@ void mlx_resize_hook(mlx_t* mlx, mlx_resizefunc func, void* param);
  * @param[in] param The parameter to pass on to the function.
  * @returns Whether or not the hook was added successfully. 
  */
+
 bool mlx_loop_hook(mlx_t* mlx, void (*f)(void*), void* param);
 
 //= Texture Functions =//
