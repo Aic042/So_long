@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/25 12:58:22 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:25:03 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #define E_WALLS "Check_pathChecker"
 #define Err_Mem "There's a memory error. Gotta go back to check those leaks ."
 #define	Err_assets
-#define Err_arg "not enough arguments :("
+#define Err_arg "There aren't 2 arguments :("
 #define Err_map "map failing, we did not play Mario Maker enough"
 #define	Err_File "What have you done to the file "
 #define Err_Ber	"This is no .ber file :("

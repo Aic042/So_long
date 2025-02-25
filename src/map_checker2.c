@@ -6,14 +6,14 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/02/25 12:55:03 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:31:38 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 //Check_Counts
-void    ft_check_counts(int E, int P, int C)
+void ft_check_counts(int E, int P, int C)
 {
 	if (E != 1 || P != 1 || C < 1)
 	{
@@ -74,7 +74,6 @@ void ft_validate_accessible_cells(t_game *game)
 
 void ft_file_validator_map(t_game *game)
 {
-    ft_validate_walls(game);
     find_initial_position(game);
     ft_flood_doer(game, game->player->y, game->player->x);
     ft_validate_accessible_cells(game);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:34:37 by root              #+#    #+#             */
-/*   Updated: 2025/02/24 22:42:45 by root             ###   ########.fr       */
+/*   Updated: 2025/02/25 14:41:16 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ void ft_validate_walls(t_game *game)
     game->map->rows = ft_count_strings(game->map->map2d);
     game->map->columns = ft_strlen(game->map->map2d[0]);
 
+    if (!game || !game->map || !game->map->map2d)
+    {
+        ft_printf("Error: Invalid game or map data.\n");
+        exit(1);
+    }
     while (y < game->map->rows)
     {
         if ((y == 0 || y == game->map->rows - 1) && !is_row_surrounded_by_walls(game->map->map2d[y]))
