@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/24 18:57:40 by root             ###   ########.fr       */
+/*   Updated: 2025/02/25 07:32:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ void ft_validate_map(t_game *game);
 int ft_boot_textures(t_game *game);
 void ft_clean_old_textures(t_game *game);
 void images_to_textures(t_game *game);
+void draw_map(t_game *game);
 
 // Map Checker
 int	 ft_count_strings(char **map);
@@ -142,14 +143,14 @@ void ft_check_counts(int E, int P, int C);
 void ft_check_map_validity(char *line);
 void ft_parse_line(char *line, int *E, int *P, int *C);
 void ft_validate_line_length(char *str_map);
+void ft_flood_doer(t_game *game, int y, int x);
 
 // Movement
 void ft_down(t_game *game);
 void ft_left(t_game *game);
 void ft_right(t_game *game);
 void ft_up(t_game *game);
-void ft_hook(mlx_key_data_t keydata, void* param, t_game *game);
-
+void ft_hook(mlx_key_data_t keydata, void* param);
 
 // Map Reader
 //char *ft_read_map(char *map_path);
