@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/26 21:16:12 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:33:39 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void size_map(t_game *game, char **map)
     int i;
 
     i = 0;
-    game->player->count_collect = total_collec(game);
     game->map->rows = ft_strlen(map[0]) * 32;
     while (map[i])
         i++;
