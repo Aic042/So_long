@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/25 15:25:03 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/26 10:03:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 
 #define TRUE 1
 #define FALSE 0
+#define BUFFER_SIZE 4000
 
 //---------------------Errors-----------------------------
 #define Err_Music "Error: Failed to stop the music or VLC was not running."
@@ -144,7 +145,7 @@ void ft_check_map_validity(char *line);
 void ft_parse_line(char *line, int *E, int *P, int *C);
 void ft_validate_line_length(char *str_map);
 void ft_flood_doer(t_game *game, int y, int x);
-void ft_file_validator_map(t_game *game);
+int ft_file_validator_map(t_game *game,char *map_path);
 
 
 // Movement

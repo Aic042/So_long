@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/02/25 15:31:38 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:19:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void find_initial_position(t_game *game)
 {
     int y;
     int x;
-
+    
     y = 0;
+    
     while (game->map->map2d[y])
     {
         x = 0;
@@ -72,9 +73,14 @@ void ft_validate_accessible_cells(t_game *game)
     }
 }
 
-void ft_file_validator_map(t_game *game)
+int ft_file_validator_map(t_game *game, char *map_path)
 {
+    game->map = malloc(sizeof(t_map));
+    if (!game->map)
+        return (ft_printf(Err_Mem), ft_end_game(game), 1);
+    game->map->map2d = ft_read_map(map_path);
     find_initial_position(game);
     ft_flood_doer(game, game->player->y, game->player->x);
     ft_validate_accessible_cells(game);
+    return 0;
 }

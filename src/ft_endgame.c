@@ -3,27 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_endgame.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 19:52:25 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 11:09:26 by aingunza         ###   ########.fr       */
+/*   Created: 2025/02/26 10:45:12 by root              #+#    #+#             */
+/*   Updated: 2025/02/26 10:45:20 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // Function to free textures
-void free_textures(t_game *game) {
-    if (game->textures) {
-        if (game->textures->wall)
+void free_textures(t_game *game)
+{
+    if (game->textures)
+    {
+        if (game->textures->wall) {
             mlx_delete_texture(game->textures->wall);
-        if (game->textures->floor)
+            game->textures->wall = NULL;
+        }
+        if (game->textures->floor) {
             mlx_delete_texture(game->textures->floor);
-        if (game->textures->player)
+            game->textures->floor = NULL;
+        }
+        if (game->textures->player) {
             mlx_delete_texture(game->textures->player);
-        if (game->textures->exit)
+            game->textures->player = NULL;
+        }
+        if (game->textures->exit) {
             mlx_delete_texture(game->textures->exit);
+            game->textures->exit = NULL;
+        }
         free(game->textures);
+        game->textures = NULL;
     }
 }
 

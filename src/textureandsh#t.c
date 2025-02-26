@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/02/25 07:10:16 by root             ###   ########.fr       */
+/*   Updated: 2025/02/26 09:34:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	ft_boot_images(t_game *game)
 {
-	game->textures = ft_calloc(1, sizeof(t_textures));
+    game->textures = ft_calloc(1, sizeof(t_textures));
+    game->images = ft_calloc(1, sizeof(t_images));
     game->images->wall = mlx_texture_to_image(game->window->mlx, game->textures->wall);
     game->images->floor = mlx_texture_to_image(game->window->mlx, game->textures->floor);
     game->images->player = mlx_texture_to_image(game->window->mlx, game->textures->player);
@@ -24,7 +25,7 @@ void	ft_boot_images(t_game *game)
 
 void	images_to_textures(t_game *game)
 {
-	game->images = ft_calloc(1, sizeof(t_images));
+    game->images = ft_calloc(1, sizeof(t_images));
 	game->images->wall = mlx_texture_to_image(game->window->mlx, game->textures->wall);
 	game->images->floor = mlx_texture_to_image(game->window->mlx, game->textures->floor);
 	game->images->player = mlx_texture_to_image(game->window->mlx, game->textures->player);
@@ -35,6 +36,15 @@ void	images_to_textures(t_game *game)
 	mlx_delete_texture(game->textures->floor);
 	mlx_delete_texture(game->textures->player);
 	mlx_delete_texture(game->textures->exit);
+
+    if (game->textures->wall)
+        mlx_delete_texture(game->textures->wall);
+    if (game->textures->floor)
+        mlx_delete_texture(game->textures->floor);
+    if (game->textures->player)
+        mlx_delete_texture(game->textures->player);
+    if (game->textures->exit)
+        mlx_delete_texture(game->textures->exit);
 }
 
 void render_tile(t_game *game, char tile, int x, int y)
