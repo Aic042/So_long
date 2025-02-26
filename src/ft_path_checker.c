@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/26 12:28:43 by root             ###   ########.fr       */
+/*   Updated: 2025/02/26 18:00:39 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void    ft_validate_2dmap(t_game *game)
 
 void ft_flood_doer(t_game *game, int y, int x)
 {
-    if (x < 0 || y < 0 || x >= game->map->columns || y >= game->map->rows
+    if (x < 1 || y < 1 || x >= game->map->columns || y >= game->map->rows
         || game->map->map2d[y][x] == '1' || game->map->map2d[y][x] == 'X')
     {
         return;

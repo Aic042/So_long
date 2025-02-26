@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/26 12:32:22 by root             ###   ########.fr       */
+/*   Updated: 2025/02/26 20:04:32 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void mlx_loop_wrapper(void* param)
 
 int init_game(t_game *game)
 {
-    game->player = malloc(sizeof(t_player));
     game->textures = malloc(sizeof(t_textures));
     game->window = malloc(sizeof(t_window));
     if (!game->player || !game->textures || !game->window)
@@ -46,12 +45,14 @@ int main(int argc, char **argv)
     game = malloc(sizeof(t_game));
     if (!game)
         return (ft_printf(Err_Mem), 1);
+    game->player = malloc(sizeof(t_player));
+    if(!game->player)
+        return (ft_printf(Err_Mem), ft_end_game(game), 1);
     if (argc != 2)
         return (ft_printf(Err_arg), ft_end_game(game), 1);
     game->map = malloc(sizeof(t_map));
     if (!game->map)
         return (ft_printf(Err_Mem), ft_end_game(game), 1);
-
     game->map->map2d = ft_read_map(argv[1]);
     if (!game->map->map2d)
         return (ft_end_game(game), 1);
@@ -59,10 +60,6 @@ int main(int argc, char **argv)
         ft_end_game(game);
         return 1;
     }
-    game->map = malloc(sizeof(t_map));
-    if (!game->map)
-        return (ft_printf(Err_Mem), ft_end_game(game), 1);
-    game->map->map2d = ft_read_map(argv[1]);
     if (!game->map->map2d)
         return (ft_end_game(game), 1);
     if (init_game(game) == FALSE)

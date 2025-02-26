@@ -4,7 +4,7 @@ LIBFT	= lib/libft
 LIBPF	= lib/ft_printf
 LIBGN	= lib/get_next_line
 
-CFLAGS = -Wextra -Wall -Werror -Ofast -fPIE
+CFLAGS = -Wextra -Wall -Werror -Ofast -g
 HEADERS := -I ./include -I $(LIBMLX)/include -I $(LIBFT) -I $(LIBPF) -I $(LIBGN)
 LIBS = -L$(LIBFT) -lft -L$(LIBPF) -lftprintf -L$(LIBMLX)/build -lmlx42 -lglfw -L$(LIBGN) -lget_next_line
 SRCS := $(shell find ./src -iname "*.c")
@@ -25,10 +25,10 @@ libgnl:
 	@make -C $(LIBGN)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+	cc $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) -o $(NAME) $(LIBS)
+	cc $(OBJS) -o $(NAME) $(LIBS)
 
 clean:
 	@rm -rf $(OBJS)
