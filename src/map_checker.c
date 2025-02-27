@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:28:11 by root              #+#    #+#             */
-/*   Updated: 2025/02/26 12:29:21 by root             ###   ########.fr       */
+/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    ft_validate_line_length(char *str_map)
+void	   ft_validate_line_length(char	*str_map)
 {
-        int     i;
-        int     count_first_line;
-        int     count_other_lines;
+        int	    i;
+        int	    count_first_line;
+        int	    count_other_lines;
 
         i = 0;
         count_first_line = 0;
@@ -40,7 +40,7 @@ void    ft_validate_line_length(char *str_map)
         }
 }
 
-int ft_map_empty(t_game *game)
+int	ft_map_empty(t_game *game)
 {
     if(game->map->map2d == NULL)
         return 1;
@@ -48,7 +48,7 @@ int ft_map_empty(t_game *game)
                 return (0);
 }
 
-int is_valid_char(char c)
+int	is_valid_char(char	c)
 {
         if (c == 'C' || c == 'E' || c == 'P' || c == '1' || c == '0')
                 return (1);
@@ -56,9 +56,9 @@ int is_valid_char(char c)
                 return (0);
 }
 
-void ft_validate_walls(t_game *game)
+void	ft_validate_walls(t_game *game)
 {
-    int y;
+    int	y;
 
     y = 0;
     game->map->rows = ft_count_strings(game->map->map2d);

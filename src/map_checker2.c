@@ -6,14 +6,14 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 12:13:11 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 12:54:43 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 //Check_Counts
-void ft_check_counts(int E, int P, int C)
+void	ft_check_counts(int	E, int	P, int	C)
 {
 	if (E != 1 || P != 1 || C < 1)
 	{
@@ -27,10 +27,10 @@ void ft_check_counts(int E, int P, int C)
 	}
 }
 
-void find_initial_position(t_game *game)
+void	find_initial_position(t_game *game)
 {
-    int y;
-    int x;
+    int	y;
+    int	x;
     
     y = 0;
     
@@ -51,10 +51,10 @@ void find_initial_position(t_game *game)
     }
 }
 
-void ft_validate_accessible_cells(t_game *game)
+void	ft_validate_accessible_cells(t_game *game)
 {
-    int y;
-    int x;
+    int	y;
+    int	x;
 
     y = 0;
     while (game->map->map2d[y])
@@ -73,7 +73,7 @@ void ft_validate_accessible_cells(t_game *game)
     }
 }
 
-int ft_file_validator_map(t_game *game)
+int	ft_file_validator_map(t_game *game)
 {
     if (!game->map)
         return (ft_printf("Error: game->map is NULL before validator\n"), ft_end_game(game), 1);

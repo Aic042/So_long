@@ -6,19 +6,19 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/27 11:15:56 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void mlx_loop_wrapper(void* param)
+void	mlx_loop_wrapper(void* param)
 {
     t_game *game = (t_game *)param;
     mlx_loop(game->window->mlx);
 }
 
-int init_game(t_game *game)
+int	init_game(t_game *game)
 {
     game->textures = malloc(sizeof(t_textures));
     game->window = malloc(sizeof(t_window));
@@ -38,7 +38,7 @@ int init_game(t_game *game)
     return 0;
 }
 
-int main(int argc, char **argv)
+int	main(int	argc, char	**argv)
 {
     t_game *game;
 

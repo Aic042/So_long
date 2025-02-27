@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void ft_boot_images(t_game *game)
+void	ft_boot_images(t_game *game)
 {
 	game->textures = ft_calloc(1, sizeof(t_textures));
 	game->images = ft_calloc(1, sizeof(t_images));
@@ -24,7 +24,7 @@ void ft_boot_images(t_game *game)
 
 }
 
-void images_to_textures(t_game *game)
+void	images_to_textures(t_game *game)
 {
 	game->textures = ft_calloc(1, sizeof(t_textures));
 	game->images = ft_calloc(1, sizeof(t_images));
@@ -35,7 +35,7 @@ void images_to_textures(t_game *game)
 	game->images->exit = mlx_texture_to_image(game->window->mlx, game->textures->exit);
 }
 
-void render_chars(t_game *game, char tile, int x, int y)
+void	render_chars(t_game *game, char	tile, int	x, int	y)
 {
 	if (tile == '1')
 		mlx_image_to_window(game->window->mlx, game->images->wall, x * Tile_Size, y * Tile_Size);
@@ -48,10 +48,10 @@ void render_chars(t_game *game, char tile, int x, int y)
 	else
 		mlx_image_to_window(game->window->mlx, game->images->floor, x * Tile_Size, y * Tile_Size);
 }
-void draw_floor(t_game *game, t_images *image)
+void	draw_floor(t_game *game, t_images *image)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (game->map->map2d[y])
@@ -66,10 +66,10 @@ void draw_floor(t_game *game, t_images *image)
 	}
 }
 
-void draw_map(t_game *game)
+void	draw_map(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	draw_floor(game, game->images);
 	y = 0;

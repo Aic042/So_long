@@ -1,10 +1,10 @@
 #include "so_long.h"
 
-int collect_count(t_game *game)
+int	collect_count(t_game	*game)
 {
-    int total;
-    int y;
-    int x;
+    int	total;
+    int	y;
+    int	x;
 
     total = 0;
     y = 0;
@@ -24,11 +24,11 @@ int collect_count(t_game *game)
     return (total);
 }
 
-void coin_collecter(t_game *game)
+void	coin_collecter(t_game	*game)
 {
     // Get the player's current position
-    int player_x = game->player->x;
-    int player_y = game->player->y;
+    int	player_x = game->player->x;
+    int	player_y = game->player->y;
 
     // Check if the player is on a collectible
     if (game->map->map2d[player_y][player_x] == 'C')

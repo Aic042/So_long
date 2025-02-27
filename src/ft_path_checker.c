@@ -6,16 +6,16 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 08:12:49 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int     ft_count_strings(char **map)
+int	    ft_count_strings(char	**map)
 {
-        int     count;
-        int     i;
+        int	    count;
+        int	    i;
 
         count = 0;
         i = 0;
@@ -27,10 +27,10 @@ int     ft_count_strings(char **map)
         return (count);
 }
 
-void    ft_validate_2dmap(t_game *game)
+void	   ft_validate_2dmap(t_game *game)
 {
-        int     x;
-        int     y;
+        int	    x;
+        int	    y;
 
         y = 0;
         game->map->rows = ft_count_strings(game->map->map2d);
@@ -55,7 +55,7 @@ void    ft_validate_2dmap(t_game *game)
         }
 }
 
-void ft_flood_doer(t_game *game, int y, int x)
+void	ft_flood_doer(t_game *game, int	y, int	x)
 {
 	y = 0;
 	x = 0;

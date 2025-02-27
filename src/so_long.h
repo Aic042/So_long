@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 11:15:42 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,18 @@
 /*
 	typedef struct effects
 	{
-		int lava_deadly;
-		int water_deadly;
-		int is_switched;
-		int times_switched;
+		int	lava_deadly;
+		int	water_deadly;
+		int	is_switched;
+		int	times_switched;
 	} t_effect;
 */
 typedef struct player
 {
-	int count_collect;
-    int move_count;
-    int x;
-    int y;
+	int	count_collect;
+    int	move_count;
+    int	x;
+    int	y;
 } t_player;
 
 typedef struct windows
@@ -92,9 +92,9 @@ typedef struct images
 
 typedef struct t_map
 {
-	char **map2d;
+	char	**map2d;
 	int	rows;
-	int columns;
+	int	columns;
 } t_map;
 
 
@@ -114,17 +114,17 @@ typedef struct game
 //------------------ Functions
 
 // Wall Checker
-int  are_row_lengths_consistent(char **map, int rows);
+int	 are_row_lengths_consistent(char	**map, int	rows);
 void ft_validate_walls(t_game *game);
-int  is_row_surrounded_by_walls(char *row);
-int  map_corners(char **map, int rows);
+int	 is_row_surrounded_by_walls(char	*row);
+int	 map_corners(char	**map, int	rows);
 
 // Character Validator
 void char_validator(void);
-int  is_valid_char(char c);
+int	 is_valid_char(char	c);
 
 // Collectionables
-int collect_count(t_game *game);
+int	collect_count(t_game *game);
 
 
 // Path Checker
@@ -140,25 +140,25 @@ void images_to_textures(t_game *game);
 void draw_map(t_game *game);
 
 // Map Checker
-int	 ft_count_strings(char **map);
-void ft_check_counts(int E, int P, int C);
-void ft_check_map_validity(char *line);
-void ft_parse_line(char *line, int *E, int *P, int *C);
-void ft_validate_line_length(char *str_map);
-void ft_flood_doer(t_game *game, int y, int x);
-int ft_file_validator_map(t_game *game);
-int ft_map_empty(t_game *game);
+int	 ft_count_strings(char	**map);
+void ft_check_counts(int	E, int	P, int	C);
+void ft_check_map_validity(char	*line);
+void ft_parse_line(char	*line, int	*E, int	*P, int	*C);
+void ft_validate_line_length(char	*str_map);
+void ft_flood_doer(t_game *game, int	y, int	x);
+int	ft_file_validator_map(t_game *game);
+int	ft_map_empty(t_game *game);
 
 // Movement
 void ft_down(t_game *game);
 void ft_left(t_game *game);
 void ft_right(t_game *game);
 void ft_up(t_game *game);
-void ft_my_hook(mlx_key_data_t keydata, void* param);
+void ft_my_hook(mlx_key_data_t keydata, void *param);
 
 // Map Reader
-char **ft_read_map(char *map_path);
-void ft_validate_file(char *map_path);
+char	**ft_read_map(char	*map_path);
+void ft_validate_file(char	*map_path);
 void free_map(t_game *game);
 
 // Main Entry
@@ -176,12 +176,12 @@ void transform(t_game *game);
 void ft_timer(uint32_t ms);
 
 // Music
-void ft_music(const char *script_path);
+void ft_music(const char	*script_path);
 void ft_stop_music(void);
 
 // Miscellaneous
 void ft_initialize_variables(t_game *game);
 void hook(void *param);
-void render_tile(t_game *game, char tile, int x, int y);
+void render_tile(t_game *game, char	tile, int	x, int	y);
 
 #endif
