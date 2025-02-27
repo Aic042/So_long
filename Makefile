@@ -34,7 +34,7 @@ clean:
 	@rm -rf $(OBJS)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME)	
 	@rm -rf $(LIBMLX)/build
 
 re: fclean all
