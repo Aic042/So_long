@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/25 12:14:44 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 08:31:28 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ void ft_hook(mlx_key_data_t keydata, void* param, t_game *game);
 
 
 // Map Reader
+void free_map(t_game *game);
 char *ft_read_map(char *map_path);
 void ft_validate_file(char *map_path);
 

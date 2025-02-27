@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/02/26 20:49:38 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 09:00:49 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,11 @@ void ft_validate_accessible_cells(t_game *game)
     }
 }
 
-int ft_file_validator_map(t_game *game, char *map_path)
+int ft_file_validator_map(t_game *game)
 {
-    game->map = malloc(sizeof(t_map));
     if (!game->map)
-        return (ft_printf(Err_Mem), ft_end_game(game), 1);
-    game->map->map2d = ft_read_map(map_path);
     find_initial_position(game);
+        return (ft_printf("Error: game->map is NULL before validator\n"), ft_end_game(game), 1);
     ft_flood_doer(game, game->player->y, game->player->x);
     ft_validate_accessible_cells(game);
     return 0;

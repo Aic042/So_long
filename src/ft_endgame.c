@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:45:12 by root              #+#    #+#             */
-/*   Updated: 2025/02/26 20:54:19 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 08:50:36 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,18 @@ void free_mlx_and_window(t_game *game) {
 }
 
 // Main function that calls all the free functions
-void ft_end_game(t_game *game) {
-    free_textures(game);
-    free_map(game);
-    free_player(game);
-    free_mlx_and_window(game);
-    free(game);
-    exit(0);
+void ft_end_game(t_game *game)
+{
+    if (game->textures) {
+        free(game->textures);
+    }
+    if (game->map) {
+        if (game->map->map2d) {
+            int i = 0;
+            while (game->map->map2d[i])
+                free(game->map->map2d[i++]);
+            free(game->map->map2d);
+        }
+        free(game->map);
+    }
 }

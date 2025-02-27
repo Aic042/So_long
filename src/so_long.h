@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/26 21:15:16 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 09:04:31 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ int collect_count(t_game *game);
 void end_game(t_game *game);
 void ft_path_checker_checker(t_game *game);
 // void ft_validate_map(t_game *game);
+void find_initial_position(t_game *game);
 
 // Textures
 void ft_boot_images(t_game *game);
@@ -145,8 +146,8 @@ void ft_check_map_validity(char *line);
 void ft_parse_line(char *line, int *E, int *P, int *C);
 void ft_validate_line_length(char *str_map);
 void ft_flood_doer(t_game *game, int y, int x);
-int ft_file_validator_map(t_game *game,char *map_path);
-
+int ft_file_validator_map(t_game *game);
+int ft_map_empty(t_game *game);
 
 // Movement
 void ft_down(t_game *game);
