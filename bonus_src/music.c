@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main() {
-    const char *script_path = "/home/aingunza/reproducir_musica.sh"; // Path to your Bash script
+    const char	*script_path = "/home/aingunza/reproducir_musica.sh"; // Path to your Bash script
 
     printf("Executing the music player script...\n");
     int result = system(script_path);

@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 02:29:06 by W2Wizard          #+#    #+#             */
-/*   Updated: 2025/02/25 12:09:39 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,7 +281,7 @@ typedef struct xpm
 	mlx_texture_t	texture;
 	int32_t			color_count;
 	int32_t			cpp;
-	char			mode;
+	char		mode;
 }	xpm_t;
 
 /**
