@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:28:11 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 22:59:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,6 @@ int	ft_map_empty(t_game *game)
                 return (0);
 }
 
-int	is_valid_char(char	c)
-{
-        if (c == 'C' || c == 'E' || c == 'P' || c == '1' || c == '0')
-                return (1);
-        else
-                return (0);
-}
-
 void	ft_validate_walls(t_game *game)
 {
     int	y;
@@ -82,4 +74,19 @@ void	ft_validate_walls(t_game *game)
         }
         y++;
     }
+}
+
+int	validate_map(char **map)
+{
+	if (ft_map_empty(map) == FALSE)
+		return (ft_printf(EMPTY_MSG), FALSE);
+	if (rectangle_map(map) == FALSE)
+		return (ft_printf(RECT_MSG), FALSE);
+	if (wrong_map(map) == FALSE)
+		return (ft_printf(WRONG_MSG), FALSE);
+	if (wall_map(map) == FALSE)
+		return (ft_printf(WALL_MSG), FALSE);
+	if (min_tiles(map) == FALSE)
+		return (ft_printf(MIN_TILES_MSG), FALSE);
+	return (TRUE);
 }

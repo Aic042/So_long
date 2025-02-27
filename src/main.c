@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:38:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	main(int	argc, char	**argv)
         ft_printf("map2d is NULL\n");
         return (ft_end_game(game), 1);
     }
-    find_initial_position(game);
     if (ft_file_validator_map(game) != 0){
         ft_end_game(game);
         return 1;

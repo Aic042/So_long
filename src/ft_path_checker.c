@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:59:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	    ft_count_strings(char	**map)
-{
-        int	    count;
-        int	    i;
+// int	    ft_count_strings(char	**map)
+// {
+//         int	    count;
+//         int	    i;
 
-        count = 0;
-        i = 0;
-        while (map[i] != 0)
-        {
-                count++;
-                i++;
-        }
-        return (count);
-}
+//         count = 0;
+//         i = 0;
+//         while (map[i] != 0)
+//         {
+//                 count++;
+//                 i++;
+//         }
+//         return (count);
+// }
 
 void	   ft_validate_2dmap(t_game *game)
 {
@@ -55,19 +55,15 @@ void	   ft_validate_2dmap(t_game *game)
         }
 }
 
-void	ft_flood_doer(t_game *game, int	y, int	x)
+void	ft_flood_doer(t_game *game, int y, int x)
 {
-	y = 0;
-	x = 0;
-	
-    if (x < 0 || y < 0 || x >= game->map->columns || y >= game->map->rows
-        || game->map->map2d[y][x] == '1' || game->map->map2d[y][x] == 'X')
+    if (!(x < 1 || y < 1 || x >= game->map->columns || y >= game->map->rows
+            || game->map->map2d[y][x] == '1' || game->map->map2d[y][x] == 'X'))
     {
-        return;
+        game->map->map2d[y][x] = 'X';
+        ft_flood_doer(game, y + 1, x);
+        ft_flood_doer(game, y - 1, x);
+        ft_flood_doer(game, y, x + 1);
+        ft_flood_doer(game, y, x - 1);
     }
-    game->map->map2d[y][x] = 'X';
-    ft_flood_doer(game, y + 1, x);
-    ft_flood_doer(game, y - 1, x);
-    ft_flood_doer(game, y, x + 1);
-    ft_flood_doer(game, y, x - 1);
 }
