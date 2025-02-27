@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/27 09:04:22 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/27 11:15:56 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void mlx_loop_wrapper(void* param)
 
 int init_game(t_game *game)
 {
-    game->textures = ft_calloc(1, sizeof(t_textures));
-    if (!game->textures)
-        return (1);
+    game->textures = malloc(sizeof(t_textures));
     game->window = malloc(sizeof(t_window));
     if (!game->player || !game->textures || !game->window)
         return (1);
@@ -40,47 +38,37 @@ int init_game(t_game *game)
     return 0;
 }
 
-// main.c
-int main(int argc, char **argv) {
-    t_game *game = ft_calloc(1, sizeof(t_game));
+int main(int argc, char **argv)
+{
+    t_game *game;
+
+    game = malloc(sizeof(t_game));
     if (!game)
         return (ft_printf(Err_Mem), 1);
-
-    game->map = ft_calloc(1, sizeof(t_map));
+    game->map = malloc(sizeof(t_map));
     if (!game->map)
         return (ft_printf(Err_Mem), ft_end_game(game), 1);
-
-    game->player = ft_calloc(1, sizeof(t_player));
-    if (!game->player)
+    game->map->map2d = NULL;
+    game->player = malloc(sizeof(t_player));
+    if(!game->player)
         return (ft_printf(Err_Mem), ft_end_game(game), 1);
-
     if (argc != 2)
         return (ft_printf(Err_arg), ft_end_game(game), 1);
-
-    // Step 1: Read the map FIRST
     game->map->map2d = ft_read_map(argv[1]);
-    if (!game->map->map2d) {
-        ft_printf("Error: Failed to read map.\n");
+    if (!game->map->map2d){
+        ft_printf("map2d is NULL\n");
         return (ft_end_game(game), 1);
     }
-
-    // Step 2: *Then* validate the file format (.ber)
-    ft_validate_file(argv[1]); // Validate file extension *before* reading the map
-    if (ft_map_empty(game))
-        return (ft_printf("Error: Map is empty.\n"), ft_end_game(game), 1);
-
-    // Step 3: *Then* find the initial player position (needs a valid map)
     find_initial_position(game);
-
-    // Step 4: *Then* validate the map's contents (needs player position)
-    if (ft_file_validator_map(game) != 0) {
+    if (ft_file_validator_map(game) != 0){
         ft_end_game(game);
         return 1;
     }
-
-    //Step 5: Init game.
+    if (!game->map->map2d)
+        return (ft_end_game(game), 1);
     if (init_game(game) == FALSE)
         return (ft_end_game(game), 1);
     ft_end_game(game);
     return 0;
 }
+
