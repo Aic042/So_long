@@ -12,43 +12,41 @@
 
 #include "so_long.h"
 
-void	ft_boot_images(t_game *game)
+void	ft_boot_imgs(t_game *game)
 {
 	game->textures = ft_calloc(1, sizeof(t_textures));
-	game->images = ft_calloc(1, sizeof(t_images));
-	game->images->wall = mlx_texture_to_image(game->window->mlx, game->textures->wall);
-	game->images->floor = mlx_texture_to_image(game->window->mlx, game->textures->floor);
-	game->images->player = mlx_texture_to_image(game->window->mlx, game->textures->player);
-	game->images->exit = mlx_texture_to_image(game->window->mlx, game->textures->exit);
-	
-
+	game->imgs = ft_calloc(1, sizeof(t_imgs));
+	game->imgs->wall = mlx_load_png("/assets/");
+	game->imgs->floor = mlx_load_png("/assets/");
+	game->imgs->player = mlx_load_png("/assets/");
+	game->imgs->exit = mlx_load_png("/assets/");
 }
 
-void	images_to_textures(t_game *game)
+void	imgs_to_textures(t_game *game)
 {
 	game->textures = ft_calloc(1, sizeof(t_textures));
-	game->images = ft_calloc(1, sizeof(t_images));
+	game->imgs = ft_calloc(1, sizeof(t_imgs));
 	
-	game->images->wall = mlx_texture_to_image(game->window->mlx, game->textures->wall);
-	game->images->floor = mlx_texture_to_image(game->window->mlx, game->textures->floor);
-	game->images->player = mlx_texture_to_image(game->window->mlx, game->textures->player);
-	game->images->exit = mlx_texture_to_image(game->window->mlx, game->textures->exit);
+	game->imgs->wall = mlx_texture_to_image(game->mlx, game->textures->wall);
+	game->imgs->floor = mlx_texture_to_image(game->mlx, game->textures->floor);
+	game->imgs->player = mlx_texture_to_image(game->mlx, game->textures->player);
+	game->imgs->exit = mlx_texture_to_image(game->mlx, game->textures->exit);
 }
 
 void	render_chars(t_game *game, char	tile, int	x, int	y)
 {
 	if (tile == '1')
-		mlx_image_to_window(game->window->mlx, game->images->wall, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->wall, x * Tile_Size, y * Tile_Size);
 	else if (tile == 'C')
-		mlx_image_to_window(game->window->mlx, game->images->collectible, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->collectible, x * Tile_Size, y * Tile_Size);
 	else if (tile == 'E')
-		mlx_image_to_window(game->window->mlx, game->images->exit, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->exit, x * Tile_Size, y * Tile_Size);
 	else if (tile == 'P')
-		mlx_image_to_window(game->window->mlx, game->images->player, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->player, x * Tile_Size, y * Tile_Size);
 	else
-		mlx_image_to_window(game->window->mlx, game->images->floor, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->floor, x * Tile_Size, y * Tile_Size);
 }
-void	draw_floor(t_game *game, t_images *image)
+void	draw_floor(t_game *game, t_imgs *image)
 {
 	int	x;
 	int	y;
@@ -59,7 +57,7 @@ void	draw_floor(t_game *game, t_images *image)
 		x = 0;
 		while (game->map->map2d[y][x])
 		{
-			mlx_image_to_window(game->window->mlx, image->floor, x * 64, y * 64);
+			mlx_image_to_window(game->mlx, image->floor, x * 64, y * 64);
 			x++;
 		}
 		y++;
@@ -71,7 +69,7 @@ void	draw_map(t_game *game)
 	int	x;
 	int	y;
 
-	draw_floor(game, game->images);
+	draw_floor(game, game->imgs);
 	y = 0;
 	while (game->map->map2d[y])
 	{
@@ -79,13 +77,13 @@ void	draw_map(t_game *game)
 		while (game->map->map2d[y][x])
 		{
 			if (game->map->map2d[y][x] == 'C')
-				mlx_image_to_window(game->window->mlx, game->images->collectible, x * Tile_Size, y * Tile_Size);
+				mlx_image_to_window(game->mlx, game->imgs->collectible, x * Tile_Size, y * Tile_Size);
 			else if (game->map->map2d[y][x] == 'E')
-				mlx_image_to_window(game->window->mlx, game->images->exit, x * Tile_Size, y * Tile_Size);
+				mlx_image_to_window(game->mlx, game->imgs->exit, x * Tile_Size, y * Tile_Size);
 			else if (game->map->map2d[y][x] == 'P')
-				mlx_image_to_window(game->window->mlx, game->images->player, x * Tile_Size, y * Tile_Size);
+				mlx_image_to_window(game->mlx, game->imgs->player, x * Tile_Size, y * Tile_Size);
 			else if (game->map->map2d[y][x] == '1')
-				mlx_image_to_window(game->window->mlx, game->images->wall, x * Tile_Size, y * Tile_Size);
+				mlx_image_to_window(game->mlx, game->imgs->wall, x * Tile_Size, y * Tile_Size);
 			x++;
 		}
 		y++;

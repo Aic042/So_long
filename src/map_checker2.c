@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 12:54:43 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 08:22:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ void	ft_validate_accessible_cells(t_game *game)
 
 int	ft_file_validator_map(t_game *game)
 {
-    if (!game->map)
-        return (ft_printf("Error: game->map is NULL before validator\n"), ft_end_game(game), 1);
     find_initial_position(game);
     ft_flood_doer(game, game->player->y, game->player->x);
     ft_validate_accessible_cells(game);

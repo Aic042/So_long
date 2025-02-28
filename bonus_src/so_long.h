@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 12:56:50 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 00:55:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ typedef struct textures
 	mlx_texture_t	*collectible;
 } t_textures;
 
-typedef struct images
+typedef struct imgs
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
 	mlx_image_t	*player;
 	mlx_image_t *exit;
 	mlx_image_t	*collectible;
-} t_images;
+} t_imgs;
 
 typedef struct t_map
 {
@@ -98,7 +98,7 @@ typedef struct t_map
 
 typedef struct game
 {
-	t_images	*images;
+	t_imgs	*imgs;
 	t_textures  *textures;
 	t_map		*map;
 	t_window	*window;
@@ -133,7 +133,7 @@ void ft_validate_map(t_game *game);
 // Textures
 void ft_boot_textures(t_game *game);
 void ft_clean_old_textures(t_game *game);
-void images_to_textures(t_game *game);
+void imgs_to_textures(t_game *game);
 
 // Map Checker
 int	 ft_count_strings(char **map);

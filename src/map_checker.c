@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:28:11 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 22:59:55 by root             ###   ########.fr       */
+/*   Updated: 2025/02/28 08:32:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ void	ft_validate_walls(t_game *game)
 
 int	validate_map(char **map)
 {
-	if (ft_map_empty(map) == FALSE)
-		return (ft_printf(EMPTY_MSG), FALSE);
+	if (ft_map_empty(map) == 0)
+		return (ft_printf("Msg is wrong"), FALSE);
 	if (rectangle_map(map) == FALSE)
-		return (ft_printf(RECT_MSG), FALSE);
+		return (ft_printf("Map Shape is odd"), FALSE);
 	if (wrong_map(map) == FALSE)
-		return (ft_printf(WRONG_MSG), FALSE);
-	if (wall_map(map) == FALSE)
+		return (ft_printf("Map is not okay"), FALSE);
+	if (wall_checker(game) == FALSE)
 		return (ft_printf(WALL_MSG), FALSE);
 	if (min_tiles(map) == FALSE)
 		return (ft_printf(MIN_TILES_MSG), FALSE);

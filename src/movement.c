@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 12:47:19 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 00:52:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_my_hook(mlx_key_data_t keydata, void	*param)
 	mlx_t	*mlx;
 
 	game = (t_game *)param;
-	mlx = game->window->mlx;
+	mlx = game->mlx;
 	(void)keydata;
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 12:57:34 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 08:29:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 //--------------------Macros-----------------------------
 
-#define TRUE 1
-#define FALSE 0
+#define TRUE 0
+#define FALSE 1
 #define BUFFER_SIZE 4000
 
 //---------------------Errors-----------------------------
@@ -67,7 +67,6 @@ typedef struct player
 
 typedef struct windows
 {
-	mlx_t	*mlx;
 	int		windows_height;
 	int		windows_width;
 } t_window;
@@ -81,14 +80,14 @@ typedef struct textures
 	mlx_texture_t	*collectible;
 } t_textures;
 
-typedef struct images
+typedef struct imgs
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
 	mlx_image_t	*player;
 	mlx_image_t *exit;
 	mlx_image_t	*collectible;
-} t_images;
+} t_imgs;
 
 typedef struct t_map
 {
@@ -100,7 +99,8 @@ typedef struct t_map
 
 typedef struct game
 {
-	t_images	*images;
+	mlx_t		*mlx;
+	t_imgs	*imgs;
 	t_textures  *textures;
 	t_map		*map;
 	t_window	*window;
@@ -116,7 +116,7 @@ typedef struct game
 // Wall Checker
 int	 are_row_lengths_consistent(char	**map, int	rows);
 void ft_validate_walls(t_game *game);
-int	 is_row_surrounded_by_walls(char	*row);
+// int	 is_row_surrounded_by_walls(char	*row);
 int	 map_corners(char	**map, int	rows);
 
 // Character Validator
@@ -134,9 +134,9 @@ void ft_path_checker_checker(t_game *game);
 void find_initial_position(t_game *game);
 
 // Textures
-void ft_boot_images(t_game *game);
+void ft_boot_imgs(t_game *game);
 void ft_clean_old_textures(t_game *game);
-void images_to_textures(t_game *game);
+void imgs_to_textures(t_game *game);
 void draw_map(t_game *game);
 
 // Map Checker
