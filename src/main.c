@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/28 19:13:20 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:34:43 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int main(int argc, char **argv)
     if (init_game(game) == FALSE)
         return (ft_end_game(game), 1);
 
-    ft_end_game(game);
+    // ft_end_game(game);
     return 0;
 }
 
