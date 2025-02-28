@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/28 19:34:43 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 20:07:24 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,3 +102,22 @@ int main(int argc, char **argv)
     return 0;
 }
 
+/*
+No worries, I’ll keep it short and sweet so you can revisit it later when you’re refreshed!
+Summary of What’s Wrong
+
+    Double Free in init_game:
+        game->textures and game->window are freed in init_game if mlx_init fails, but then ft_end_game tries to free them again, causing "invalid free" and "invalid read" errors.
+    Unfreed game->map->map2d:
+        The 2D array game->map->map2d isn’t freed in free_map, leading to a memory leak (288,216 bytes "possibly lost").
+    Memory Cleanup Issue:
+        When init_game fails, it doesn’t fully clean up before returning, and ft_end_game tries to free already-freed or uninitialized memory, triggering Valgrind errors.
+
+Quick Fix Ideas
+
+    Avoid Double Free: Don’t free game->textures and game->window in init_game; let ft_end_game handle all cleanup.
+    Fix free_map: Add code to free game->map->map2d properly.
+    Consistent Cleanup: Ensure init_game returns without freeing anything, relying on ft_end_game for all deallocation.
+
+I’ll leave the detailed fixes for when you’re ready—rest up!
+*/
