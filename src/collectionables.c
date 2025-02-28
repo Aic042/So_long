@@ -1,7 +1,7 @@
 #include "so_long.h"
 
-int total_coin(t_game *game)
-{}
+// int total_coin(t_game *game)
+// {}
 
 int	collect_count(t_game	*game)
 {
@@ -40,11 +40,11 @@ void	coin_collecter(t_game *game)
         // Update the display (if you have a collectible counter on the screen)
         ft_printf("Collected a coin! Total: %d\n", game->player->count_collect);
 
-        // Check if all collectibles are collected
-        if (game->player->count_collect == collect_count(game))
-        {
-            game->textures->exit->enabled = false;
-        }
+        // // Check if all collectibles are collected
+        // if (game->player->count_collect == collect_count(game))
+        // {
+        //     game->textures->exit
+        // }
     }
 
     if (game->map->map2d[game->player->y][game->player->x] == 'E')

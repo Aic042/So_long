@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 08:29:11 by root             ###   ########.fr       */
+/*   Updated: 2025/02/28 15:19:30 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ typedef struct game
 
 // Wall Checker
 int	 are_row_lengths_consistent(char	**map, int	rows);
-void ft_validate_walls(t_game *game);
-// int	 is_row_surrounded_by_walls(char	*row);
+int ft_validate_walls(t_game *game);
+int	 is_row_surrounded_by_walls(char	*row);
 int	 map_corners(char	**map, int	rows);
 
 // Character Validator
@@ -147,7 +147,9 @@ void ft_parse_line(char	*line, int	*E, int	*P, int	*C);
 void ft_validate_line_length(char	*str_map);
 void ft_flood_doer(t_game *game, int	y, int	x);
 int	ft_file_validator_map(t_game *game);
-int	ft_map_empty(t_game *game);
+int	ft_map_empty(char **map);
+int	validate_map(char **map, t_game *game);
+
 
 // Movement
 void ft_down(t_game *game);
