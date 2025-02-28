@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 17:52:26 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 19:05:13 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,24 @@ void	find_initial_position(t_game *game)
     }
 }
 
-void	ft_validate_accessible_cells(t_game *game)
+void ft_validate_accessible_cells(t_game *game)
 {
-    int	y;
-    int	x;
+    int y = 0;
+    int x;
 
-    y = 0;
     while (game->map->map2d[y])
     {
         x = 0;
         while (game->map->map2d[y][x])
         {
-            if (game->map->map2d[y][x] != '0' && game->map->map2d[y][x] != 'C' && game->map->map2d[y][x] != 'E')
+            if (game->map->map2d[y][x] != '0' && 
+                game->map->map2d[y][x] != '1' && 
+                game->map->map2d[y][x] != 'C' && 
+                game->map->map2d[y][x] != 'E' && 
+                game->map->map2d[y][x] != 'P')
             {
-                ft_printf("Error: No cells.\n");
+                ft_printf("Error: Invalid character '%c' in map at (%d, %d).\n", 
+                          game->map->map2d[y][x], y, x);
                 exit(1);
             }
             x++;

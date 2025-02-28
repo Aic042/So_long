@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/28 17:22:35 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:54:08 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,6 @@
 // 		free(game->map);
 // 	}
 // }
-
-void	free_map(t_game *game) {
-	if (game->map) {
-		free(game->map);
-	}
-}
 
 void	map_size(t_game *game, char	**map)
 {
