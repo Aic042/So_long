@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 17:10:16 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:42:15 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ void	   ft_validate_2dmap(t_game *game)
 
 void	ft_flood_doer(t_game *game, int y, int x)
 {
+	game->map->columns = 0;
+	game->map->rows = 0;
+        
     if (!(x < 1 || y < 1 || x >= game->map->columns || y >= game->map->rows
             || game->map->map2d[y][x] == '1' || game->map->map2d[y][x] == 'X'))
     {

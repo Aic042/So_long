@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:45:12 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 12:36:36 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 18:03:52 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Function to free textures
 void	free_textures(t_game *game)
 {
-	if (game->textures)
+	if (game->textures != NULL)
 	{
 		if (game->textures->wall) {
 			mlx_delete_texture(game->textures->wall);

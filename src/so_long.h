@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 15:19:30 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:53:33 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@
 #define BUFFER_SIZE 4000
 
 //---------------------Errors-----------------------------
-#define Err_Music "Error: Failed to stop the music or VLC was not running."
-#define E_WALLS "Check_pathChecker"
-#define Err_Mem "There's a memory error. Gotta go back to check those leaks ."
+#define Err_Music "Error: Failed to stop the music or VLC was not running.\n"
+#define E_WALLS "Check_pathChecker\n"
+#define Err_Mem "There's a memory error. Gotta go back to check those leaks.\n"
 #define	Err_assets
-#define Err_arg "There aren't 2 arguments :("
-#define Err_map "map failing, we did not play Mario Maker enough"
-#define	Err_File "What have you done to the file "
-#define Err_Ber	"This is no .ber file :("
-#define Err_path "There is no correct path. Gotta go back to map making 😥"
+#define Err_arg "There aren't 2 arguments :(\n"
+#define Err_map "map failing, we did not play Mario Maker enough\n"
+#define	Err_File "What have you done to the file\n"
+#define Err_Ber	"This is no .ber file :(\n"
+#define Err_path "There is no correct path. Gotta go back to map making 😥\n"
 #define Wall '1'
 #define Floor '0'
 #define Collec 'C'

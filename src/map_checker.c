@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:28:11 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 17:09:57 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:47:19 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	ft_validate_walls(t_game *game)
 int	validate_map(char **map, t_game *game)
 {
 	if (ft_map_empty(map) == 0)
-		return (ft_printf("Msg is wrong"), FALSE);
+		return (ft_printf(Err_map), FALSE);
 	// if (rectangle_map(map) == FALSE)
 	// 	return (ft_printf("Map Shape is odd"), FALSE);
 	// if (wrong_map(map) == FALSE)
