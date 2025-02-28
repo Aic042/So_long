@@ -3,27 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   wall_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 08:31:29 by root             ###   ########.fr       */
+/*   Updated: 2025/02/28 17:09:10 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// int	is_row_surrounded_by_walls(char	*row)
-// {
-//     int	len;
+ int	is_row_surrounded_by_walls(char	*row)
+ {
+     int	len;
 
-//     if (!row)
-//         return (0);
-//     len = ft_strlen(row);
-//     // Check if the first and last characters of the row are '1'
-//     if (row[0] != '1' || row[len - 1] != '1')
-//         return (0);
-//     return (1);
-// }
+     if (!row)
+         return (0);
+     len = ft_strlen(row);
+     if (row[0] != '1' || row[len - 1] != '1')
+         return (0);
+     return (1);
+ }
 
 int	are_row_lengths_consistent(char	**map, int	rows)
 {

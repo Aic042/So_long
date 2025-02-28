@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 19:59:45 by root             ###   ########.fr       */
+/*   Updated: 2025/02/28 17:10:16 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	   ft_validate_2dmap(t_game *game)
         int	    y;
 
         y = 0;
-        game->map->rows = ft_count_strings(game->map->map2d);
-        game->map->columns = ft_strlen(game->map->map2d[0]);
+        // game->map->rows = ft_count_strings(game->map->map2d);
+        // game->map->columns = ft_strlen(game->map->map2d[0]);
 
         while (y < game->map->rows)
         {

@@ -3,32 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   the_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/28 08:15:13 by root             ###   ########.fr       */
+/*   Updated: 2025/02/28 17:22:35 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // Function to free map
-void	free_map(t_game *game)
-{
-	int	i;
+// void	free_map(t_game *game)
+// {
+// 	int	i;
 
-	if (game->map)
-	{
-		if (game->map->map2d)
-		{
-			i = 0;
-			while (game->map->map2d[i])
-			{
-				free(game->map->map2d[i]);
-				i++;
-			}
-			free(game->map->map2d);
-		}
+// 	if (game->map)
+// 	{
+// 		if (game->map->map2d)
+// 		{
+// 			i = 0;
+// 			while (game->map->map2d[i])
+// 			{
+// 				free(game->map->map2d[i]);
+// 				i++;
+// 			}
+// 			free(game->map->map2d);
+// 		}
+// 		free(game->map);
+// 	}
+// }
+
+void	free_map(t_game *game) {
+	if (game->map) {
 		free(game->map);
 	}
 }

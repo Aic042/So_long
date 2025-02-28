@@ -15,18 +15,15 @@
 void	ft_boot_imgs(t_game *game)
 {
 	game->textures = ft_calloc(1, sizeof(t_textures));
-	game->imgs = ft_calloc(1, sizeof(t_imgs));
-	game->imgs->wall = mlx_load_png("/assets/wall.png");
-	game->imgs->floor = mlx_load_png("/assets/floor.png");
-	game->imgs->player = mlx_load_png("/assets/player.png");
-	game->imgs->exit = mlx_load_png("/gitassets/exit.png");
+	game->textures->wall = mlx_load_png("../assets/wall.png");
+	game->textures->floor = mlx_load_png("../assets/floor.png");
+	game->textures->player = mlx_load_png("../assets/player.png");
+	game->textures->exit = mlx_load_png("../assets/exit.png");
 }
 
 void	imgs_to_textures(t_game *game)
 {
-	game->textures = ft_calloc(1, sizeof(t_textures));
 	game->imgs = ft_calloc(1, sizeof(t_imgs));
-	
 	game->imgs->wall = mlx_texture_to_image(game->mlx, game->textures->wall);
 	game->imgs->floor = mlx_texture_to_image(game->mlx, game->textures->floor);
 	game->imgs->player = mlx_texture_to_image(game->mlx, game->textures->player);

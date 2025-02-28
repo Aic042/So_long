@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/28 15:11:44 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:55:00 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int	argc, char	**argv)
         return (ft_printf(Err_arg), ft_end_game(game), 1);
     if (!game)
         return (ft_printf(Err_Mem), 1);
-    validate_map(game->map->map2d);
+    validate_map(game->map->map2d, game);
     game->map = malloc(sizeof(t_map));
     if (!game->map)
         return (ft_printf(Err_Mem), ft_end_game(game), 1);

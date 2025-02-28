@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:28:11 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 15:28:01 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:09:57 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	ft_validate_walls(t_game *game)
     int	y;
 
     y = 0;
-    game->map->rows = ft_count_strings(game->map->map2d);
-    game->map->columns = ft_strlen(game->map->map2d[0]);
+    // game->map->rows = ft_count_strings(game->map->map2d);
+    // game->map->columns = ft_strlen(game->map->map2d[0]);
 
     if (!game || !game->map || !game->map->map2d)
     {
