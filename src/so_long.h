@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 17:53:33 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/01 20:21:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ void end_game(t_game *game);
 void ft_path_checker_checker(t_game *game);
 // void ft_validate_map(t_game *game);
 void find_initial_position(t_game *game);
+void	map_size(t_game *game, char	**map);
 
 // Textures
 void ft_boot_imgs(t_game *game);

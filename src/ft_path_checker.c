@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/02/28 18:48:38 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:24:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,46 +27,42 @@
 //         return (count);
 // }
 
-void	   ft_validate_2dmap(t_game *game)
+void	ft_validate_2dmap(t_game *game)
 {
-        int	    x;
-        int	    y;
+	int	x;
+	int	y;
 
-        y = 0;
-        // game->map->rows = ft_count_strings(game->map->map2d);
-        // game->map->columns = ft_strlen(game->map->map2d[0]);
-
-        while (y < game->map->rows)
-        {
-                x = 0;
-                while (x < game->map->columns)
-                {
-                        if (x == 0 && game->map->map2d[y][x] != '1')
-                                ft_printf(Err_map, 1);
-                        if (y == 0 && game->map->map2d[y][x] != '1')
-                                ft_printf(Err_map, 1);
-                        if (x == game->map->columns - 1 && game->map->map2d[y][x] != '1')
-                                ft_printf(Err_map, 1);
-                        if (y == game->map->rows - 1 && game->map->map2d[y][x] != '1')
-                                ft_printf(Err_map, 1);
-                        x++;
-                }
-                y++;
-        }
+	y = 0;
+	while (y < game->map->rows)
+	{
+		x = 0;
+		while (x < game->map->columns)
+		{
+			if (x == 0 && game->map->map2d[y][x] != '1')
+				ft_printf(Err_map, 1);
+			if (y == 0 && game->map->map2d[y][x] != '1')
+				ft_printf(Err_map, 1);
+			if (x == game->map->columns - 1 && game->map->map2d[y][x] != '1')
+				ft_printf(Err_map, 1);
+			if (y == game->map->rows - 1 && game->map->map2d[y][x] != '1')
+				ft_printf(Err_map, 1);
+			x++;
+		}
+		y++;
+	}
 }
 
 void	ft_flood_doer(t_game *game, int y, int x)
 {
 	game->map->columns = 0;
 	game->map->rows = 0;
-        
-    if (!(x < 1 || y < 1 || x >= game->map->columns || y >= game->map->rows
-            || game->map->map2d[y][x] == '1' || game->map->map2d[y][x] == 'X'))
-    {
-        game->map->map2d[y][x] = 'X';
-        ft_flood_doer(game, y + 1, x);
-        ft_flood_doer(game, y - 1, x);
-        ft_flood_doer(game, y, x + 1);
-        ft_flood_doer(game, y, x - 1);
-    }
+	if (!(x < 1 || y < 1 || x >= game->map->columns || y >= game->map->rows
+			|| game->map->map2d[y][x] == '1' || game->map->map2d[y][x] == 'X'))
+	{
+		game->map->map2d[y][x] = 'X';
+		ft_flood_doer(game, y + 1, x);
+		ft_flood_doer(game, y - 1, x);
+		ft_flood_doer(game, y, x + 1);
+		ft_flood_doer(game, y, x - 1);
+	}
 }

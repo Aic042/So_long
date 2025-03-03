@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/28 20:07:24 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:10:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int init_game(t_game *game)
     game->textures = malloc(sizeof(t_textures));
     if (!game->textures)
         return (1);
-    // Initialize texture pointers to NULL
     game->textures->wall = NULL;
     game->textures->floor = NULL;
     game->textures->player = NULL;
@@ -31,12 +30,9 @@ int init_game(t_game *game)
 
     game->window = malloc(sizeof(t_window));
     if (!game->window)
-    {
-        free(game->textures);  // Clean up textures on failure
-        return (1);
-    }
+        return (1);  // Don’t free textures; ft_end_game will handle it
 
-    if (!game->player)  // This check is redundant since main ensures game->player is allocated
+    if (!game->player)  // Redundant since main ensures this
         return (1);
 
     game->player->move_count = 0;
@@ -44,14 +40,10 @@ int init_game(t_game *game)
 
     game->mlx = mlx_init(game->map->columns * Tile_Size, game->map->rows * Tile_Size, "so_long", false);
     if (!game->mlx)
-    {
-        free(game->window);
-        free(game->textures);
-        return (1);
-    }
+        return (1);  // Don’t free anything here
 
-    ft_boot_imgs(game);  // Assume this loads images
-    imgs_to_textures(game);  // Assume this sets game->textures->wall, etc.
+    ft_boot_imgs(game);
+    imgs_to_textures(game);
     draw_map(game);
     mlx_key_hook(game->mlx, &ft_my_hook, game);
     mlx_loop_hook(game->mlx, mlx_loop_wrapper, game);
@@ -89,8 +81,10 @@ int main(int argc, char **argv)
     if (!game->map->map2d)
     {
         ft_printf("map2d is NULL\n");
-        return (ft_end_game(game), 1);
+        ft_end_game(game);
+        return (1);
     }
+    map_size(game, game->map->map2d);  // Set rows and columns
 
     if (ft_file_validator_map(game) != 0)
         return (ft_end_game(game), 1);
@@ -98,26 +92,6 @@ int main(int argc, char **argv)
     if (init_game(game) == FALSE)
         return (ft_end_game(game), 1);
 
-    // ft_end_game(game);
+    ft_end_game(game);
     return 0;
 }
-
-/*
-No worries, I’ll keep it short and sweet so you can revisit it later when you’re refreshed!
-Summary of What’s Wrong
-
-    Double Free in init_game:
-        game->textures and game->window are freed in init_game if mlx_init fails, but then ft_end_game tries to free them again, causing "invalid free" and "invalid read" errors.
-    Unfreed game->map->map2d:
-        The 2D array game->map->map2d isn’t freed in free_map, leading to a memory leak (288,216 bytes "possibly lost").
-    Memory Cleanup Issue:
-        When init_game fails, it doesn’t fully clean up before returning, and ft_end_game tries to free already-freed or uninitialized memory, triggering Valgrind errors.
-
-Quick Fix Ideas
-
-    Avoid Double Free: Don’t free game->textures and game->window in init_game; let ft_end_game handle all cleanup.
-    Fix free_map: Add code to free game->map->map2d properly.
-    Consistent Cleanup: Ensure init_game returns without freeing anything, relying on ft_end_game for all deallocation.
-
-I’ll leave the detailed fixes for when you’re ready—rest up!
-*/
