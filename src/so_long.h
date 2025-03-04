@@ -6,17 +6,17 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/01 20:21:30 by root             ###   ########.fr       */
+/*   Updated: 2025/03/03 20:01:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "../lib/libft/libft.h"
+# include "../lib/libft/libft.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/ft_printf/ft_printf.h"
-#include "../lib/get_next_line/get_next_line.h"
+# include "../lib/get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -25,26 +25,26 @@
 
 //--------------------Macros-----------------------------
 
-#define TRUE 0
-#define FALSE 1
-#define BUFFER_SIZE 4000
+# define TRUE 0
+# define FALSE 1
+# define BUFFER_SIZE 4000
 
 //---------------------Errors-----------------------------
-#define Err_Music "Error: Failed to stop the music or VLC was not running.\n"
-#define E_WALLS "Check_pathChecker\n"
-#define Err_Mem "There's a memory error. Gotta go back to check those leaks.\n"
-#define	Err_assets
-#define Err_arg "There aren't 2 arguments :(\n"
-#define Err_map "map failing, we did not play Mario Maker enough\n"
-#define	Err_File "What have you done to the file\n"
-#define Err_Ber	"This is no .ber file :(\n"
-#define Err_path "There is no correct path. Gotta go back to map making 😥\n"
-#define Wall '1'
-#define Floor '0'
-#define Collec 'C'
-#define Player 'P'
-#define Exit 'E' 
-#define Tile_Size 64
+# define ERR_MUSIC "Error: Failed to stop the music or VLC was not running.\n"
+# define E_WALLS "Check_pathChecker\n"
+# define ERR_MEM "There's a memory error. Gotta go back to check those leaks.\n"
+# define ERR_ASSETS
+# define ERR_ARG "There aren't 2 arguments :(\n"
+# define ERR_MAP "map failing, we did not play Mario Maker enough\n"
+# define ERR_FILE "What have you done to the file\n"
+# define ERR_BER "This is no .ber file :(\n"
+# define ERR_PATH "There is no correct path. Gotta go back to map making 😥\n"
+# define WALL '1'
+# define FLOOR '0'
+# define COLLEC 'C'
+# define PLAYER 'P'
+# define EXIT 'E'
+# define T_SI 64
 
 //--------------------Structs----------------------------
 
@@ -55,21 +55,21 @@
 		int	water_deadly;
 		int	is_switched;
 		int	times_switched;
-	} t_effect;
+	}	t_effect;
 */
 typedef struct player
 {
 	int	count_collect;
-    int	move_count;
-    int	x;
-    int	y;
-} t_player;
+	int	move_count;
+	int	x;
+	int	y;
+}	t_player;
 
 typedef struct windows
 {
 	int		windows_height;
 	int		windows_width;
-} t_window;
+}	t_window;
 
 typedef struct textures
 {
@@ -78,113 +78,84 @@ typedef struct textures
 	mlx_texture_t	*player;
 	mlx_texture_t	*exit;
 	mlx_texture_t	*collectible;
-} t_textures;
+}	t_textures;
 
 typedef struct imgs
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
 	mlx_image_t	*player;
-	mlx_image_t *exit;
+	mlx_image_t	*exit;
 	mlx_image_t	*collectible;
-} t_imgs;
+}	t_imgs;
 
 typedef struct t_map
 {
 	char	**map2d;
-	int	rows;
-	int	columns;
-} t_map;
-
+	int		rows;
+	int		columns;
+}	t_map;
 
 typedef struct game
 {
 	mlx_t		*mlx;
-	t_imgs	*imgs;
-	t_textures  *textures;
+	t_imgs		*imgs;
+	t_textures	*textures;
 	t_map		*map;
 	t_window	*window;
 	t_player	*player;
-//	t_effect	*effects;
-} t_game;
-
-
-
+}	t_game;
 
 //------------------ Functions
 
 // Wall Checker
-int	 are_row_lengths_consistent(char	**map, int	rows);
-int ft_validate_walls(t_game *game);
-int	 is_row_surrounded_by_walls(char	*row);
-int	 map_corners(char	**map, int	rows);
+int		are_row_lengths_consistent(char	**map, int rows);
+int		ft_validate_walls(t_game *game);
+int		is_row_surrounded_by_walls(char	*row);
+int		map_corners(char	**map, int rows);
 
 // Character Validator
-void char_validator(void);
-int	 is_valid_char(char	c);
-
+void	char_validator(void);
+int		is_valid_char(char c);
 // Collectionables
-int	collect_count(t_game *game);
-
-
+int		collect_count(t_game *game);
 // Path Checker
-void end_game(t_game *game);
-void ft_path_checker_checker(t_game *game);
-// void ft_validate_map(t_game *game);
-void find_initial_position(t_game *game);
-void	map_size(t_game *game, char	**map);
-
+void	end_game(t_game *game);
+void	ft_path_checker_checker(t_game *game);
+// void	ft_validate_map(t_game *game);
+int		find_initial_position(t_game *game);
+void	map_size(t_game *game, char **map);
 // Textures
-void ft_boot_imgs(t_game *game);
-void ft_clean_old_textures(t_game *game);
-void imgs_to_textures(t_game *game);
-void draw_map(t_game *game);
-
+void	ft_boot_imgs(t_game *game);
+void	ft_clean_old_textures(t_game *game);
+void	imgs_to_textures(t_game *game);
+void	draw_map(t_game *game);
 // Map Checker
-int	 ft_count_strings(char	**map);
-void ft_check_counts(int	E, int	P, int	C);
-void ft_check_map_validity(char	*line);
-void ft_parse_line(char	*line, int	*E, int	*P, int	*C);
-void ft_validate_line_length(char	*str_map);
-void ft_flood_doer(t_game *game, int	y, int	x);
-int	ft_file_validator_map(t_game *game);
-int	ft_map_empty(char **map);
-int	validate_map(char **map, t_game *game);
-
-
+int		ft_count_strings(char	**map);
+int		ft_check_counts(int E, int P, int C);
+void	ft_check_map_validity(char	*line);
+void	ft_parse_line(char	*line, int *E, int *P, int *C);
+void	ft_validate_line_length(char	*str_map);
+void	ft_flood_doer(t_game *game, int y, int x);
+int		ft_file_validator_map(t_game *game);
+int		ft_map_empty(char **map);
+int		validate_map(char **map, t_game *game);
 // Movement
-void ft_down(t_game *game);
-void ft_left(t_game *game);
-void ft_right(t_game *game);
-void ft_up(t_game *game);
-void ft_my_hook(mlx_key_data_t keydata, void *param);
-
+void	ft_down(t_game *game);
+void	ft_left(t_game *game);
+void	ft_right(t_game *game);
+void	ft_up(t_game *game);
+void	ft_my_hook(mlx_key_data_t keydata, void	*param);
 // Map Reader
 char	**ft_read_map(char	*map_path);
-void ft_validate_file(char	*map_path);
-void free_map(t_game *game);
-
+void	ft_validate_file(char	*map_path);
+void	free_map(t_game *game);
 // Main Entry
-void ft_end_game(t_game *game);
-void ft_my_hook(mlx_key_data_t keydata, void* param);
-
-//------------------Bonus------------------------------//
-
-
-// Effects
-void effect_initializer(t_game *game);
-void transform(t_game *game);
-
-// Timer
-void ft_timer(uint32_t ms);
-
-// Music
-void ft_music(const char	*script_path);
-void ft_stop_music(void);
-
+void	ft_end_game(t_game *game);
+void	ft_my_hook(mlx_key_data_t keydata, void *param);
 // Miscellaneous
-void ft_initialize_variables(t_game *game);
-void hook(void *param);
-void render_tile(t_game *game, char	tile, int	x, int	y);
+void	ft_initialize_variables(t_game *game);
+void	hook(void	*param);
+void	render_tile(t_game *game, char tile, int x, int y);
 
 #endif

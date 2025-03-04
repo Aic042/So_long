@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:28:11 by root              #+#    #+#             */
-/*   Updated: 2025/03/02 18:28:16 by root             ###   ########.fr       */
+/*   Updated: 2025/03/03 19:56:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	ft_validate_walls(t_game *game)
 int	validate_map(char **map, t_game *game)
 {
 	if (ft_map_empty(map) == 0)
-		return (ft_printf(Err_map), FALSE);
+		return (ft_printf(ERR_MAP), FALSE);
 	if (ft_validate_walls(game) == FALSE)
 		return (ft_printf(E_WALLS), FALSE);
 	return (TRUE);

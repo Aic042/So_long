@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/02 13:24:02 by root             ###   ########.fr       */
+/*   Updated: 2025/03/03 19:56:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	ft_validate_2dmap(t_game *game)
 		while (x < game->map->columns)
 		{
 			if (x == 0 && game->map->map2d[y][x] != '1')
-				ft_printf(Err_map, 1);
+				ft_printf(ERR_MAP, 1);
 			if (y == 0 && game->map->map2d[y][x] != '1')
-				ft_printf(Err_map, 1);
+				ft_printf(ERR_MAP, 1);
 			if (x == game->map->columns - 1 && game->map->map2d[y][x] != '1')
-				ft_printf(Err_map, 1);
+				ft_printf(ERR_MAP, 1);
 			if (y == game->map->rows - 1 && game->map->map2d[y][x] != '1')
-				ft_printf(Err_map, 1);
+				ft_printf(ERR_MAP, 1);
 			x++;
 		}
 		y++;

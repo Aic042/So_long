@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/01 19:10:36 by root             ###   ########.fr       */
+/*   Updated: 2025/03/03 19:55:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int init_game(t_game *game)
     game->player->move_count = 0;
     game->player->count_collect = 0;
 
-    game->mlx = mlx_init(game->map->columns * Tile_Size, game->map->rows * Tile_Size, "so_long", false);
+    game->mlx = mlx_init(game->map->columns * T_SI, game->map->rows * T_SI, "so_long", false);
     if (!game->mlx)
         return (1);  // Don’t free anything here
 
@@ -56,11 +56,11 @@ int main(int argc, char **argv)
     t_game *game;
 
     if (argc != 2)
-        return (ft_printf(Err_arg), 1);
+        return (ft_printf(ERR_ARG), 1);
 
     game = malloc(sizeof(t_game));
     if (!game)
-        return (ft_printf(Err_Mem), 1);
+        return (ft_printf(ERR_MEM), 1);
 
     // Initialize all pointers to NULL
     game->map = NULL;
@@ -71,11 +71,11 @@ int main(int argc, char **argv)
 
     game->map = malloc(sizeof(t_map));
     if (!game->map)
-        return (ft_printf(Err_Mem), ft_end_game(game), 1);
+        return (ft_printf(ERR_MEM), ft_end_game(game), 1);
 
     game->player = malloc(sizeof(t_player));
     if (!game->player)
-        return (ft_printf(Err_Mem), ft_end_game(game), 1);
+        return (ft_printf(ERR_MEM), ft_end_game(game), 1);
 
     game->map->map2d = ft_read_map(argv[1]);
     if (!game->map->map2d)

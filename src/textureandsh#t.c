@@ -33,15 +33,15 @@ void	imgs_to_textures(t_game *game)
 void	render_chars(t_game *game, char	tile, int	x, int	y)
 {
 	if (tile == '1')
-		mlx_image_to_window(game->mlx, game->imgs->wall, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->wall, x * T_SI, y * T_SI);
 	else if (tile == 'C')
-		mlx_image_to_window(game->mlx, game->imgs->collectible, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->collectible, x * T_SI, y * T_SI);
 	else if (tile == 'E')
-		mlx_image_to_window(game->mlx, game->imgs->exit, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->exit, x * T_SI, y * T_SI);
 	else if (tile == 'P')
-		mlx_image_to_window(game->mlx, game->imgs->player, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->player, x * T_SI, y * T_SI);
 	else
-		mlx_image_to_window(game->mlx, game->imgs->floor, x * Tile_Size, y * Tile_Size);
+		mlx_image_to_window(game->mlx, game->imgs->floor, x * T_SI, y * T_SI);
 }
 void	draw_floor(t_game *game, t_imgs *image)
 {
@@ -74,13 +74,13 @@ void	draw_map(t_game *game)
 		while (game->map->map2d[y][x])
 		{
 			if (game->map->map2d[y][x] == 'C')
-				mlx_image_to_window(game->mlx, game->imgs->collectible, x * Tile_Size, y * Tile_Size);
+				mlx_image_to_window(game->mlx, game->imgs->collectible, x * T_SI, y * T_SI);
 			else if (game->map->map2d[y][x] == 'E')
-				mlx_image_to_window(game->mlx, game->imgs->exit, x * Tile_Size, y * Tile_Size);
+				mlx_image_to_window(game->mlx, game->imgs->exit, x * T_SI, y * T_SI);
 			else if (game->map->map2d[y][x] == 'P')
-				mlx_image_to_window(game->mlx, game->imgs->player, x * Tile_Size, y * Tile_Size);
+				mlx_image_to_window(game->mlx, game->imgs->player, x * T_SI, y * T_SI);
 			else if (game->map->map2d[y][x] == '1')
-				mlx_image_to_window(game->mlx, game->imgs->wall, x * Tile_Size, y * Tile_Size);
+				mlx_image_to_window(game->mlx, game->imgs->wall, x * T_SI, y * T_SI);
 			x++;
 		}
 		y++;

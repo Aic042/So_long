@@ -6,14 +6,14 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/03/02 18:35:56 by root             ###   ########.fr       */
+/*   Updated: 2025/03/03 20:02:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 //Check_Counts
-void	ft_check_counts(int E, int P, int C)
+int	ft_check_counts(int E, int P, int C)
 {
 	if (E != 1 || P != 1 || C < 1)
 	{
@@ -27,7 +27,7 @@ void	ft_check_counts(int E, int P, int C)
 	}
 }
 
-void	find_initial_position(t_game *game)
+int	find_initial_position(t_game *game)
 {
 	int	y;
 	int	x;
@@ -42,12 +42,12 @@ void	find_initial_position(t_game *game)
 			{
 				game->player->x = x;
 				game->player->y = y;
-				return (0);
 			}
 			x++;
 		}
 		y++;
 	}
+	return (0);
 }
 
 void	ft_validate_accessible_cells(t_game *game)

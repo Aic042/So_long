@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   the_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/28 18:54:08 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/03 20:02:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_validate_file(char	*map_path)
 	file = ft_strrchr(map_path, '.');
 	if (file == NULL || ft_strcmp(file, ".ber") != 0)
 	{
-		ft_printf(Err_Ber);
+		ft_printf(ERR_BER);
 		exit(1);
 	}
 }
