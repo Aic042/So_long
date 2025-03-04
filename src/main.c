@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/03 19:55:52 by root             ###   ########.fr       */
+/*   Updated: 2025/03/04 11:05:22 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,16 @@ int init_game(t_game *game)
 
     game->window = malloc(sizeof(t_window));
     if (!game->window)
-        return (1);  // Don’t free textures; ft_end_game will handle it
+        return (1);
 
-    if (!game->player)  // Redundant since main ensures this
+    if (!game->player)
         return (1);
 
     game->player->move_count = 0;
     game->player->count_collect = 0;
-
-    game->mlx = mlx_init(game->map->columns * T_SI, game->map->rows * T_SI, "so_long", false);
+    game->mlx = mlx_init(game->map_width * T_SI, game->map_height * T_SI, "so_long", false);
     if (!game->mlx)
-        return (1);  // Don’t free anything here
+        return (1);
 
     ft_boot_imgs(game);
     imgs_to_textures(game);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/03 20:01:56 by root             ###   ########.fr       */
+/*   Updated: 2025/03/04 11:41:22 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ typedef struct game
 	t_map		*map;
 	t_window	*window;
 	t_player	*player;
+	int			map_width;
+	int			map_height;
 }	t_game;
 
 //------------------ Functions
@@ -157,5 +159,6 @@ void	ft_my_hook(mlx_key_data_t keydata, void *param);
 void	ft_initialize_variables(t_game *game);
 void	hook(void	*param);
 void	render_tile(t_game *game, char tile, int x, int y);
+void	free_textures(t_game *game);
 
 #endif

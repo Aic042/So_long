@@ -1,4 +1,4 @@
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   textureandsh#t.c                                   :+:      :+:    :+:   */
@@ -6,28 +6,47 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/02/27 07:52:26 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:48:54 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_boot_imgs(t_game *game)
+void ft_boot_imgs(t_game *game)
 {
-	game->textures = ft_calloc(1, sizeof(t_textures));
-	game->textures->wall = mlx_load_png("../assets/wall.png");
-	game->textures->floor = mlx_load_png("../assets/floor.png");
-	game->textures->player = mlx_load_png("../assets/player.png");
-	game->textures->exit = mlx_load_png("../assets/exit.png");
+    game->textures = ft_calloc(1, sizeof(t_textures));
+    if (!game->textures)
+    {
+        ft_printf("Error: Failed to allocate textures\n");
+        exit(1);
+    }
+    game->textures->wall = mlx_load_png("../assets/wall.png");
+    game->textures->floor = mlx_load_png("../assets/floor.png");
+    game->textures->player = mlx_load_png("../assets/player.png");
+    game->textures->exit = mlx_load_png("../assets/exit.png");
+
+    if (!game->textures->wall || !game->textures->floor ||
+        !game->textures->player || !game->textures->exit)
+    {
+        ft_printf("Error: Failed to load one or more PNG files\n");
+        free_textures(game);
+        exit(1);
+    }
 }
 
 void	imgs_to_textures(t_game *game)
 {
+	if (!game->imgs)
+    {
+        ft_printf("Error: Failed to allocate images\n");
+        exit(1);
+    }
 	game->imgs = ft_calloc(1, sizeof(t_imgs));
 	game->imgs->wall = mlx_texture_to_image(game->mlx, game->textures->wall);
 	game->imgs->floor = mlx_texture_to_image(game->mlx, game->textures->floor);
 	game->imgs->player = mlx_texture_to_image(game->mlx, game->textures->player);
 	game->imgs->exit = mlx_texture_to_image(game->mlx, game->textures->exit);
+	free_textures(game);
 }
 
 void	render_chars(t_game *game, char	tile, int	x, int	y)
