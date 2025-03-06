@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/06 12:01:48 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:00:42 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define COLLEC 'C'
 # define PLAYER 'P'
 # define EXIT 'E'
-# define T_SI 64
+# define T_SI 128
 
 //--------------------Structs----------------------------
 
@@ -121,6 +121,7 @@ void	char_validator(void);
 int		is_valid_char(char c);
 // Collectionables
 int		collect_count(t_game *game);
+void coin_collecter(t_game *game);
 // Path Checker
 void	end_game(t_game *game);
 void	ft_path_checker_checker(t_game *game);

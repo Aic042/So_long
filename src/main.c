@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/06 13:07:30 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:04:54 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int init_game(t_game *game)
     game->player->move_count = 0;
     game->player->count_collect = 0;
 
-    game->mlx = mlx_init(game->map_width * T_SI, game->map_height * T_SI, "so_long", false);
+    game->mlx = mlx_init(game->map_width * T_SI, game->map_height * T_SI, "so_long", true);
     if (!game->mlx)
         return (1);
 

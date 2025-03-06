@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/06 09:45:13 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:01:49 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void ft_boot_imgs(t_game *game)
         ft_printf("Error: Failed to allocate textures\n");
         exit(1);
     }
-    game->textures->wall = mlx_load_png("./assets/wall.png");
-    game->textures->floor = mlx_load_png("./assets/floor.png");
-    game->textures->player = mlx_load_png("./assets/player.png");
+    game->textures->wall = mlx_load_png("./assets/wall2.png");
+    game->textures->floor = mlx_load_png("./assets/floor2.png");
+    game->textures->player = mlx_load_png("./assets/player2.png");
     game->textures->exit = mlx_load_png("./assets/exit.png");
 	game->textures->collectible = mlx_load_png("./assets/collectible.png");
     if (!game->textures->wall || !game->textures->floor ||
@@ -44,9 +44,9 @@ void	imgs_to_textures(t_game *game)
     }
 	game->imgs->wall = mlx_texture_to_image(game->mlx, game->textures->wall);
 	game->imgs->floor = mlx_texture_to_image(game->mlx, game->textures->floor);
-	game->imgs->player = mlx_texture_to_image(game->mlx, game->textures->player);
 	game->imgs->exit = mlx_texture_to_image(game->mlx, game->textures->exit);
 	game->imgs->collectible = mlx_texture_to_image(game->mlx, game->textures->collectible);
+	game->imgs->player = mlx_texture_to_image(game->mlx, game->textures->player);
 	free_textures(game);
 }
 

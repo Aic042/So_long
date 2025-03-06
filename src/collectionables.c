@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collectionables.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 11:53:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/02 12:56:55 by root             ###   ########.fr       */
+/*   Updated: 2025/03/06 14:59:46 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,22 @@ int	collect_count(t_game	*game)
 	return (total);
 }
 
-void	coin_collecter(t_game *game)
+void coin_collecter(t_game *game)
 {
-	if (game->map->map2d[game->player->y][game->player->x] == 'C')
-	{
-		game->player->count_collect++;
-		game->map->map2d[game->player->y][game->player->x] = '0';
-		ft_printf("Collected a coin! Total: %d\n", game->player->count_collect);
-	}
-	if (game->map->map2d[game->player->y][game->player->x] == 'E')
-	{
-		if (game->player->count_collect == collect_count(game))
-		{
-			exit(0);
-		}
-	}
+    if (game->map->map2d[game->player->y][game->player->x] == 'C')
+    {
+        game->player->count_collect++;
+        game->map->map2d[game->player->y][game->player->x] = 'P'; // Keep player here
+        ft_printf("Collected a coin! Total: %d\n", game->player->count_collect);
+    }
+    else if (game->map->map2d[game->player->y][game->player->x] == 'E')
+    {
+        if (game->player->count_collect == collect_count(game))
+        {
+            ft_printf("You win! All coins collected.\n");
+            ft_end_game(game);
+        }
+    }
 }
 
 // Increment the collectible count
