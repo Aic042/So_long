@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/04 11:05:12 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:27:40 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@
 
 void	map_size(t_game *game, char	**map)
 {
-	int	i;
-
-	i = 0;
-	game->map_height = ft_strlen(map[0]) * 32;
-	while (map[i])
-		i++;
-	game->map_width = i * 32;
+    int i = 0;
+    game->map->columns = ft_strlen(map[0]); // Width of the first row
+    while (map[i])
+        i++;
+    game->map->rows = i;                    // Number of rows
+    game->map_width = game->map->columns;   // Store in tiles (not pixels yet)
+    game->map_height = game->map->rows;     // Store in tiles (not pixels yet)
 }
 
 void	ft_validate_file(char	*map_path)

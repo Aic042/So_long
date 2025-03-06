@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_endgame.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:45:12 by root              #+#    #+#             */
-/*   Updated: 2025/03/02 13:14:12 by root             ###   ########.fr       */
+/*   Updated: 2025/03/06 10:08:11 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,17 @@ void	free_player(t_game *game)
 }
 
 // Main function that calls all the free functions
-void	ft_end_game(t_game *game)
+void ft_end_game(t_game *game)
 {
-	if (game)
-	{
-		if (game->mlx)
-			mlx_terminate(game->mlx);
-		free_textures(game);
-		free_map(game);
-		free_player(game);
-		if (game->window)
-		{
-			free(game->window);
-			game->window = NULL;
-		}
-		free(game);
-	}
+	if (!game)
+		return;
+	free_textures(game);
+	if (game->mlx)
+		mlx_terminate(game->mlx);
+	free_map(game);
+	free_player(game);
+	if (game->window)
+		free(game->window);
+	free(game);
 	exit(0);
 }

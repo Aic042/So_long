@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/04 11:41:22 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/06 12:01:48 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,10 +135,12 @@ void	draw_map(t_game *game);
 // Map Checker
 int		ft_count_strings(char	**map);
 int		ft_check_counts(int E, int P, int C);
+void	ft_validate_accessible_cells(t_game *game);
 void	ft_check_map_validity(char	*line);
 void	ft_parse_line(char	*line, int *E, int *P, int *C);
 void	ft_validate_line_length(char	*str_map);
-void	ft_flood_doer(t_game *game, int y, int x);
+void	ft_flood_doer(t_game *game, int y, int x, char **map);
+int		collect_count(t_game *game);
 int		ft_file_validator_map(t_game *game);
 int		ft_map_empty(char **map);
 int		validate_map(char **map, t_game *game);

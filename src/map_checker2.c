@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/03/03 20:02:18 by root             ###   ########.fr       */
+/*   Updated: 2025/03/06 12:08:09 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,11 @@ void	ft_validate_accessible_cells(t_game *game)
 		x = 0;
 		while (game->map->map2d[y][x])
 		{
-			if (game->map->map2d[y][x] != '0' &&
-				game->map->map2d[y][x] != '1' &&
-				game->map->map2d[y][x] != 'C' &&
-				game->map->map2d[y][x] != 'E' &&
+			if (game->map->map2d[y][x] != '0' && game->map->map2d[y][x] != '1' &&
+				game->map->map2d[y][x] != 'C' && game->map->map2d[y][x] != 'E' &&
 				game->map->map2d[y][x] != 'P')
 			{
-				ft_printf("Error: Invalid character");
+				ft_printf("Error: Invalid character '%c' at [%d][%d]\n", game->map->map2d[y][x], y, x);
 				exit(1);
 			}
 			x++;
@@ -76,10 +74,10 @@ void	ft_validate_accessible_cells(t_game *game)
 	}
 }
 
-int	ft_file_validator_map(t_game *game)
-{
-	find_initial_position(game);
-	ft_flood_doer(game, game->player->y, game->player->x);
-	ft_validate_accessible_cells(game);
-	return (0);
-}
+// int	ft_file_validator_map(t_game *game)
+// {
+// 	find_initial_position(game);
+// 	ft_flood_doer(game, game->player->y, game->player->x, game->map->map2d);
+// 	ft_validate_accessible_cells(game);
+// 	return (0);
+// }
