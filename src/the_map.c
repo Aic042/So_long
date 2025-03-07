@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   the_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/06 11:27:40 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/06 23:20:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	map_size(t_game *game, char	**map)
     while (map[i])
         i++;
     game->map->rows = i;                    // Number of rows
-    game->map_width = game->map->columns;   // Store in tiles (not pixels yet)
-    game->map_height = game->map->rows;     // Store in tiles (not pixels yet)
+	game->map_width = game->map->columns;   // Should be pixels
+    game->map_height = game->map->rows;   // Store in tiles (not pixels yet)
 }
 
 void	ft_validate_file(char	*map_path)
