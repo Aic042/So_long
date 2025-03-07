@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/07 13:03:16 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/07 13:04:27 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	render_chars(t_game *game, char	tile, int	x, int	y)
 		mlx_image_to_window(game->mlx, game->imgs->floor, x * T_SI, y * T_SI);
 }
 
+//CHECK FLOOR_TAG
 void	draw_floor(t_game *game)
 {
 	int	x;
