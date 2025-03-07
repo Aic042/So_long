@@ -1,7 +1,8 @@
 {
 	"files.associations": {
 		"so_long.h": "c",
-		"random": "c"
+		"random": "c",
+		"mlx42.h": "c"
 	},
 	"cmake.sourceDirectory": "/home/aingunza/Desktop/So_long/lib/MLX42"
 }

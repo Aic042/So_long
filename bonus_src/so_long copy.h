@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long copy.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/03 19:56:15 by root             ###   ########.fr       */
+/*   Updated: 2025/03/07 12:57:34 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct textures
 	mlx_texture_t	*floor;
 	mlx_texture_t	*player;
 	mlx_texture_t	*exit;
-	mlx_texture_t	*collectible;
+	mlx_texture_t	*collec;
 } t_textures;
 
 typedef struct imgs
@@ -86,7 +86,7 @@ typedef struct imgs
 	mlx_image_t	*floor;
 	mlx_image_t	*player;
 	mlx_image_t *exit;
-	mlx_image_t	*collectible;
+	mlx_image_t	*collec;
 } t_imgs;
 
 typedef struct t_map

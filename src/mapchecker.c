@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapchecker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:44:55 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/03 18:22:58 by root             ###   ########.fr       */
+/*   Updated: 2025/03/07 12:31:17 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,18 @@ void	ft_check_map_validity(char	*line)
 	P = 0;
 	C = 0;
 	fd = open("maps/map.ber", O_RDONLY);
+	line = get_next_line(fd);
+
 	if (fd == -1)
 	{
 		perror("Error opening file");
 		return;
 	}
-	while ((line = get_next_line(fd)))
+	while ((line))
 	{
 		ft_parse_line(line, &E, &P, &C);
 		free(line);
 	}
 	close(fd);
-
 	ft_check_counts(E, P, C);
 }

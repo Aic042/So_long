@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/03/06 12:08:09 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:27:10 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,13 @@ void	ft_validate_accessible_cells(t_game *game)
 		x = 0;
 		while (game->map->map2d[y][x])
 		{
-			if (game->map->map2d[y][x] != '0' && game->map->map2d[y][x] != '1' &&
-				game->map->map2d[y][x] != 'C' && game->map->map2d[y][x] != 'E' &&
+			if (game->map->map2d[y][x] != '0' &&
+				game->map->map2d[y][x] != '1' &&
+				game->map->map2d[y][x] != 'C' &&
+				game->map->map2d[y][x] != 'E' &&
 				game->map->map2d[y][x] != 'P')
 			{
-				ft_printf("Error: Invalid character '%c' at [%d][%d]\n", game->map->map2d[y][x], y, x);
+				ft_printf(ERR_MAP);
 				exit(1);
 			}
 			x++;
