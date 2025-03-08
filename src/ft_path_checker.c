@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/07 12:57:34 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:09:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,44 +100,38 @@ void	ft_flood_doer(t_game *game, int y, int x, char **map)
 	ft_flood_doer(game, y, x - 1, map);
 }
 
-int	ft_file_validator_map(t_game *game)
+int ft_file_validator_map(t_game *game)
 {
-	char	**map_copy;
-	int		y;
-	int		x;
-	int		collecs;
-	int		exits;
+    char    **map_copy;
+    int     y;
+    int     x;
+    int     collecs;
+    int     exits;
 
-	collecs = 0;
-	exits = 0;
-	find_initial_position(game);
-	map_copy = duplicate_map(game);
-	if (!map_copy)
-	{
-		ft_printf("Error: Failed to duplicate map\n");
-		return (1);
-	}
-	ft_flood_doer(game, game->player->y, game->player->x, map_copy);
-	y = 0;
-	while (y < game->map->rows)
-	{
-		x = 0;
-		while (x < game->map->columns)
-		{
-			if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'C')
-				collecs++;
-			if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'E')
-				exits++;
-			x++;
-		}
-		y++;
-	}
-	free_duplicate_map(map_copy, game->map->rows);
-	ft_validate_accessible_cells(game);
-	if (collecs != collect_count(game) || exits != 1)
-	{
-		ft_printf("Error: Not all collecs or exit are reachable\n");
-		return (1);
-	}
-	return (0);
+    collecs = 0;
+    exits = 0;
+    if (find_initial_position(game) != 0)
+        return (1);
+    map_copy = duplicate_map(game);
+    if (!map_copy)
+        return (ft_printf("Error: Failed to duplicate map\n"), 1);
+    ft_flood_doer(game, game->player->y, game->player->x, map_copy);
+    y = 0;
+    while (y < game->map->rows)
+    {
+        x = 0;
+        while (x < game->map->columns)
+        {
+            if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'C')
+                collecs++;
+            if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'E')
+                exits++;
+            x++;
+        }
+        y++;
+    }
+    free_duplicate_map(map_copy, game->map->rows);
+    if (collecs != game->total_collectibles || exits != 1)
+        return (ft_printf("Error: Not all collecs or exit reachable\n"), 1);
+    return (0);
 }

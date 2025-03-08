@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_endgame.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:45:12 by root              #+#    #+#             */
-/*   Updated: 2025/03/06 10:08:11 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:33:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void free_imgs(t_game *game)
+{
+    if (game->imgs)
+    {
+        if (game->imgs->wall)
+            mlx_delete_image(game->mlx, game->imgs->wall);
+        if (game->imgs->floor)
+            mlx_delete_image(game->mlx, game->imgs->floor);
+        if (game->imgs->player)
+            mlx_delete_image(game->mlx, game->imgs->player);
+        if (game->imgs->exit)
+            mlx_delete_image(game->mlx, game->imgs->exit);
+        if (game->imgs->collec)
+            mlx_delete_image(game->mlx, game->imgs->collec);
+        free(game->imgs);
+        game->imgs = NULL;
+    }
+}
 
 // Function to free textures
 void	free_textures(t_game *game)
@@ -80,6 +99,7 @@ void ft_end_game(t_game *game)
 {
 	if (!game)
 		return;
+	free_imgs(game);
 	free_textures(game);
 	if (game->mlx)
 		mlx_terminate(game->mlx);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/07 13:03:11 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/08 18:14:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct game
 	t_player	*player;
 	int			map_width;
 	int			map_height;
+	int			total_collectibles;
 }	t_game;
 
 //------------------ Functions
@@ -116,6 +117,7 @@ int		are_row_lengths_consistent(char	**map, int rows);
 int		ft_validate_walls(t_game *game);
 int		is_row_surrounded_by_walls(char	*row);
 int		map_corners(char	**map, int rows);
+int		Wall_checker(t_game *game);
 
 // Character Validator
 void	char_validator(void);
