@@ -6,39 +6,11 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:28:11 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 11:30:04 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:36:29 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_validate_line_length(char	*str_map)
-{
-	int	i;
-	int	count_first_line;
-	int	count_other_lines;
-
-	i = 0;
-	count_first_line = 0;
-	count_other_lines = 0;
-	while (str_map[i] != '\n')
-	{
-		count_first_line++;
-		i++;
-	}
-	i++;
-	while (str_map[i] != '\0')
-	{
-		if (str_map[i] == '\n')
-		{
-			if (count_other_lines != count_first_line)
-				ft_printf("Rotten");
-		}
-		else
-			count_other_lines++;
-		i++;
-	}
-}
 
 int	ft_map_empty(char **map)
 {

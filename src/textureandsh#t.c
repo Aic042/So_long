@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 14:17:24 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:15:18 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,6 @@ void	img_to_textures(t_game *game)
 	game->img->coin = mlx_texture_to_image(game->mlx, game->textures->coin);
 	game->img->player = mlx_texture_to_image(game->mlx, game->textures->player);
 	free_textures(game);
-}
-
-void	render_chars(t_game *game, char tile, int x, int y)
-{
-	if (tile == '1')
-		mlx_image_to_window(game->mlx, game->img->wall, x * T_SI, y * T_SI);
-	else if (tile == 'C')
-		mlx_image_to_window(game->mlx, game->img->coin, x * T_SI, y * T_SI);
-	else if (tile == 'E')
-		mlx_image_to_window(game->mlx, game->img->exit, x * T_SI, y * T_SI);
-	else if (tile == 'P')
-		mlx_image_to_window(game->mlx, game->img->player, x * T_SI, y * T_SI);
-	else
-		mlx_image_to_window(game->mlx, game->img->floor, x * T_SI, y * T_SI);
 }
 
 //CHECK FLOOR_TAG
@@ -109,3 +95,4 @@ void	draw_map(t_game *game)
 		y++;
 	}
 }
+

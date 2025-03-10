@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 11:39:40 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:36:32 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define ERR_MUSIC "Error: Failed to stop the music or VLC was not running.\n"
 # define E_WALLS "Check_pathChecker\n"
 # define ERR_MEM "There's a memory error. Gotta go back to check those leaks.\n"
-# define ERR_ASSETS
+# define ERR_ASSETS "Check the assets folder"
 # define ERR_ARG "There aren't 2 arguments :(\n"
 # define ERR_MAP "map failing, we did not play Mario Maker enough\n"
 # define ERR_FILE "What have you done to the file\n"
@@ -107,16 +107,11 @@ int		is_row_surrounded_by_walls(char	*row);
 int		map_corners(char	**map, int rows);
 int		wall_checker(t_game *game);
 
-// Character Validator
-void	char_validator(void);
-int		is_valid_char(char c);
 // Collectionables
 int		collect_count(t_game *game);
 void	coin_collecter(t_game *game);
 // Path Checker
-void	end_game(t_game *game);
 void	ft_path_checker_checker(t_game *game);
-// void	ft_validate_map(t_game *game);
 int		find_initial_position(t_game *game);
 void	map_size(t_game *game, char **map);
 // Textures
@@ -128,9 +123,7 @@ void	draw_map(t_game *game);
 int		ft_count_strings(char	**map);
 int		ft_check_counts(int E, int P, int C);
 void	ft_validate_accessible_cells(t_game *game);
-void	ft_validate_line_length(char	*str_map);
 void	ft_flood_doer(t_game *game, int y, int x, char **map);
-int		collect_count(t_game *game);
 int		ft_file_validator_map(t_game *game);
 int		ft_map_empty(char **map);
 int		validate_map(char **map, t_game *game);
@@ -146,7 +139,6 @@ void	ft_validate_file(char	*map_path);
 void	free_map(t_game *game);
 // Main Entry
 void	ft_end_game(t_game *game);
-void	ft_my_hook(mlx_key_data_t keydata, void *param);
 // Miscellaneous
 void	ft_initialize_variables(t_game *game);
 void	hook(void	*param);
