@@ -6,12 +6,11 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 15:29:05 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:00:20 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 // Helper function to duplicate the map
 char	**duplicate_map(t_game *game)
@@ -61,11 +60,31 @@ void	ft_flood_doer(t_game *game, int y, int x, char **map)
 	ft_flood_doer(game, y, x - 1, map);
 }
 
+int	element_counter(t_game *game, char **map_copy, int *collecs, int *exits)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (y < game->map->rows)
+	{
+		x = 0;
+		while (x < game->map->columns)
+		{
+			if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'C')
+				(*collecs)++;
+			if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'E')
+				(*exits)++;
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
+
 int	ft_file_validator_map(t_game *game)
 {
 	char	**map_copy;
-	int		y;
-	int		x;
 	int		collecs;
 	int		exits;
 
@@ -77,20 +96,7 @@ int	ft_file_validator_map(t_game *game)
 	if (!map_copy)
 		return (ft_printf("Error: Failed to duplicate map\n"), 1);
 	ft_flood_doer(game, game->player->y, game->player->x, map_copy);
-	y = 0;
-	while (y < game->map->rows)
-	{
-		x = 0;
-		while (x < game->map->columns)
-		{
-			if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'C')
-				collecs++;
-			if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'E')
-				exits++;
-			x++;
-		}
-		y++;
-	}
+	element_counter(game, map_copy, &collecs, &exits);
 	free_duplicate_map(map_copy, game->map->rows);
 	if (collecs != game->total_collectibles || exits != 1)
 		return (ft_printf("Error: Not all collecs or exit reachable\n"), 1);

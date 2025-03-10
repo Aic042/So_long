@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/10 15:15:11 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:20:19 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	mlx_loop_wrapper(void *param)
 
 int	init_game(t_game *game)
 {
+	ft_printf("Initial collectibles: %d\n", game->total_collectibles);
 	game->player->move_count = 0;
 	game->player->count_collect = 0;
 	game->window = malloc(sizeof(t_window));
@@ -38,6 +39,25 @@ int	init_game(t_game *game)
 	return (0);
 }
 
+void	null_settlers(t_game *game)
+{
+	game->img = NULL;
+	game->map = NULL;
+	game->player = NULL;
+	game->textures = NULL;
+	game->window = NULL;
+	game->mlx = NULL;
+}
+
+int	dealbreakers(t_game *game)
+{
+	if (wall_checker(game) != 0 || ft_file_validator_map(game) != 0)
+		return (ft_end_game(game), 1);
+	if (init_game(game) != 0)
+		return (ft_end_game(game), 1);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	*game;
@@ -47,11 +67,7 @@ int	main(int argc, char **argv)
 	game = malloc(sizeof(t_game));
 	if (!game)
 		return (ft_printf(ERR_MEM), 1);
-	game->map = NULL;
-	game->player = NULL;
-	game->textures = NULL;
-	game->window = NULL;
-	game->mlx = NULL;
+	null_settlers(game);
 	game->map = malloc(sizeof(t_map));
 	if (!game->map)
 		return (ft_printf(ERR_MEM), ft_end_game(game), 1);
@@ -63,11 +79,7 @@ int	main(int argc, char **argv)
 		return (ft_printf("map2d is NULL\n"), ft_end_game(game), 1);
 	map_size(game, game->map->map2d);
 	game->total_collectibles = collect_count(game);
-	ft_printf("Initial collectibles: %d\n", game->total_collectibles);
-	if (wall_checker(game) != 0 || ft_file_validator_map(game) != 0)
-		return (ft_end_game(game), 1);
-	if (init_game(game) != 0)
-		return (ft_end_game(game), 1);
+	dealbreakers(game);
 	ft_end_game(game);
 	return (0);
 }

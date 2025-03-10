@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/10 14:13:45 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:57:22 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	map_size(t_game *game, char	**map)
 	while (map[i])
 		i++;
 	game->map->rows = i;
-	game->map_width = game->map->columns * T_SI;
-	game->map_height = game->map->rows * T_SI;
+	game->map_width = game->map->columns * T;
+	game->map_height = game->map->rows * T;
 }
 
 void	ft_validate_file(char	*map_path)

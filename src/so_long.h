@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 14:36:32 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:59:45 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define COLLEC 'C'
 # define PLAYER 'P'
 # define EXIT 'E'
-# define T_SI 128
+# define T 128
 
 typedef struct player
 {
@@ -64,7 +64,7 @@ typedef struct textures
 {
 	mlx_texture_t	*wall;
 	mlx_texture_t	*floor;
-	mlx_texture_t	*player;
+	mlx_texture_t	*p1;
 	mlx_texture_t	*exit;
 	mlx_texture_t	*coin;
 }	t_textures;
@@ -73,7 +73,7 @@ typedef struct img
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
-	mlx_image_t	*player;
+	mlx_image_t	*p1;
 	mlx_image_t	*exit;
 	mlx_image_t	*coin;
 }	t_img;

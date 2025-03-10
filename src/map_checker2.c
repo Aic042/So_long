@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 11:29:55 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:00:20 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	find_initial_position(t_game *game)
 		y++;
 	}
 	if (p_count != 1)
-		return (ft_printf("Error: Must have exactly one player.\n"), 1);
+		return (ft_printf("Error: Must have exactly one p1.\n"), 1);
 	return (0);
 }
 

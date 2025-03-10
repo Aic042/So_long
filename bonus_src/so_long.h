@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 11:39:07 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:34:51 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct textures
 {
 	mlx_texture_t	*wall;
 	mlx_texture_t	*floor;
-	mlx_texture_t	*player;
+	mlx_texture_t	*p1;
 	mlx_texture_t	*exit;
 	mlx_texture_t	*coin;
 }	t_textures;
@@ -84,7 +84,7 @@ typedef struct img
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
-	mlx_image_t	*player;
+	mlx_image_t	*p1;
 	mlx_image_t	*exit;
 	mlx_image_t	*coin;
 }	t_img;

@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:06:41 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/19 14:07:46 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:11:38 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,3 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	res[j] = 0;
 	return (res);
 }
-

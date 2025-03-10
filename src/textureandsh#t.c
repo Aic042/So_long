@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 15:15:18 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:03:18 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	ft_boot_img(t_game *game)
 	}
 	game->textures->wall = mlx_load_png("./assets/wall2.png");
 	game->textures->floor = mlx_load_png("./assets/floor2.png");
-	game->textures->player = mlx_load_png("./assets/player2.png");
+	game->textures->p1 = mlx_load_png("./assets/player2.png");
 	game->textures->exit = mlx_load_png("./assets/exit.png");
 	game->textures->coin = mlx_load_png("./assets/collec2.png");
 	if (!game->textures->wall || !game->textures->floor
-		|| !game->textures->player || !game->textures->exit
+		|| !game->textures->p1 || !game->textures->exit
 		|| !game->textures->coin)
 	{
 		ft_printf("Error: Failed to load one or more PNG files\n");
@@ -47,11 +47,11 @@ void	img_to_textures(t_game *game)
 	game->img->floor = mlx_texture_to_image(game->mlx, game->textures->floor);
 	game->img->exit = mlx_texture_to_image(game->mlx, game->textures->exit);
 	game->img->coin = mlx_texture_to_image(game->mlx, game->textures->coin);
-	game->img->player = mlx_texture_to_image(game->mlx, game->textures->player);
+	game->img->p1 = mlx_texture_to_image(game->mlx, game->textures->p1);
 	free_textures(game);
 }
 
-//CHECK FLOOR_TAG
+//CHECK floor
 void	draw_floor(t_game *game)
 {
 	int	x;
@@ -63,7 +63,7 @@ void	draw_floor(t_game *game)
 		x = 0;
 		while (game->map->map2d[y][x])
 		{
-			mlx_image_to_window(game->mlx, game->img->floor, x * T_SI, y * T_SI);
+			mlx_image_to_window(game->mlx, game->img->floor, x * T, y * T);
 			x++;
 		}
 		y++;
@@ -83,16 +83,15 @@ void	draw_map(t_game *game)
 		while (x < game->map->columns)
 		{
 			if (game->map->map2d[y][x] == 'C')
-				mlx_image_to_window(game->mlx, game->img->coin, x * T_SI, y * T_SI);
+				mlx_image_to_window(game->mlx, game->img->coin, x * T, y * T);
 			else if (game->map->map2d[y][x] == 'E')
-				mlx_image_to_window(game->mlx, game->img->exit, x * T_SI, y * T_SI);
+				mlx_image_to_window(game->mlx, game->img->exit, x * T, y * T);
 			else if (game->map->map2d[y][x] == 'P')
-				mlx_image_to_window(game->mlx, game->img->player, x * T_SI, y * T_SI);
+				mlx_image_to_window(game->mlx, game->img->p1, x * T, y * T);
 			else if (game->map->map2d[y][x] == '1')
-				mlx_image_to_window(game->mlx, game->img->wall, x * T_SI, y * T_SI);
+				mlx_image_to_window(game->mlx, game->img->wall, x * T, y * T);
 			x++;
 		}
 		y++;
 	}
 }
-

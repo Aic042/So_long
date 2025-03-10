@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:45:12 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 15:20:29 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:00:57 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	free_img(t_game *game)
 			mlx_delete_image(game->mlx, game->img->wall);
 		if (game->img->floor)
 			mlx_delete_image(game->mlx, game->img->floor);
-		if (game->img->player)
-			mlx_delete_image(game->mlx, game->img->player);
+		if (game->img->p1)
+			mlx_delete_image(game->mlx, game->img->p1);
 		if (game->img->exit)
 			mlx_delete_image(game->mlx, game->img->exit);
 		if (game->img->coin)
@@ -46,10 +46,10 @@ void	free_textures(t_game *game)
 			mlx_delete_texture(game->textures->floor);
 			game->textures->floor = NULL;
 		}
-		if (game->textures->player)
+		if (game->textures->p1)
 		{
-			mlx_delete_texture(game->textures->player);
-			game->textures->player = NULL;
+			mlx_delete_texture(game->textures->p1);
+			game->textures->p1 = NULL;
 		}
 		if (game->textures->exit)
 		{
@@ -84,7 +84,7 @@ void	free_map(t_game *game)
 	}
 }
 
-// Function to free player
+// Function to free p1
 void	free_player(t_game *game)
 {
 	if (game->player)
