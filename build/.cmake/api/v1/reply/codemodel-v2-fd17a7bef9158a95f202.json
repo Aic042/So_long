@@ -40,7 +40,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "mlx42::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-mlx42-Debug-ad5ac19c83e9a9757784.json",
+					"jsonFile" : "target-mlx42-Debug-eba292b81a8adac87903.json",
 					"name" : "mlx42",
 					"projectIndex" : 0
 				}
@@ -50,12 +50,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/aingunza/Desktop/So_long/build",
-		"source" : "/home/aingunza/Desktop/So_long/lib/MLX42"
+		"build" : "/root/42projects/Cursus/Git_So_long/build",
+		"source" : "/root/42projects/Cursus/Git_So_long/lib/MLX42"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 6
 	}
 }
