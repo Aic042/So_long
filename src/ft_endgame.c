@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_endgame.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:45:12 by root              #+#    #+#             */
-/*   Updated: 2025/03/09 23:18:31 by root             ###   ########.fr       */
+/*   Updated: 2025/03/10 11:34:37 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void free_imgs(t_game *game)
+void	free_img(t_game *game)
 {
-	if (game->imgs)
+	if (game->img)
 	{
-		if (game->imgs->wall)
-			mlx_delete_image(game->mlx, game->imgs->wall);
-		if (game->imgs->floor)
-			mlx_delete_image(game->mlx, game->imgs->floor);
-		if (game->imgs->player)
-			mlx_delete_image(game->mlx, game->imgs->player);
-		if (game->imgs->exit)
-			mlx_delete_image(game->mlx, game->imgs->exit);
-		if (game->imgs->collec)
-			mlx_delete_image(game->mlx, game->imgs->collec);
-		free(game->imgs);
-		game->imgs = NULL;
+		if (game->img->wall)
+			mlx_delete_image(game->mlx, game->img->wall);
+		if (game->img->floor)
+			mlx_delete_image(game->mlx, game->img->floor);
+		if (game->img->player)
+			mlx_delete_image(game->mlx, game->img->player);
+		if (game->img->exit)
+			mlx_delete_image(game->mlx, game->img->exit);
+		if (game->img->coin)
+			mlx_delete_image(game->mlx, game->img->coin);
+		free(game->img);
+		game->img = NULL;
 	}
 }
 
@@ -95,11 +95,9 @@ void	free_player(t_game *game)
 }
 
 // Main function that calls all the free functions
-void ft_end_game(t_game *game)
+void	ft_end_game(t_game *game)
 {
-	if (!game)
-		return;
-	free_imgs(game);
+	free_img(game);
 	free_textures(game);
 	if (game->mlx)
 		mlx_terminate(game->mlx);

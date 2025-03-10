@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 11:39:40 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:39:07 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@
 # define EXIT 'E'
 # define T_SI 128
 
+//--------------------Structs----------------------------
+
+/*
+	typedef struct effects
+	{
+		int	lava_deadly;
+		int	water_deadly;
+		int	is_switched;
+		int	times_switched;
+	}	t_effect;
+*/
 typedef struct player
 {
 	int	count_collect;

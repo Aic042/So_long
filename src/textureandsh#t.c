@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   textureandsh#t.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/09 23:19:24 by root             ###   ########.fr       */
+/*   Updated: 2025/03/10 14:17:24 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_boot_imgs(t_game *game)
+void	ft_boot_img(t_game *game)
 {
 	game->textures = ft_calloc(1, sizeof(t_textures));
 	if (!game->textures)
@@ -24,10 +24,10 @@ void	ft_boot_imgs(t_game *game)
 	game->textures->floor = mlx_load_png("./assets/floor2.png");
 	game->textures->player = mlx_load_png("./assets/player2.png");
 	game->textures->exit = mlx_load_png("./assets/exit.png");
-	game->textures->collec = mlx_load_png("./assets/collec2.png");
-	if (!game->textures->wall || !game->textures->floor ||
-		!game->textures->player || !game->textures->exit ||
-		!game->textures->collec)
+	game->textures->coin = mlx_load_png("./assets/collec2.png");
+	if (!game->textures->wall || !game->textures->floor
+		|| !game->textures->player || !game->textures->exit
+		|| !game->textures->coin)
 	{
 		ft_printf("Error: Failed to load one or more PNG files\n");
 		free_textures(game);
@@ -35,34 +35,34 @@ void	ft_boot_imgs(t_game *game)
 	}
 }
 
-void	imgs_to_textures(t_game *game)
+void	img_to_textures(t_game *game)
 {
-	game->imgs = ft_calloc(1, sizeof(t_imgs));
-	if (!game->imgs)
+	game->img = ft_calloc(1, sizeof(t_img));
+	if (!game->img)
 	{
 		ft_printf("Error: Failed to allocate images\n");
 		exit(1);
 	}
-	game->imgs->wall = mlx_texture_to_image(game->mlx, game->textures->wall);
-	game->imgs->floor = mlx_texture_to_image(game->mlx, game->textures->floor);
-	game->imgs->exit = mlx_texture_to_image(game->mlx, game->textures->exit);
-	game->imgs->collec = mlx_texture_to_image(game->mlx, game->textures->collec);
-	game->imgs->player = mlx_texture_to_image(game->mlx, game->textures->player);
+	game->img->wall = mlx_texture_to_image(game->mlx, game->textures->wall);
+	game->img->floor = mlx_texture_to_image(game->mlx, game->textures->floor);
+	game->img->exit = mlx_texture_to_image(game->mlx, game->textures->exit);
+	game->img->coin = mlx_texture_to_image(game->mlx, game->textures->coin);
+	game->img->player = mlx_texture_to_image(game->mlx, game->textures->player);
 	free_textures(game);
 }
 
-void	render_chars(t_game *game, char	tile, int	x, int	y)
+void	render_chars(t_game *game, char tile, int x, int y)
 {
 	if (tile == '1')
-		mlx_image_to_window(game->mlx, game->imgs->wall, x * T_SI, y * T_SI);
+		mlx_image_to_window(game->mlx, game->img->wall, x * T_SI, y * T_SI);
 	else if (tile == 'C')
-		mlx_image_to_window(game->mlx, game->imgs->collec, x * T_SI, y * T_SI);
+		mlx_image_to_window(game->mlx, game->img->coin, x * T_SI, y * T_SI);
 	else if (tile == 'E')
-		mlx_image_to_window(game->mlx, game->imgs->exit, x * T_SI, y * T_SI);
+		mlx_image_to_window(game->mlx, game->img->exit, x * T_SI, y * T_SI);
 	else if (tile == 'P')
-		mlx_image_to_window(game->mlx, game->imgs->player, x * T_SI, y * T_SI);
+		mlx_image_to_window(game->mlx, game->img->player, x * T_SI, y * T_SI);
 	else
-		mlx_image_to_window(game->mlx, game->imgs->floor, x * T_SI, y * T_SI);
+		mlx_image_to_window(game->mlx, game->img->floor, x * T_SI, y * T_SI);
 }
 
 //CHECK FLOOR_TAG
@@ -77,7 +77,7 @@ void	draw_floor(t_game *game)
 		x = 0;
 		while (game->map->map2d[y][x])
 		{
-			mlx_image_to_window(game->mlx, FLOOR_TAG, x * T_SI, y * T_SI);
+			mlx_image_to_window(game->mlx, game->img->floor, x * T_SI, y * T_SI);
 			x++;
 		}
 		y++;
@@ -86,8 +86,8 @@ void	draw_floor(t_game *game)
 
 void	draw_map(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	draw_floor(game);
@@ -97,13 +97,13 @@ void	draw_map(t_game *game)
 		while (x < game->map->columns)
 		{
 			if (game->map->map2d[y][x] == 'C')
-				mlx_image_to_window(game->mlx, game->imgs->collec, x * T_SI, y * T_SI);
+				mlx_image_to_window(game->mlx, game->img->coin, x * T_SI, y * T_SI);
 			else if (game->map->map2d[y][x] == 'E')
-				mlx_image_to_window(game->mlx, game->imgs->exit, x * T_SI, y * T_SI);
+				mlx_image_to_window(game->mlx, game->img->exit, x * T_SI, y * T_SI);
 			else if (game->map->map2d[y][x] == 'P')
-				mlx_image_to_window(game->mlx, game->imgs->player, x * T_SI, y * T_SI);
+				mlx_image_to_window(game->mlx, game->img->player, x * T_SI, y * T_SI);
 			else if (game->map->map2d[y][x] == '1')
-				mlx_image_to_window(game->mlx, game->imgs->wall, x * T_SI, y * T_SI);
+				mlx_image_to_window(game->mlx, game->img->wall, x * T_SI, y * T_SI);
 			x++;
 		}
 		y++;

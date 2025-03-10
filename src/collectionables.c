@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collectionables.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 11:53:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/09 18:08:08 by root             ###   ########.fr       */
+/*   Updated: 2025/03/10 11:40:19 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,5 @@ void	coin_collecter(t_game *game)
 			ft_printf("You win! All coins collected.\n");
 			ft_end_game(game);
 		}
-		else
-			ft_printf("Collect all coins first! (%d/%d)\n", 
-					  game->player->count_collect, game->total_collectibles);
 	}
 }
-
-// Increment the collectible count
-// Replace the collectible with a floor tile
-// Update the display (if you have a collectible counter on the screen)
-// // Check if all collectibles are collected
-// if (game->player->count_collect == collect_count(game))
-// {
-//     game->textures->exit
-// }

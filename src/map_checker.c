@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:28:11 by root              #+#    #+#             */
-/*   Updated: 2025/03/08 18:53:59 by root             ###   ########.fr       */
+/*   Updated: 2025/03/10 11:30:04 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,3 @@ int	validate_map(char **map, t_game *game)
 		return (ft_printf(E_WALLS), FALSE);
 	return (TRUE);
 }
-
-	// if (rectangle_map(map) == FALSE)
-	// 	return (ft_printf("Map Shape is odd"), FALSE);
-	// if (wrong_map(map) == FALSE)
-	// 	return (ft_printf("Map is not okay"), FALSE);

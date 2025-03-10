@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/03/09 23:17:47 by root             ###   ########.fr       */
+/*   Updated: 2025/03/10 11:29:55 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	ft_check_counts(int E, int P, int C)
 	}
 }
 
-int find_initial_position(t_game *game)
+int	find_initial_position(t_game *game)
 {
-	int y;
-	int x;
-	int p_count;
+	int	y;
+	int	x;
+	int	p_count;
 
 	p_count = 0;
 	y = 0;

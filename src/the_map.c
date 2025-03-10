@@ -3,45 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   the_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/09 23:16:28 by root             ###   ########.fr       */
+/*   Updated: 2025/03/10 14:13:45 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// Function to free map
-// void	free_map(t_game *game)
-// {
-// 	int	i;
-
-// 	if (game->map)
-// 	{
-// 		if (game->map->map2d)
-// 		{
-// 			i = 0;
-// 			while (game->map->map2d[i])
-// 			{
-// 				free(game->map->map2d[i]);
-// 				i++;
-// 			}
-// 			free(game->map->map2d);
-// 		}
-// 		free(game->map);
-// 	}
-// }
-
 void	map_size(t_game *game, char	**map)
 {
-	int i = 0;
-	game->map->columns = ft_strlen(map[0]); // Width of the first row
+	int	i;
+
+	i = 0;
+	game->map->columns = ft_strlen(map[0]);
 	while (map[i])
 		i++;
-	game->map->rows = i;                    // Number of rows
-	game->map_width = game->map->columns;   // Should be pixels
-	game->map_height = game->map->rows;   // Store in tiles (not pixels yet)
+	game->map->rows = i;
+	game->map_width = game->map->columns * T_SI;
+	game->map_height = game->map->rows * T_SI;
 }
 
 void	ft_validate_file(char	*map_path)
@@ -58,10 +39,10 @@ void	ft_validate_file(char	*map_path)
 
 char	**ft_read_map(char	*map_path)
 {
-	int     fd;
-	char    *temp_map;
-	char    **map;
-	int     n;
+	int		fd;
+	char	*temp_map;
+	char	**map;
+	int		n;
 
 	n = 0;
 	temp_map = ft_calloc(BUFFER_SIZE + 1, sizeof(char));

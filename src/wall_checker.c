@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   wall_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2025/03/09 23:18:16 by root             ###   ########.fr       */
+/*   Updated: 2025/03/10 11:17:38 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- int is_row_surrounded_by_walls(char	*row)
- {
-	 int	len;
-
-	 if (!row)
-		 return (0);
-	 len = ft_strlen(row);
-	 if (row[0] != '1' || row[len - 1] != '1')
-		 return (0);
-	 return (1);
- }
-
-int are_row_lengths_consistent(char **map, int rows)
+int	is_row_surrounded_by_walls(char	*row)
 {
-	int     i;
-	size_t  len;
+	int	len;
+
+	if (!row)
+		return (0);
+	len = ft_strlen(row);
+	if (row[0] != '1' || row[len - 1] != '1')
+		return (0);
+	return (1);
+}
+
+int	are_row_lengths_consistent(char **map, int rows)
+{
+	int		i;
+	size_t	len;
 
 	if (!map || rows <= 0)
 		return (0);
@@ -42,7 +42,7 @@ int are_row_lengths_consistent(char **map, int rows)
 	return (1);
 }
 
-int	map_corners(char	**map, int	rows)
+int	map_corners(char **map, int rows)
 {
 	int	cols;
 
@@ -57,9 +57,9 @@ int	map_corners(char	**map, int	rows)
 	return (1);
 }
 
-int is_row_all_walls(char *row)
+int	is_row_all_walls(char *row)
 {
-	int i;
+	int	i;
 
 	if (!row)
 		return (0);
@@ -73,9 +73,9 @@ int is_row_all_walls(char *row)
 	return (1);
 }
 
-int		Wall_checker(t_game *game)
+int	wall_checker(t_game *game)
 {
-	int y;
+	int	y;
 
 	if (!game || !game->map || !game->map->map2d)
 		return (ft_printf("Error: Invalid game or map data.\n"), 1);
