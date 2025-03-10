@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:45:12 by root              #+#    #+#             */
-/*   Updated: 2025/03/08 19:33:35 by root             ###   ########.fr       */
+/*   Updated: 2025/03/09 23:18:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void free_imgs(t_game *game)
 {
-    if (game->imgs)
-    {
-        if (game->imgs->wall)
-            mlx_delete_image(game->mlx, game->imgs->wall);
-        if (game->imgs->floor)
-            mlx_delete_image(game->mlx, game->imgs->floor);
-        if (game->imgs->player)
-            mlx_delete_image(game->mlx, game->imgs->player);
-        if (game->imgs->exit)
-            mlx_delete_image(game->mlx, game->imgs->exit);
-        if (game->imgs->collec)
-            mlx_delete_image(game->mlx, game->imgs->collec);
-        free(game->imgs);
-        game->imgs = NULL;
-    }
+	if (game->imgs)
+	{
+		if (game->imgs->wall)
+			mlx_delete_image(game->mlx, game->imgs->wall);
+		if (game->imgs->floor)
+			mlx_delete_image(game->mlx, game->imgs->floor);
+		if (game->imgs->player)
+			mlx_delete_image(game->mlx, game->imgs->player);
+		if (game->imgs->exit)
+			mlx_delete_image(game->mlx, game->imgs->exit);
+		if (game->imgs->collec)
+			mlx_delete_image(game->mlx, game->imgs->collec);
+		free(game->imgs);
+		game->imgs = NULL;
+	}
 }
 
 // Function to free textures

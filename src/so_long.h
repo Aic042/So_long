@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/08 18:14:16 by root             ###   ########.fr       */
+/*   Updated: 2025/03/09 11:13:21 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void	char_validator(void);
 int		is_valid_char(char c);
 // Collectionables
 int		collect_count(t_game *game);
-void coin_collecter(t_game *game);
+void	coin_collecter(t_game *game);
 // Path Checker
 void	end_game(t_game *game);
 void	ft_path_checker_checker(t_game *game);

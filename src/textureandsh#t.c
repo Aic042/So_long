@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/08 18:15:22 by root             ###   ########.fr       */
+/*   Updated: 2025/03/09 23:19:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,26 +86,26 @@ void	draw_floor(t_game *game)
 
 void	draw_map(t_game *game)
 {
-    int x;
-    int y;
+	int x;
+	int y;
 
-    y = 0;
-    draw_floor(game);
-    while (y < game->map->rows)
-    {
-        x = 0;
-        while (x < game->map->columns)
-        {
-            if (game->map->map2d[y][x] == 'C')
-                mlx_image_to_window(game->mlx, game->imgs->collec, x * T_SI, y * T_SI);
-            else if (game->map->map2d[y][x] == 'E')
-                mlx_image_to_window(game->mlx, game->imgs->exit, x * T_SI, y * T_SI);
-            else if (game->map->map2d[y][x] == 'P')
-                mlx_image_to_window(game->mlx, game->imgs->player, x * T_SI, y * T_SI);
-            else if (game->map->map2d[y][x] == '1')
-                mlx_image_to_window(game->mlx, game->imgs->wall, x * T_SI, y * T_SI);
-            x++;
-        }
-        y++;
-    }
+	y = 0;
+	draw_floor(game);
+	while (y < game->map->rows)
+	{
+		x = 0;
+		while (x < game->map->columns)
+		{
+			if (game->map->map2d[y][x] == 'C')
+				mlx_image_to_window(game->mlx, game->imgs->collec, x * T_SI, y * T_SI);
+			else if (game->map->map2d[y][x] == 'E')
+				mlx_image_to_window(game->mlx, game->imgs->exit, x * T_SI, y * T_SI);
+			else if (game->map->map2d[y][x] == 'P')
+				mlx_image_to_window(game->mlx, game->imgs->player, x * T_SI, y * T_SI);
+			else if (game->map->map2d[y][x] == '1')
+				mlx_image_to_window(game->mlx, game->imgs->wall, x * T_SI, y * T_SI);
+			x++;
+		}
+		y++;
+	}
 }
