@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 16:00:20 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:20:16 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,3 @@ int	find_initial_position(t_game *game)
 		return (ft_printf("Error: Must have exactly one p1.\n"), 1);
 	return (0);
 }
-
-// int	ft_file_validator_map(t_game *game)
-// {
-// 	find_initial_position(game);
-// 	ft_flood_doer(game, game->player->y, game->player->x, game->map->map2d);
-// 	ft_validate_accessible_cells(game);
-// 	return (0);
-// }

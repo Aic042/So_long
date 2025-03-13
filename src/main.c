@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/12 22:55:18 by root             ###   ########.fr       */
+/*   Updated: 2025/03/13 09:06:42 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	mlx_loop_wrapper(void *param)
-{
-	(void)param;
-}
 
 int	init_game(t_game *game)
 {
@@ -34,7 +29,6 @@ int	init_game(t_game *game)
 	img_to_textures(game);
 	draw_map(game);
 	mlx_key_hook(game->mlx, &ft_my_hook, game);
-	mlx_loop_hook(game->mlx, mlx_loop_wrapper, game);
 	mlx_loop(game->mlx);
 	return (0);
 }
@@ -52,7 +46,7 @@ void	null_settlers(t_game *game)
 int	dealbreakers(t_game *game)
 {
 	if (!are_row_lengths_consistent(game->map->map2d, game->map->rows))
-        return (ft_printf("Error: Map rows have inconsistent lengths.\n"), ft_end_game(game), 1);
+		return (ft_printf("Error: Map row lengths. \n"), ft_end_game(game), 1);
 	if (wall_checker(game) != 0 || ft_file_validator_map(game) != 0)
 		return (ft_end_game(game), 1);
 	if (init_game(game) != 0)

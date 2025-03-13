@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 16:00:20 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:37:07 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void	ft_up(t_game *game)
 {
 	char	new_tile;
 
-	if (game->map->map2d[game->player->y - 1][game->player->x] != '1')
+	new_tile = game->map->map2d[game->player->y - 1][game->player->x];
+	if (game->map->map2d[game->player->y - 1][game->player->x] != '1'
+		&& (new_tile != 'E' || game->player->count_collect == game->total_collectibles))
 	{
-		new_tile = game->map->map2d[game->player->y - 1][game->player->x];
 		game->map->map2d[game->player->y][game->player->x] = '0';
 		game->player->y -= 1;
 		game->player->move_count++;
@@ -34,9 +35,10 @@ void	ft_down(t_game *game)
 {
 	char	new_tile;
 
-	if (game->map->map2d[game->player->y + 1][game->player->x] != '1')
+	new_tile = game->map->map2d[game->player->y + 1][game->player->x];
+	if (game->map->map2d[game->player->y + 1][game->player->x] != '1'
+		&& (new_tile != 'E' || game->player->count_collect == game->total_collectibles))
 	{
-		new_tile = game->map->map2d[game->player->y + 1][game->player->x];
 		game->map->map2d[game->player->y][game->player->x] = '0';
 		game->player->y += 1;
 		game->player->move_count++;
@@ -52,9 +54,10 @@ void	ft_left(t_game *game)
 {
 	char	new_tile;
 
-	if (game->map->map2d[game->player->y][game->player->x - 1] != '1')
+	new_tile = game->map->map2d[game->player->y][game->player->x - 1];
+	if (game->map->map2d[game->player->y][game->player->x - 1] != '1'
+		&& (new_tile != 'E' || game->player->count_collect == game->total_collectibles))
 	{
-		new_tile = game->map->map2d[game->player->y][game->player->x - 1];
 		game->map->map2d[game->player->y][game->player->x] = '0';
 		game->player->x -= 1;
 		game->player->move_count++;
@@ -70,9 +73,10 @@ void	ft_right(t_game *game)
 {
 	char	new_tile;
 
-	if (game->map->map2d[game->player->y][game->player->x + 1] != '1')
+	new_tile = game->map->map2d[game->player->y][game->player->x + 1];
+	if (game->map->map2d[game->player->y][game->player->x + 1] != '1'
+		&& (new_tile != 'E' || game->player->count_collect == game->total_collectibles))
 	{
-		new_tile = game->map->map2d[game->player->y][game->player->x + 1];
 		game->map->map2d[game->player->y][game->player->x] = '0';
 		game->player->x += 1;
 		game->player->move_count++;

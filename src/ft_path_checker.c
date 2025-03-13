@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 16:00:20 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 08:54:17 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_flood_doer(t_game *game, int y, int x, char **map)
 	ft_flood_doer(game, y, x - 1, map);
 }
 
-int	element_counter(t_game *game, char **map_copy, int *collecs, int *exits)
+int	element_counter(t_game *game, char **map_cpy, int *collec, int *exit)
 {
 	int	y;
 	int	x;
@@ -71,10 +71,10 @@ int	element_counter(t_game *game, char **map_copy, int *collecs, int *exits)
 		x = 0;
 		while (x < game->map->columns)
 		{
-			if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'C')
-				(*collecs)++;
-			if (map_copy[y][x] == 'X' && game->map->map2d[y][x] == 'E')
-				(*exits)++;
+			if (map_cpy[y][x] == 'X' && game->map->map2d[y][x] == 'C')
+				(*collec)++;
+			if (map_cpy[y][x] == 'X' && game->map->map2d[y][x] == 'E')
+				(*exit)++;
 			x++;
 		}
 		y++;

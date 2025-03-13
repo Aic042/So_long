@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 15:59:45 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:20:09 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,49 +100,54 @@ typedef struct game
 
 //------------------ Functions
 
-// Wall Checker
-int		are_row_lengths_consistent(char	**map, int rows);
-int		ft_validate_walls(t_game *game);
-int		is_row_surrounded_by_walls(char	*row);
-int		map_corners(char	**map, int rows);
-int		wall_checker(t_game *game);
-
 // Collectionables
 int		collect_count(t_game *game);
 void	coin_collecter(t_game *game);
+// Endgame
+void	ft_end_game(t_game *game);
+void	free_player(t_game *game);
+void	free_map(t_game *game);
+void	free_textures(t_game *game);
+void	free_img(t_game *game);
 // Path Checker
-void	ft_path_checker_checker(t_game *game);
+char	**duplicate_map(t_game *game);
+void	free_duplicate_map(char **map, int rows);
+int		element_counter(t_game *game, char **map_cpy, int *collec, int *exit);
+int		ft_file_validator_map(t_game *game);
+void	ft_flood_doer(t_game *game, int y, int x, char **map);
+// Map Checker
+int		ft_map_empty(char **map);
+int		ft_validate_walls(t_game *game);
+int		validate_map(char **map, t_game *game);
+//Map Checker_2
+int		ft_check_counts(int E, int P, int C);
 int		find_initial_position(t_game *game);
+int		ft_file_validator_map(t_game *game);
+// Wall Checker
+int		is_row_surrounded_by_walls(char	*row);
+int		are_row_lengths_consistent(char	**map, int rows);
+int		map_corners(char **map, int rows);
+int		is_row_all_walls(char *row);
+int		wall_checker(t_game *game);
+//The map
 void	map_size(t_game *game, char **map);
+void	ft_validate_file(char	*map_path);
+char	**ft_read_map(char	*map_path);
 // Textures
 void	ft_boot_img(t_game *game);
-void	ft_clean_old_textures(t_game *game);
 void	img_to_textures(t_game *game);
+void	draw_floor(t_game *game);
 void	draw_map(t_game *game);
-// Map Checker
-int		ft_count_strings(char	**map);
-int		ft_check_counts(int E, int P, int C);
-void	ft_validate_accessible_cells(t_game *game);
-void	ft_flood_doer(t_game *game, int y, int x, char **map);
-int		ft_file_validator_map(t_game *game);
-int		ft_map_empty(char **map);
-int		validate_map(char **map, t_game *game);
 // Movement
 void	ft_down(t_game *game);
 void	ft_left(t_game *game);
 void	ft_right(t_game *game);
 void	ft_up(t_game *game);
 void	ft_my_hook(mlx_key_data_t keydata, void	*param);
-// Map Reader
-char	**ft_read_map(char	*map_path);
-void	ft_validate_file(char	*map_path);
-void	free_map(t_game *game);
 // Main Entry
-void	ft_end_game(t_game *game);
-// Miscellaneous
-void	ft_initialize_variables(t_game *game);
-void	hook(void	*param);
-void	render_tile(t_game *game, char tile, int x, int y);
-void	free_textures(t_game *game);
+int		init_game(t_game *game);
+void	null_settlers(t_game *game);
+int		dealbreakers(t_game *game);
+int		main(int argc, char **argv);
 
 #endif

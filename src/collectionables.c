@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 11:53:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 16:05:37 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:36:35 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,9 @@ void	coin_collecter(t_game *game)
 	}
 	else if (game->map->map2d[game->player->y][game->player->x] == 'E')
 	{
-		if (game->player->count_collect == game->total_collectibles)
+		if (game->player->count_collect == game->total_collectibles
+			&& game->player->count_collect == game->total_collectibles)
 			ft_printf("You win! All coins collected.\n");
-		else
-			ft_printf("You lose! Not all coins collected.\n");
 		ft_end_game(game);
 	}
 }
