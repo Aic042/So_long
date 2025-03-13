@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/13 09:38:12 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:53:14 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	free_duplicate_map(char **map, int rows)
 void	ft_flood_doer(t_game *game, int y, int x, char **map)
 {
 	if (x < 0 || y < 0 || x >= game->map->columns || y >= game->map->rows
-		|| map[y][x] == '1' || map[y][x] == 'X')
+		|| map[y][x] == '1' || map[y][x] == 'X' || map[y][x] == 'E')
 		return ;
 	map[y][x] = 'X';
 	ft_flood_doer(game, y + 1, x, map);
