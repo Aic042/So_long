@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:21:45 by root              #+#    #+#             */
-/*   Updated: 2025/03/13 09:37:07 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:39:48 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	ft_up(t_game *game)
 {
-	char	new_tile;
+	char	new_til;
 
-	new_tile = game->map->map2d[game->player->y - 1][game->player->x];
+	new_til = game->map->map2d[game->player->y - 1][game->player->x];
 	if (game->map->map2d[game->player->y - 1][game->player->x] != '1'
-		&& (new_tile != 'E' || game->player->count_collect == game->total_collectibles))
+		&& (new_til != 'E' || game->player->count_collec == game->total_colec))
 	{
 		game->map->map2d[game->player->y][game->player->x] = '0';
 		game->player->y -= 1;
 		game->player->move_count++;
 		coin_collecter(game);
-		if (new_tile != 'E')
+		if (new_til != 'E')
 			game->map->map2d[game->player->y][game->player->x] = 'P';
 		draw_map(game);
 		ft_printf("Moves: %d\n", game->player->move_count);
@@ -33,17 +33,17 @@ void	ft_up(t_game *game)
 
 void	ft_down(t_game *game)
 {
-	char	new_tile;
+	char	new_til;
 
-	new_tile = game->map->map2d[game->player->y + 1][game->player->x];
+	new_til = game->map->map2d[game->player->y + 1][game->player->x];
 	if (game->map->map2d[game->player->y + 1][game->player->x] != '1'
-		&& (new_tile != 'E' || game->player->count_collect == game->total_collectibles))
+		&& (new_til != 'E' || game->player->count_collec == game->total_colec))
 	{
 		game->map->map2d[game->player->y][game->player->x] = '0';
 		game->player->y += 1;
 		game->player->move_count++;
 		coin_collecter(game);
-		if (new_tile != 'E')
+		if (new_til != 'E')
 			game->map->map2d[game->player->y][game->player->x] = 'P';
 		draw_map(game);
 		ft_printf("Moves: %d\n", game->player->move_count);
@@ -52,17 +52,17 @@ void	ft_down(t_game *game)
 
 void	ft_left(t_game *game)
 {
-	char	new_tile;
+	char	new_til;
 
-	new_tile = game->map->map2d[game->player->y][game->player->x - 1];
+	new_til = game->map->map2d[game->player->y][game->player->x - 1];
 	if (game->map->map2d[game->player->y][game->player->x - 1] != '1'
-		&& (new_tile != 'E' || game->player->count_collect == game->total_collectibles))
+		&& (new_til != 'E' || game->player->count_collec == game->total_colec))
 	{
 		game->map->map2d[game->player->y][game->player->x] = '0';
 		game->player->x -= 1;
 		game->player->move_count++;
 		coin_collecter(game);
-		if (new_tile != 'E')
+		if (new_til != 'E')
 			game->map->map2d[game->player->y][game->player->x] = 'P';
 		draw_map(game);
 		ft_printf("Moves: %d\n", game->player->move_count);
@@ -71,17 +71,17 @@ void	ft_left(t_game *game)
 
 void	ft_right(t_game *game)
 {
-	char	new_tile;
+	char	new_til;
 
-	new_tile = game->map->map2d[game->player->y][game->player->x + 1];
+	new_til = game->map->map2d[game->player->y][game->player->x + 1];
 	if (game->map->map2d[game->player->y][game->player->x + 1] != '1'
-		&& (new_tile != 'E' || game->player->count_collect == game->total_collectibles))
+		&& (new_til != 'E' || game->player->count_collec == game->total_colec))
 	{
 		game->map->map2d[game->player->y][game->player->x] = '0';
 		game->player->x += 1;
 		game->player->move_count++;
 		coin_collecter(game);
-		if (new_tile != 'E')
+		if (new_til != 'E')
 			game->map->map2d[game->player->y][game->player->x] = 'P';
 		draw_map(game);
 		ft_printf("Moves: %d\n", game->player->move_count);

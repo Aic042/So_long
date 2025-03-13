@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 15:34:51 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:39:19 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@
 */
 typedef struct player
 {
-	int	count_collect;
+	int	count_collec;
 	int	move_count;
 	int	x;
 	int	y;
@@ -106,7 +106,7 @@ typedef struct game
 	t_player	*player;
 	int			map_width;
 	int			map_height;
-	int			total_collectibles;
+	int			total_colec;
 }	t_game;
 
 //------------------ Functions

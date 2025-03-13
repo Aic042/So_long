@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/13 09:06:42 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:39:19 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	init_game(t_game *game)
 {
-	ft_printf("Initial collectibles: %d\n", game->total_collectibles);
+	ft_printf("Initial collectibles: %d\n", game->total_colec);
 	game->player->move_count = 0;
-	game->player->count_collect = 0;
+	game->player->count_collec = 0;
 	game->window = malloc(sizeof(t_window));
 	if (!game->window)
 		return (1);
-	if (game->total_collectibles == 0)
+	if (game->total_colec == 0)
 		return (ft_printf(ERR_MAP), ft_end_game(game), 1);
 	game->mlx = mlx_init(game->map_width, game->map_height, "so_long", false);
 	if (!game->mlx)
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 	if (!game->map->map2d)
 		return (ft_printf("map2d is NULL\n"), ft_end_game(game), 1);
 	map_size(game, game->map->map2d);
-	game->total_collectibles = collect_count(game);
+	game->total_colec = collect_count(game);
 	dealbreakers(game);
 	ft_end_game(game);
 	return (0);

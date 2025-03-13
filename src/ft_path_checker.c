@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/13 08:54:17 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:38:12 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	ft_file_validator_map(t_game *game)
 	ft_flood_doer(game, game->player->y, game->player->x, map_copy);
 	element_counter(game, map_copy, &collecs, &exits);
 	free_duplicate_map(map_copy, game->map->rows);
-	if (collecs != game->total_collectibles || exits != 1)
+	if (collecs != game->total_colec || exits != 1)
 		return (ft_printf("Error: Not all collecs or exit reachable\n"), 1);
 	return (0);
 }
