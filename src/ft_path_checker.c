@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/13 13:04:09 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:17:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,17 @@ void	ft_flood_doer(t_game *game, int y, int x, char **map)
 	if (x < 0 || y < 0 || x >= game->map->columns || y >= game->map->rows
 		|| map[y][x] == '1' || map[y][x] == 'X')
 		return ;
+	if (map[y][x] == 'C')
+		game->temp_collec++;
+	if (map[y][x] == 'E' && game->temp_collec < game->total_colec)
+		return ;
 	map[y][x] = 'X';
 	ft_flood_doer(game, y + 1, x, map);
 	ft_flood_doer(game, y - 1, x, map);
 	ft_flood_doer(game, y, x + 1, map);
 	ft_flood_doer(game, y, x - 1, map);
 }
-//  || map[y][x] == 'E'
+
 int	element_counter(t_game *game, char **map_cpy, int *collec, int *exit)
 {
 	int	y;
@@ -95,6 +99,7 @@ int	ft_file_validator_map(t_game *game)
 	map_copy = duplicate_map(game);
 	if (!map_copy)
 		return (ft_printf("Error: Failed to duplicate map\n"), 1);
+	game->temp_collec = 0;
 	ft_flood_doer(game, game->player->y, game->player->x, map_copy);
 	element_counter(game, map_copy, &collecs, &exits);
 	free_duplicate_map(map_copy, game->map->rows);

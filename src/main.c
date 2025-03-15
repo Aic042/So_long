@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/13 09:39:19 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:15:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	null_settlers(t_game *game)
 	game->textures = NULL;
 	game->window = NULL;
 	game->mlx = NULL;
+	game->temp_collec = 0;
 }
 
 int	dealbreakers(t_game *game)
