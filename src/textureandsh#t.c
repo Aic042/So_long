@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textureandsh#t.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 21:15:48 by root              #+#    #+#             */
-/*   Updated: 2025/03/17 15:11:28 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/17 21:00:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_boot_img(t_game *game)
 		ft_printf("Error: Failed to allocate textures\n");
 		exit(1);
 	}
-	game->textures->wall = mlx_load_png("./assets/wall3.png");
+	game->textures->wall = mlx_load_png("./assets/floor_Sci_fi.png");
 	game->textures->floor = mlx_load_png("./assets/floor3.png");
 	game->textures->p1 = mlx_load_png("./assets/player2.png");
 	game->textures->exit = mlx_load_png("./assets/exit2.png");
