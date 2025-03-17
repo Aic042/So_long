@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/17 14:58:14 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:37:01 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define TRUE 0
 # define FALSE 1
-# define BUFFER_SIZE 4000
+# define BUFFER_SIZE 100
 
 //---------------------Errors-----------------------------
 # define ERR_MUSIC "Error: Failed to stop the music or VLC was not running.\n"
