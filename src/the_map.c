@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/17 15:05:45 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:30:55 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,31 +40,32 @@ int	ft_validate_file(char	*map_path)
 
 char	**ft_read_map(char	*map_path)
 {
-    int     fd;
-    char    *line;
-    char    **map;
-    int     i = 0;
+	int		fd;
+	char	*line;
+	char	**map;
+	int		i;
 
-    fd = open(map_path, O_RDONLY);
-    if (fd < 0)
-        return (NULL);
-    map = malloc(sizeof(char *) * (BUFFER_SIZE + 1));
-    if (!map)
-        return (close(fd), NULL);
-    line = get_next_line(fd);
-    while (line && i < BUFFER_SIZE)
-    {
-        map[i] = ft_strtrim(line, "\n"); // Trim newline
-        free(line);
-        line = get_next_line(fd);
-        i++;
-    }
-    map[i] = NULL;
-    free(line);
-    close(fd);
-    if (i == 0 || (i == BUFFER_SIZE && get_next_line(fd)))
-        return (free_duplicate_map(map, i), NULL);
-    return (map);
+	fd = open(map_path, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	map = malloc(sizeof(char *) * (BUFFER_SIZE + 1));
+	if (!map)
+		return (close(fd), NULL);
+	i = 0;
+	line = get_next_line(fd);
+	while (line && i < BUFFER_SIZE)
+	{
+		map[i] = ft_strtrim(line, "\n");
+		free(line);
+		line = get_next_line(fd);
+		i++;
+	}
+	map[i] = NULL;
+	free(line);
+	close(fd);
+	if (i == 0 || (i == BUFFER_SIZE && get_next_line(fd)))
+		return (free_duplicate_map(map, i), NULL);
+	return (map);
 }
 // {
 // 	int		fd;
