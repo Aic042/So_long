@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/10 15:57:22 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/17 10:58:49 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	map_size(t_game *game, char	**map)
 	game->map_height = game->map->rows * T;
 }
 
-void	ft_validate_file(char	*map_path)
+int	ft_validate_file(char	*map_path)
 {
 	char	*file;
 
@@ -33,8 +33,9 @@ void	ft_validate_file(char	*map_path)
 	if (file == NULL || ft_strcmp(file, ".ber") != 0)
 	{
 		ft_printf(ERR_BER);
-		exit(1);
+		return (0);
 	}
+	return (1);
 }
 
 char	**ft_read_map(char	*map_path)

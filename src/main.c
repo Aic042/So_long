@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:27:37 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/16 09:58:43 by root             ###   ########.fr       */
+/*   Updated: 2025/03/17 11:29:02 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ void	null_settlers(t_game *game)
 	game->temp_collec = 0;
 }
 
-int	dealbreakers(t_game *game)
+int	dealbreakers(t_game *game, char **argv)
 {
+	if(!ft_validate_file(argv[1]))
+		return(ft_printf("Error: No ber"), ft_end_game(game), 1);
 	if (!are_row_lengths_consistent(game->map->map2d, game->map->rows))
 		return (ft_printf("Error: Map row lengths. \n"), ft_end_game(game), 1);
 	if (wall_checker(game) != 0 || ft_file_validator_map(game) != 0)
@@ -76,7 +78,8 @@ int	main(int argc, char **argv)
 		return (ft_printf("map2d is NULL\n"), ft_end_game(game), 1);
 	map_size(game, game->map->map2d);
 	game->total_colec = collect_count(game);
-	dealbreakers(game);
+	if (dealbreakers(game, argv) != 0)
+		return (1);
 	ft_end_game(game);
 	return (0);
 }

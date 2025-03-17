@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/15 19:17:17 by root             ###   ########.fr       */
+/*   Updated: 2025/03/17 12:00:31 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,13 @@ void	free_duplicate_map(char **map, int rows)
 	free(map);
 }
 
-void	ft_flood_doer(t_game *game, int y, int x, char **map)
+void ft_flood_doer(t_game *game, int y, int x, char **map)
 {
 	if (x < 0 || y < 0 || x >= game->map->columns || y >= game->map->rows
-		|| map[y][x] == '1' || map[y][x] == 'X')
+		|| map[y][x] == '1' || map[y][x] == 'X' || map[y][x] == 'E')
 		return ;
 	if (map[y][x] == 'C')
 		game->temp_collec++;
-	if (map[y][x] == 'E' && game->temp_collec < game->total_colec)
-		return ;
 	map[y][x] = 'X';
 	ft_flood_doer(game, y + 1, x, map);
 	ft_flood_doer(game, y - 1, x, map);
@@ -103,7 +101,7 @@ int	ft_file_validator_map(t_game *game)
 	ft_flood_doer(game, game->player->y, game->player->x, map_copy);
 	element_counter(game, map_copy, &collecs, &exits);
 	free_duplicate_map(map_copy, game->map->rows);
-	if (collecs != game->total_colec || exits != 1)
+	if (collecs != game->total_colec)
 		return (ft_printf("Error: Not all collecs or exit reachable\n"), 1);
 	return (0);
 }

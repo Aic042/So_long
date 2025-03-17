@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/15 19:07:12 by root             ###   ########.fr       */
+/*   Updated: 2025/03/17 11:01:14 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int		is_row_all_walls(char *row);
 int		wall_checker(t_game *game);
 //The map
 void	map_size(t_game *game, char **map);
-void	ft_validate_file(char	*map_path);
+int		ft_validate_file(char	*map_path);
 char	**ft_read_map(char	*map_path);
 // Textures
 void	ft_boot_img(t_game *game);
@@ -148,7 +148,7 @@ void	ft_my_hook(mlx_key_data_t keydata, void	*param);
 // Main Entry
 int		init_game(t_game *game);
 void	null_settlers(t_game *game);
-int		dealbreakers(t_game *game);
+int		dealbreakers(t_game *game, char **argv);
 int		main(int argc, char **argv);
 
 #endif
