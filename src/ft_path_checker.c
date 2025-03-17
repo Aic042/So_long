@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/17 14:29:06 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/17 23:59:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,46 +84,6 @@ int	element_counter(t_game *game, char **map_cpy, int *collec, int *exit)
 	return (0);
 }
 
-int	has_no_empty_lines(t_game *game)
-{
-	int		y;
-	char	*row;
-
-	y = 0;
-	while (y < game->map->rows)
-	{
-		row = game->map->map2d[y];
-		if (!row || row[0] == '\n')
-			return (0);
-		y++;
-	}
-	return (1);
-}
-
-int	has_one_exit(t_game *game)
-{
-	int	y;
-	int	x;
-	int	count;
-
-	y = 0;
-	count = 0;
-	while (y < game->map->rows)
-	{
-		x = 0;
-		while (x < game->map->columns)
-		{
-			if (game->map->map2d[y][x] == 'E')
-				count++;
-			x++;
-		}
-		y++;
-	}
-	if (count == 1)
-		return (1);
-	return (0);
-}
-
 int	ft_file_validator_map(t_game *game)
 {
 	char	**map_copy;
@@ -133,7 +93,7 @@ int	ft_file_validator_map(t_game *game)
 	collecs = 0;
 	exits = 0;
 	if (!has_no_empty_lines(game))
-        return (ft_printf("Error: Map contains empty lines\n"), 1);
+		return (ft_printf("Error: Map contains empty lines\n"), 1);
 	if (!has_one_exit(game))
 		return (ft_printf("Error: Must have exactly one exit\n"), 1);
 	if (find_initial_position(game) != 0)

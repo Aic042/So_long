@@ -3,28 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:43:09 by root              #+#    #+#             */
-/*   Updated: 2025/03/13 09:20:16 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/17 23:58:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//Check_Counts
-int	ft_check_counts(int E, int P, int C)
+//Check_Exits
+
+int	has_one_exit(t_game *game)
 {
-	if (E != 1 || P != 1 || C < 1)
+	int	y;
+	int	x;
+	int	count;
+
+	y = 0;
+	count = 0;
+	while (y < game->map->rows)
 	{
-		printf("map couldn't be loaded 😔\n");
+		x = 0;
+		while (x < game->map->columns)
+		{
+			if (game->map->map2d[y][x] == 'E')
+				count++;
+			x++;
+		}
+		y++;
+	}
+	if (count == 1)
 		return (1);
-	}
-	else
+	return (0);
+}
+
+int	has_no_empty_lines(t_game *game)
+{
+	int		y;
+	char	*row;
+
+	y = 0;
+	while (y < game->map->rows)
 	{
-		printf("Map loaded successfully 🥳\n");
-		return (0);
+		row = game->map->map2d[y];
+		if (!row || row[0] == '\n')
+			return (0);
+		y++;
 	}
+	return (1);
 }
 
 int	find_initial_position(t_game *game)

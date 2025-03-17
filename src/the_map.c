@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   the_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/17 16:30:55 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/18 00:01:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,10 @@ char	**ft_read_map(char	*map_path)
 		i++;
 	}
 	map[i] = NULL;
-	free(line);
 	close(fd);
 	if (i == 0 || (i == BUFFER_SIZE && get_next_line(fd)))
-		return (free_duplicate_map(map, i), NULL);
-	return (map);
+		return (free(line), free_duplicate_map(map, i), NULL);
+	return (free(line), map);
 }
 // {
 // 	int		fd;
