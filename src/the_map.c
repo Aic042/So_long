@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/17 10:58:49 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:05:45 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,56 @@ int	ft_validate_file(char	*map_path)
 
 char	**ft_read_map(char	*map_path)
 {
-	int		fd;
-	char	*temp_map;
-	char	**map;
-	int		n;
+    int     fd;
+    char    *line;
+    char    **map;
+    int     i = 0;
 
-	n = 0;
-	temp_map = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!temp_map)
-		return (0);
-	fd = open(map_path, O_RDONLY);
-	if (fd < 0)
-	{
-		free(temp_map);
-		return (0);
-	}
-	n = read(fd, temp_map, BUFFER_SIZE);
-	if (n == -1 || n == 0)
-	{
-		free(temp_map);
-		return (0);
-	}
-	map = ft_split(temp_map, '\n');
-	free(temp_map);
-	close(fd);
-	return (map);
+    fd = open(map_path, O_RDONLY);
+    if (fd < 0)
+        return (NULL);
+    map = malloc(sizeof(char *) * (BUFFER_SIZE + 1));
+    if (!map)
+        return (close(fd), NULL);
+    line = get_next_line(fd);
+    while (line && i < BUFFER_SIZE)
+    {
+        map[i] = ft_strtrim(line, "\n"); // Trim newline
+        free(line);
+        line = get_next_line(fd);
+        i++;
+    }
+    map[i] = NULL;
+    free(line);
+    close(fd);
+    if (i == 0 || (i == BUFFER_SIZE && get_next_line(fd)))
+        return (free_duplicate_map(map, i), NULL);
+    return (map);
 }
+// {
+// 	int		fd;
+// 	char	*temp_map;
+// 	char	**map;
+// 	int		n;
+
+// 	n = 0;
+// 	temp_map = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+// 	if (!temp_map)
+// 		return (0);
+// 	fd = open(map_path, O_RDONLY);
+// 	if (fd < 0)
+// 	{
+// 		free(temp_map);
+// 		return (0);
+// 	}
+// 	n = read(fd, temp_map, BUFFER_SIZE);
+// 	if (n == -1 || n == 0)
+// 	{
+// 		free(temp_map);
+// 		return (0);
+// 	}
+// 	map = ft_split(temp_map, '\n');
+// 	free(temp_map);
+// 	close(fd);
+// 	return (map);
+// }

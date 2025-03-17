@@ -6,15 +6,18 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:49:14 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/10 16:10:50 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:10:29 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
+# include "../libft/libft.h"
+# include <stdio.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -51,5 +54,13 @@ void	ft_bzero(void *s, size_t n);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*get_next_line(int fd);
+int		ft_handleptr(va_list args);
+int		ft_putunsigned(unsigned int nb);
+int		ft_puthex(unsigned long nb, char *base);
+int		ft_putchar(char c);
+int		ft_putnbr(int c);
+int		ft_putstr(char *str);
+int		ft_printf(const char *format, ...);
 
 #endif

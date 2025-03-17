@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 12:50:04 by aingunza          #+#    #+#             */
-/*   Updated: 2025/02/19 15:09:39 by aingunza         ###   ########.fr       */
+/*   Created: 2024/10/21 12:50:35 by aingunza          #+#    #+#             */
+/*   Updated: 2025/03/10 18:11:18 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	count(unsigned int nb)
+int	ft_putstr(char *str)
 {
 	int	i;
 
-	i = 0;
-	if (nb == 0)
-		++i;
-	while (nb)
+	if (str == NULL)
 	{
-		++i;
-		nb /= 10;
+		ft_putstr("(null)");
+		return (6);
+	}
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
 	}
 	return (i);
-}
-
-int	ft_putunsigned(unsigned int nb)
-{
-	if (nb <= 9)
-		ft_putchar(nb + 48);
-	else
-	{
-		ft_putunsigned(nb / 10);
-		ft_putchar(nb % 10 + '0');
-	}
-	return (count(nb));
 }

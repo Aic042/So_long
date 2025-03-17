@@ -6,11 +6,11 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:06:41 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/10 16:11:38 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:06:35 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

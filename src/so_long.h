@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/17 11:01:14 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:58:14 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "../lib/libft/libft.h"
 # include "../lib/MLX42/include/MLX42/MLX42.h"
-# include "../lib/ft_printf/ft_printf.h"
-# include "../lib/get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdio.h>

@@ -6,11 +6,11 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:06:26 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/10 16:11:32 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:10:23 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_free(char *buffer, char *buf)
 {
@@ -73,7 +73,7 @@ char	*read_file(int fd, char *res)
 	char	*buffer;
 	int		byte_read;
 
-	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	buffer = ft_calloc(4000 + 1, sizeof(char));
 	if (!buffer)
 		return (NULL);
 	if (!res)
@@ -81,7 +81,7 @@ char	*read_file(int fd, char *res)
 	byte_read = 1;
 	while (byte_read > 0)
 	{
-		byte_read = read(fd, buffer, BUFFER_SIZE);
+		byte_read = read(fd, buffer, 4000);
 		if (byte_read == -1)
 		{
 			free(buffer);
@@ -102,7 +102,7 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || 4000 <= 0)
 		return (NULL);
 	buffer = read_file(fd, buffer);
 	if (!buffer)

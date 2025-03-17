@@ -1,32 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptrhandler.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 11:27:08 by aingunza          #+#    #+#             */
-/*   Updated: 2024/10/21 12:37:26 by aingunza         ###   ########.fr       */
+/*   Created: 2024/10/21 12:50:43 by aingunza          #+#    #+#             */
+/*   Updated: 2025/03/10 18:11:18 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_handleptr(va_list args)
+static int	count(long nb)
 {
-	void	*ptr;
-	int		i;
+	int	i;
 
 	i = 0;
-	ptr = va_arg(args, void *);
-	if (ptr == NULL)
+	if (nb <= 0)
+		i++;
+	while (nb)
 	{
-		i += ft_putstr("(nil)");
+		i++;
+		nb = nb / 10;
+	}
+	return (i);
+}
+
+int	ft_putnbr(int nb)
+{
+	if (nb >= 0 && nb <= 9)
+		ft_putchar(nb + 48);
+	else if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	else if (nb < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(nb * -1);
 	}
 	else
 	{
-		ft_putstr("0x");
-		i += 2 + ft_puthex((unsigned long)ptr, "0123456789abcdef");
+		ft_putnbr(nb / 10);
+		ft_putchar(nb % 10 + '0');
 	}
-	return (i);
+	return (count(nb));
 }
