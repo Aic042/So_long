@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_checker.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:57:58 by root              #+#    #+#             */
-/*   Updated: 2025/03/17 23:59:12 by root             ###   ########.fr       */
+/*   Updated: 2025/03/18 18:08:55 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,11 @@ int	ft_file_validator_map(t_game *game)
 	int		collecs;
 	int		exits;
 
+	map_copy = NULL;
 	collecs = 0;
 	exits = 0;
+	// if (!is_exit_reachable(game, map_copy))
+	// 	return (ft_printf("Error: Exit is not reachable\n"), 1);
 	if (!has_no_empty_lines(game))
 		return (ft_printf("Error: Map contains empty lines\n"), 1);
 	if (!has_one_exit(game))

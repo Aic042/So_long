@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:55:47 by root              #+#    #+#             */
-/*   Updated: 2025/03/17 15:37:01 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/18 18:04:45 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,24 +114,21 @@ void	free_duplicate_map(char **map, int rows);
 int		element_counter(t_game *game, char **map_cpy, int *collec, int *exit);
 int		ft_file_validator_map(t_game *game);
 void	ft_flood_doer(t_game *game, int y, int x, char **map);
-// Map Checker
-int		ft_map_empty(char **map);
-int		ft_validate_walls(t_game *game);
-int		validate_map(char **map, t_game *game);
 //Map Checker_2
-int		ft_check_counts(int E, int P, int C);
 int		find_initial_position(t_game *game);
-int		ft_file_validator_map(t_game *game);
+int		has_no_empty_lines(t_game *game);
+int		has_one_exit(t_game *game);
 // Wall Checker
 int		is_row_surrounded_by_walls(char	*row);
 int		are_row_lengths_consistent(char	**map, int rows);
-int		map_corners(char **map, int rows);
 int		is_row_all_walls(char *row);
 int		wall_checker(t_game *game);
 //The map
 void	map_size(t_game *game, char **map);
 int		ft_validate_file(char	*map_path);
 char	**ft_read_map(char	*map_path);
+int		is_exit_reachable(t_game *game, char **map_copy);
+
 // Textures
 void	ft_boot_img(t_game *game);
 void	img_to_textures(t_game *game);

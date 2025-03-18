@@ -6,7 +6,7 @@
 /*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:33:57 by root              #+#    #+#             */
-/*   Updated: 2025/03/10 11:17:38 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/18 12:00:41 by aingunza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,6 @@ int	are_row_lengths_consistent(char **map, int rows)
 		if (ft_strlen(map[i]) != len)
 			return (0);
 		i++;
-	}
-	return (1);
-}
-
-int	map_corners(char **map, int rows)
-{
-	int	cols;
-
-	if (!map || rows <= 0)
-		return (0);
-	cols = ft_strlen(map[0]);
-	if (map[0][0] != '1' || map[0][cols - 1] != '1' ||
-		map[rows - 1][0] != '1' || map[rows - 1][cols - 1] != '1')
-	{
-		return (0);
 	}
 	return (1);
 }
