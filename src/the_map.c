@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   the_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aingunza <aingunza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:52:27 by aingunza          #+#    #+#             */
-/*   Updated: 2025/03/18 18:09:06 by aingunza         ###   ########.fr       */
+/*   Updated: 2025/03/18 22:19:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,26 +67,29 @@ char	**ft_read_map(char	*map_path)
 	return (free(line), map);
 }
 
-// int is_exit_reachable(t_game *game, char **map_copy)
-// {
-//     int y = 0, x;
-//     while (y < game->map->rows)
-//     {
-//         x = 0;
-//         while (x < game->map->columns)
-//         {
-//             if (game->map->map2d[y][x] == 'E')
-//             {
-//                 if ((y > 0 && map_copy[y-1][x] == 'X') ||
-//                     (y < game->map->rows-1 && map_copy[y+1][x] == 'X') ||
-//                     (x > 0 && map_copy[y][x-1] == 'X') ||
-//                     (x < game->map->columns-1 && map_copy[y][x+1] == 'X'))
-//                     return (1);
-//                 return (0);
-//             }
-//             x++;
-//         }
-//         y++;
-//     }
-//     return (0);
-// }
+int	is_exit_reachable(t_game *game, char **map_copy)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (y < game->map->rows)
+	{
+		x = 0;
+		while (x < game->map->columns)
+		{
+			if (game->map->map2d[y][x] == 'E')
+			{
+				if ((y > 0 && map_copy[y - 1][x] == 'X') ||
+					(y < game->map->rows - 1 && map_copy[y + 1][x] == 'X') ||
+					(x > 0 && map_copy[y][x - 1] == 'X') ||
+					(x < game->map->columns - 1 && map_copy[y][x + 1] == 'X'))
+					return (1);
+				return (0);
+			}
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
