@@ -119,5 +119,3 @@ void	ft_my_hook(mlx_key_data_t keydata, void	*param)
 
 // if (mlx_is_key_down(mlx, MLX_KEY_R) || (mlx_is_key_down(mlx, MLX_KEY_KP_0)))
 // 	transform(game);
-
-//Z1196572W
